@@ -1,0 +1,238 @@
+game_structure:
+  name: Game Structure
+  desc: |
+    Rogue is a turn-based dungeon exploration game. The dungeon consists of
+    multiple floors containing rooms and corridors. The player descends deeper
+    via staircases while collecting treasure and surviving encounters with
+    monsters.
+
+turn_system:
+  name: Turn System
+  desc: |
+    The game proceeds in discrete turns. Each player action consumes one turn.
+    After the player acts, all active monsters act once.
+
+    Turn order:
+      1. Player action
+      2. Monster movement and attacks
+      3. Environmental effects
+
+map_generation:
+  name: Dungeon Generation
+  desc: |
+    Each dungeon level is procedurally generated.
+
+    A level typically contains:
+      - 9 rectangular rooms arranged in a grid
+      - corridors connecting rooms
+      - doors between rooms and corridors
+      - monsters
+      - treasure
+      - items
+      - one staircase to the next level
+
+    Generation rules:
+      - Rooms may be empty or absent
+      - Corridors connect rooms randomly
+      - Items and monsters spawn according to depth tables
+
+movement:
+  name: Movement
+  desc: |
+    The player moves in eight directions:
+
+      north, south, east, west
+      northeast, northwest, southeast, southwest
+
+    Movement rules:
+      - Each step costs one turn
+      - Movement blocked by walls
+      - Moving into a monster performs an attack
+
+visibility:
+  name: Visibility
+  desc: |
+    Rogue uses a room-based visibility model.
+
+    Rules:
+      - Entire room becomes visible when entered
+      - Corridors reveal only adjacent tiles
+      - Unseen areas remain hidden
+      - Secret doors may conceal passages
+
+combat:
+  name: Combat
+  desc: |
+    Combat occurs when a creature attempts to enter an occupied tile.
+
+    Combat resolution:
+      1. Attacker rolls to hit
+      2. If hit succeeds, damage is rolled
+      3. Defender HP reduced
+      4. If HP <= 0, defender dies
+
+    Combat parameters:
+      - attack strength
+      - weapon modifier
+      - armor class
+      - random damage roll
+
+hit_points:
+  name: Hit Points
+  desc: |
+    Hit points represent the character's health.
+
+    Rules:
+      - Damage reduces HP
+      - At 0 HP the character dies
+      - HP regenerates slowly over time
+      - Certain items restore HP
+
+experience:
+  name: Experience
+  desc: |
+    Killing monsters grants experience points.
+
+    Level progression:
+      - Accumulated XP increases player level
+      - Level increases improve:
+          - maximum hit points
+          - combat ability
+
+items:
+  name: Items
+  desc: |
+    Items can be found in rooms or dropped by monsters.
+
+    Major categories:
+      - weapons
+      - armor
+      - potions
+      - scrolls
+      - rings
+      - wands
+      - food
+      - gold
+
+inventory:
+  name: Inventory
+  desc: |
+    The player maintains an inventory list.
+
+    Rules:
+      - Items occupy inventory slots
+      - Items can be equipped, used, or dropped
+      - Weapons and armor modify combat stats
+
+equipment:
+  name: Equipment
+  desc: |
+    Equipment affects combat performance.
+
+    Slots:
+      - weapon
+      - armor
+      - two rings
+
+    Equipment modifiers affect:
+      - attack chance
+      - damage
+      - defense
+
+hunger:
+  name: Hunger
+  desc: |
+    The player must periodically eat food.
+
+    Hunger states:
+      normal
+      hungry
+      weak
+      fainting
+      dead
+
+    Each turn consumes nutrition.
+    Food items restore nutrition.
+
+monsters:
+  name: Monsters
+  desc: |
+    Monsters populate dungeon levels.
+
+    Behavior:
+      - wander randomly
+      - pursue player when detected
+      - attack when adjacent
+
+    Monsters differ by:
+      - hit points
+      - attack strength
+      - special abilities
+
+status_effects:
+  name: Status Effects
+  desc: |
+    Certain attacks or items apply conditions.
+
+    Examples:
+      - confusion
+      - paralysis
+      - blindness
+      - hallucination
+      - haste
+
+    Effects modify player perception or actions.
+
+traps:
+  name: Traps
+  desc: |
+    Hidden traps may appear on floors.
+
+    Trap types include:
+      - trapdoor
+      - dart trap
+      - teleport trap
+      - bear trap
+      - sleep gas
+
+    Stepping on a trap triggers its effect.
+
+items_identification:
+  name: Item Identification
+  desc: |
+    Many items begin unidentified.
+
+    Identification occurs through:
+      - usage
+      - scroll effects
+      - experimentation
+
+    Once identified, future items of the same type
+    reveal their true names.
+
+stairs:
+  name: Stairs
+  desc: |
+    Each dungeon level contains a staircase leading downward.
+
+    Rules:
+      - Player must locate stairs
+      - Descending generates the next dungeon level
+      - Difficulty increases with depth
+
+victory_condition:
+  name: Victory Condition
+  desc: |
+    The ultimate objective is to retrieve the Amulet of Yendor
+    from deep within the dungeon and escape to the surface alive.
+
+death:
+  name: Death
+  desc: |
+    The game ends when the player dies.
+
+    Causes include:
+      - combat damage
+      - starvation
+      - traps
+      - poison

@@ -1,0 +1,726 @@
+game_structure:
+  name: Game Structure
+  desc: |
+    Crossfire is a free and open-source cooperative multiplayer graphical RPG
+    and adventure game set in a medieval fantasy world. The game emphasizes
+    exploration, hack-and-slash combat, and collaborative play. Players navigate
+    a vast continent with over 3,000 interconnected maps containing dungeons,
+    towns, wilderness areas, and hidden treasures.
+
+multiplayer_system:
+  name: Multiplayer and Gameplay
+  desc: |
+    Crossfire is designed as a multiplayer experience but can be played solo.
+
+    Multiplayer features:
+      - Any number of players can connect to public servers
+      - Players can cooperate to achieve common goals
+      - Players can compete against each other
+      - Shared game world with both static and random content
+      - Cross-platform play: Linux, Windows, Mac OS X, IRIX
+      - Client-server architecture enabling Internet, LAN, or local play
+
+    Gameplay style:
+      - Real-time hack-and-slash combat
+      - Emphasizes exploration and adventure
+      - Large open-world with minimal constraints
+      - Mix of dungeon crawling and wilderness traversal
+      - Influences from Gauntlet, NetHack, Angband, and roguelikes
+
+character_creation:
+  name: Character Creation
+  desc: |
+    Players create diverse characters with extensive options.
+
+    Race selection (14 total):
+      - Dwarf: robust and resilient
+      - Elf: graceful and magical
+      - Human: balanced and versatile
+      - Gnome: small and clever
+      - Half-Orc: strong but socially challenged
+      - Orc: brutal and powerful
+      - Quetzalcoatl: mysterious reptilian
+      - Fire Hatchling: young dragon form
+      - Golem: constructed and magical
+      - Barbarian tribe members
+      - Other exotic races
+
+    Class selection (16 total):
+      - Alchemist: potion crafting specialist
+      - Monk: martial arts master
+      - Warrior: combat expert
+      - Ranger: wilderness and tracking
+      - Paladin: holy fighter
+      - Cleric: divine magic user
+      - Priest: faith-based spellcaster
+      - Wizard: arcane magic master
+      - Sorcerer: innate magical power
+      - Thief: stealth and stealing
+      - Rogue: subterfuge and precision
+      - Barbarian: rage and melee
+      - Bard: music and versatility
+      - Druid: nature magic
+      - Mage: raw magical power
+      - Fighter: weapon mastery
+
+    Starting towns:
+      - Scorn: primary human settlement
+      - Navar: secondary settlement with unique character
+
+attributes:
+  name: Attributes
+  desc: |
+    Six core attributes define character capabilities.
+
+    Attributes:
+      - Strength: melee damage, carrying capacity
+      - Dexterity: combat speed, accuracy, evasion
+      - Constitution: hit points, health regeneration
+      - Intelligence: spellcasting ability, magical reserves
+      - Wisdom: magical defense, perception, divine magic
+      - Charisma: NPC interaction, haggling prices
+
+    Attributes determine:
+      - Experience gain rates in skills
+      - Maximum spell points and mana
+      - Attack speed and accuracy
+      - Defense and damage reduction
+      - Carrying capacity and encumbrance
+
+skill_system:
+  name: Skill System
+  desc: |
+    Crossfire uses an innovative skill-based progression rather than traditional
+    experience levels.
+
+    Fundamental principle:
+      - Experience points earned per skill, not per character
+      - Each action applies experience to relevant skills
+      - Skills improve through use, not just combat
+
+    Skill categories:
+      - Melee weapon skills: sword, axe, club, polearm
+      - Ranged weapon skills: bow, crossbow, throwing
+      - Magical schools: fire, cold, lightning, healing, etc.
+      - Crafting skills: alchemy, smithing, enchanting
+      - Utility skills: stealth, dodge, parry, block
+      - Academic skills: literacy, knowledge areas
+      - Physical skills: climbing, jumping, swimming
+
+    Skill mechanics:
+      - Skills improve from repeated use in relevant situations
+      - Higher attribute bonuses accelerate skill gain (e.g., higher STR boosts melee)
+      - Difficulty of opponent affects experience rates
+      - Skill level affects success chance and effect magnitude
+      - Skills used frequently develop faster than neglected ones
+
+turn_system:
+  name: Combat and Action System
+  desc: |
+    Crossfire uses real-time combat rather than turn-based.
+
+    Real-time mechanics:
+      - Players and monsters act simultaneously
+      - Combat speed determined by Dexterity and equipped items
+      - Movement speed based on encumbrance and equipment
+      - Action resolution happens instantly
+
+    Combat mechanics:
+      - Moving into a monster initiates melee attack
+      - Holding shift while moving initiates ranged attack
+      - Attack speed determines number of blows per round
+      - Faster combatants gain advantage in simultaneous combat
+      - Combat continues until one side disengages or dies
+
+world_structure:
+  name: World Structure
+  desc: |
+    The game world is a vast medieval fantasy continent.
+
+    World features:
+      - Over 3,000 interconnected maps
+      - Seamless navigation between areas
+      - Mix of static content and randomly generated dungeons
+      - Day-night cycles and seasonal variations
+      - Weather system affecting visibility and movement
+      - Connections via portals, passages, and overland travel
+
+    Major locations:
+      - Scorn: largest city, primary hub
+      - Navar: secondary settlement
+      - Mazes of Menace: legendary dungeon system
+      - Ruins of Euthville: ancient civilization remnants
+      - Greenway region: wilderness exploration
+      - Underground caverns: deep dungeon networks
+      - High mountains: challenging terrain
+      - Seas and coasts: water regions and islands
+
+movement:
+  name: Movement and Navigation
+  desc: |
+    Players navigate the world with multiple movement options.
+
+    Movement types:
+      - Walking across terrain tiles
+      - Climbing stairs and elevation changes
+      - Swimming in water bodies
+      - Teleportation through portals
+      - Riding mounts for increased speed
+      - Flying with magical assistance
+
+    Movement mechanics:
+      - Real-time movement independent of turn system
+      - Encumbrance affects movement speed
+      - Terrain type affects traversal difficulty
+      - Some areas block movement entirely
+      - Diagonal movement possible
+      - Line of sight affects perception
+
+combat_detailed:
+  name: Combat System
+  desc: |
+    Crossfire features real-time action combat.
+
+    Melee combat:
+      - Move into monster to attack with equipped weapon
+      - Attack speed determined by weapon and Dexterity
+      - Damage calculated from weapon stats and attributes
+      - Special attacks trigger with skilled use
+      - Parry and dodge reduce incoming damage
+
+    Ranged combat:
+      - Hold shift while moving to fire ranged weapon
+      - Projectiles travel in straight lines
+      - Range limited by weapon type
+      - Ammunition consumed per shot
+      - Targeting requires line of sight
+
+    Spell combat:
+      - Spells cast with magical schools and mana
+      - Targeting varies by spell type
+      - Area-of-effect spells hit multiple targets
+      - Spell power scales with skill level
+      - Magic resistance reduces spell damage
+
+    Monster behavior:
+      - Monsters attack when character approaches
+      - Some monsters cast spells or use abilities
+      - Groups coordinate attacks
+      - Monsters flee when severely injured
+      - Boss monsters possess special attacks
+
+weapons:
+  name: Weapons
+  desc: |
+    Diverse weapon types provide varied combat approaches.
+
+    Weapon categories:
+      - Melee: swords, axes, clubs, spears, polearms
+      - Ranged: bows, crossbows, slings
+      - Magical: staffs, wands, magical implements
+      - Unarmed: martial arts and bare hands
+
+    Weapon properties:
+      - Base damage and damage type
+      - Attack speed modifier
+      - Weight affects carrying and speed
+      - Magical enchantments increase power
+      - Special properties: flaming, frost, poison
+      - Range for projectile weapons
+      - Skill requirements for proper use
+
+armor_and_equipment:
+  name: Armor and Equipment
+  desc: |
+    Equipment affects combat performance and survivability.
+
+    Equipment slots:
+      - Body armor: leather, chain, plate
+      - Helmets and headgear
+      - Gloves and gauntlets
+      - Boots and footwear
+      - Shields for additional defense
+      - Cloaks and robes
+      - Belts and accessories
+
+    Equipment mechanics:
+      - Armor class reduces damage taken
+      - Weight affects carrying capacity and speed
+      - Magical enchantments grant bonuses
+      - Some armor grants special resistances
+      - Curse prevents removal
+      - Blessing enhances effects
+      - Cursed items drain attributes or cause harm
+
+hit_points:
+  name: Hit Points and Health
+  desc: |
+    Hit points represent character health and survival.
+
+    Rules:
+      - Damage reduces HP immediately
+      - At 0 HP the character dies
+      - HP regenerates slowly out of combat
+      - Healing spells and potions restore HP
+      - Constitution affects maximum HP
+      - Food consumption affects regeneration rates
+      - Wounded state displayed visually
+
+hunger:
+  name: Hunger and Eating
+  desc: |
+    Characters must maintain nutrition to survive.
+
+    Hunger states:
+      gorged
+      full
+      satisfied
+      normal
+      hungry
+      very hungry
+      starving
+      dying from starvation
+
+    Rules:
+      - Food consumption depends on activity level
+      - Sitting idle slows hunger progression
+      - Combat and running accelerate hunger
+      - Food items restore nutrition
+      - Monster corpses can be butchered for meat
+      - Starvation causes progressive damage
+      - Extreme starvation causes death
+
+magic_system:
+  name: Magic System
+  desc: |
+    Crossfire features an elaborate magic system with diverse schools.
+
+    Magic schools:
+      - Fire magic: offensive heat spells
+      - Cold magic: freeze and chill spells
+      - Lightning magic: electric shock spells
+      - Healing magic: restoration and recovery
+      - Alteration magic: transformation spells
+      - Creation magic: summoning spells
+      - Protection magic: defensive barriers
+      - Necromancy: death and undead magic
+      - Divination magic: detection and sensing
+
+    Spell mechanics:
+      - Spells require mana to cast
+      - Mana regenerates based on Intelligence and meditation
+      - Spell power scales with skill level
+      - More powerful spells cost more mana
+      - Spellcasting affected by encumbrance
+      - Some spells require components or focuses
+      - Spell failure wastes mana without effect
+
+potions_and_scrolls:
+  name: Potions and Scrolls
+  desc: |
+    Consumable items provide temporary benefits or permanent learning.
+
+    Potion types:
+      - Healing: restore hit points
+      - Mana: restore spell mana
+      - Attribute: temporarily increase attributes
+      - Resistance: grant elemental resistance
+      - Stat reduction: harmful effects from enemies
+      - Special: unique effects
+
+    Scroll types:
+      - Spell scrolls: teach spells permanently
+      - Skill scrolls: teach skills to character
+      - Identification scrolls: reveal item properties
+      - Teleportation scrolls: instant movement
+      - Warding scrolls: protective effects
+      - Cursing scrolls: apply curses
+
+    Usage mechanics:
+      - Potions quaffed to consume immediately
+      - Scrolls read to activate effects
+      - One-time use items consumed
+      - Some items reusable
+
+items:
+  name: Items and Inventory
+  desc: |
+    Extensive item variety provides tools and treasures.
+
+    Item categories:
+      - Weapons and ammunition
+      - Armor and accessories
+      - Potions and scrolls
+      - Books and spell tomes
+      - Food and supplies
+      - Gold and gems
+      - Crafting materials
+      - Quest items
+      - Artifacts and treasure
+      - Magical implements
+
+    Inventory system:
+      - Limited carrying capacity based on Strength
+      - Encumbrance affects movement and combat speed
+      - Items organized in inventory
+      - Dropping items leaves them in world
+      - Banks available in towns for storage
+      - Multiple containers increase capacity
+
+character_advancement:
+  name: Character Advancement
+  desc: |
+    Characters grow powerful through skill development.
+
+    Advancement mechanics:
+      - Gain skill experience through relevant actions
+      - Higher attributes accelerate skill growth rates
+      - Difficulty of opponents affects experience earned
+      - Skill use-it-or-lose-it mechanic encourages diversity
+      - Skills cap at maximum level (typically 100)
+
+    Power growth:
+      - Maximum HP increases with Constitution and level
+      - Spell points increase with Intelligence
+      - Attack speed improves with Dexterity
+      - Damage increases with Strength and weapon skills
+      - Defense improves with skill points in parry/dodge
+
+quests:
+  name: Quests and Objectives
+  desc: |
+    NPCs throughout the world offer quests and services.
+
+    Quest types:
+      - Fetch quests: retrieve items or information
+      - Elimination quests: defeat specific monsters
+      - Protection quests: guard NPCs or locations
+      - Delivery quests: transport items between NPCs
+      - Story quests: advance narrative
+      - Optional quests: provide rewards and unlocks
+
+    Quest mechanics:
+      - NPCs in towns and villages offer quests
+      - Accepting quest creates tracking objective
+      - Completing objectives grants rewards
+      - Skill scrolls often obtained through quests
+      - Magical items available as rewards
+      - Multiple quests can be active simultaneously
+
+npcs_and_towns:
+  name: NPCs and Towns
+  desc: |
+    NPCs populate towns and provide services.
+
+    NPC types:
+      - Merchants: buy and sell items
+      - Healers: restore HP and cure conditions
+      - Trainers: teach skills and abilities
+      - Quest-givers: provide objectives
+      - Guilds: membership and benefits
+      - Banks: storage and item management
+
+    Town services:
+      - Item shops with various goods
+      - Weapon and armor dealers
+      - Spell training and learning
+      - Inn lodging and recovery
+      - Banks for secure storage
+      - Guilds for group membership
+
+crafting_system:
+  name: Crafting and Alchemy
+  desc: |
+    Players can craft items using skills and materials.
+
+    Crafting skills:
+      - Alchemy: create potions and magical items
+      - Smithing: forge weapons and armor
+      - Enchanting: add magical properties to items
+      - Cooking: prepare food items
+
+    Crafting mechanics:
+      - Requires skill scrolls to learn recipes
+      - Higher skill improves crafting success
+      - Materials gathered from defeated monsters
+      - Crafting stations in towns
+      - Success/failure based on skill and materials
+      - Higher quality items from successful crafting
+
+traps_and_hazards:
+  name: Traps and Environmental Hazards
+  desc: |
+    Dungeons contain dangerous environmental features.
+
+    Trap types:
+      - Blade traps: cutting damage
+      - Poisoned darts: damage and poisoning
+      - Teleportation traps: involuntary movement
+      - Gas traps: choking or confusion
+      - Spike pits: falling damage
+      - Crushing traps: impact damage
+      - Magical traps: spell effects
+
+    Environmental hazards:
+      - Fire and lava: heat damage
+      - Acid pools: corrosion damage
+      - Deep chasms: falling damage
+      - Poisoned terrain: damage over time
+      - Cursed ground: status effects
+
+    Trap detection:
+      - Visual inspection reveals obvious traps
+      - Perception affects detection difficulty
+      - Some traps invisible without magical aid
+      - Disarming requires skill and careful action
+
+status_effects:
+  name: Status Effects and Conditions
+  desc: |
+    Various conditions modify character abilities.
+
+    Effect examples:
+      - Poison: damage over time
+      - Paralysis: inability to move
+      - Confusion: randomized actions
+      - Blindness: vision completely blocked
+      - Sleep: temporary unconsciousness
+      - Fear: reduced combat effectiveness
+      - Weakness: reduced damage output
+      - Curse: equipment malfunctions
+      - Shock: stun from electrical damage
+      - Petrification: slow paralysis
+
+    Status removal:
+      - Healing spells and potions
+      - Cleansing magic
+      - Time and rest
+      - Anti-poison potions
+      - Cure conditions spells
+
+monsters:
+  name: Monsters and Enemies
+  desc: |
+    Over 150 monster types populate the world.
+
+    Monster types:
+      - Animals: natural creatures
+      - Humanoids: orcs, goblins, humans
+      - Undead: zombies, skeletons, ghosts
+      - Demons: evil magical creatures
+      - Dragons: powerful legendary beasts
+      - Golems: magical constructs
+      - Elementals: beings of raw magic
+      - Plants: animated vegetation
+      - Unique named monsters: boss encounters
+
+    Monster properties:
+      - Hit points and health
+      - Attack strength and speed
+      - Elemental resistances
+      - Special abilities and spells
+      - Treasure drops on defeat
+      - Experience gained on killing
+
+dungeon_features:
+  name: Dungeon Features
+  desc: |
+    Dungeons contain various environmental features.
+
+    Features:
+      - Doors: locked, trapped, or normal
+      - Chests and barrels: contain items or traps
+      - Bookshelves: contain knowledge and spells
+      - Altars: interact for divine effects
+      - Fountains: magical effects when used
+      - Beds and furniture: rest locations
+      - Pressure plates: trigger mechanisms
+      - Secret passages: hidden connections
+
+    Interactions:
+      - Some features grant bonuses
+      - Others cause damage or status effects
+      - Aligned objects respond to alignment
+      - Some require keys or magical means
+      - Environmental hazards present dangers
+
+weather_system:
+  name: Weather and Environmental Effects
+  desc: |
+    Dynamic weather affects gameplay.
+
+    Weather types:
+      - Clear: normal visibility and conditions
+      - Cloudy: reduced visibility
+      - Rain: slowed movement, reduced accuracy
+      - Storm: severe hazards, lightning danger
+      - Snow: movement slowdown, cold damage
+      - Fog: severely reduced visibility
+
+    Weather effects:
+      - Visibility modifications
+      - Movement speed changes
+      - Attack accuracy penalties or bonuses
+      - Magical effect modifiers
+      - Environmental damage types
+      - Monster spawn rate changes
+
+special_locations:
+  name: Special Locations and Dungeons
+  desc: |
+    Certain areas feature unique challenges.
+
+    Major dungeons:
+      - Mazes of Menace: classic multi-level dungeon
+      - Ruins of Euthville: ancient civilization
+      - Caverns: natural cave systems
+      - Towers: vertical climbing challenges
+      - Underground cities: dwarven settlements
+      - Forest dungeons: nature-themed areas
+
+    Location mechanics:
+      - Themed monsters specific to area
+      - Unique treasure and artifacts
+      - Environmental challenges
+      - Boss monsters and encounters
+      - Level-scaling difficulty
+
+artifacts_and_treasures:
+  name: Artifacts and Treasures
+  desc: |
+    Powerful items scattered throughout the world.
+
+    Artifact types:
+      - Weapons: unique weapons with powers
+      - Armor: legendary protective gear
+      - Magical implements: staffs and wands
+      - Quest artifacts: story items
+      - Relics: religious and historical items
+
+    Artifact properties:
+      - Powerful magical effects
+      - Often have unique abilities
+      - May require quests to obtain
+      - Cannot be destroyed easily
+      - Some grant wishes or permanent bonuses
+      - Highly sought by players
+
+death:
+  name: Death and Permadeath
+  desc: |
+    Character death ends the game.
+
+    Causes of death:
+      - Combat damage exceeding HP
+      - Starvation from prolonged hunger
+      - Environmental hazards
+      - Trap damage
+      - Magical effects
+      - Monster special abilities
+      - Falls from great heights
+      - Poison and disease
+
+    Character loss:
+      - Dead character becomes ghost
+      - Equipment can be retrieved by other players
+      - Character permanently lost
+      - Corpse remains in dungeon briefly
+      - Other players may loot remains
+
+recovery_and_resurrection:
+  name: Recovery and Resurrection
+  desc: |
+    Players can recover from setbacks.
+
+    Recovery options:
+      - Resurrection spells resurrect dead character
+      - Prayer at temples may aid recovery
+      - NPC healers provide recovery services
+      - Potions provide temporary recovery
+      - Resting in inns restores full HP and mana
+      - Sleeping in beds provides healing
+
+multiplayer_interactions:
+  name: Multiplayer Interactions
+  desc: |
+    Multiple players interact in the shared world.
+
+    Social features:
+      - Chat with other players
+      - Form parties for cooperation
+      - Guild membership for communities
+      - Trade items between players
+      - Dueling for competition
+      - Cooperative quest completion
+
+    Player cooperation:
+      - Shared quest objectives
+      - Party experience sharing
+      - Distributed loot
+      - Joint boss defeats
+      - Mutual aid against threats
+
+victory_conditions:
+  name: Victory Conditions
+  desc: |
+    Victory in Crossfire is defined by player goals.
+
+    Victory types:
+      - Exploration: discover all major locations
+      - Treasure hunting: collect rare artifacts
+      - Boss defeat: overcome major challenges
+      - Quest completion: finish all available quests
+      - Skill mastery: develop maximum abilities
+      - Reputation: achieve high standing
+      - Wealth: accumulate vast riches
+
+    Ongoing gameplay:
+      - No definitive end condition
+      - Continuous progression through skills
+      - Endless exploration and discovery
+      - Perpetual challenge from increasingly hard areas
+      - Community-driven goals and contests
+
+
+## Additional information
+
+controls_and_keybindings:
+  name: Controls and Keybindings
+  desc: |
+    Specific player controls are required to interact with the world and inventory.
+
+    Basic controls:
+      - Middle mouse button: toggles an item's "applied" or "unapplied" status.
+      - Readying weapons: a weapon must be explicitly "readied" in the status window before use.
+      - Ranged attacks: hold the shift key and press a movement key to fire a readied weapon.
+
+skill_execution:
+  name: Skill Execution
+  desc: |
+    Using skills requires specific commands beyond just possessing the skill.
+
+    Execution mechanics:
+      - Skills must first be "readied" before a player can execute them.
+      - The 'ready_skill' command is typically used to prepare a skill for active use.
+      - Once readied, the skill is executed by interacting with the target or environment.
+
+looting_mechanics:
+  name: Looting Mechanics
+  desc: |
+    Crossfire features a granular system for picking up items from the ground to prevent inventory clutter.
+
+    Pick-up modes (10 distinct modes total):
+      - Mode 6: configures the character to pick up only magical items.
+      - Mode 7: configures the character to pick up only coins and gems.
+      - Other modes allow for varying levels of specific filtering based on player preference.
+
+detailed_object_interactions:
+  name: Detailed Object Interactions
+  desc: |
+    The environment contains complex objects that require specific physical interactions.
+
+    Interaction types:
+      - Signs: can be actively read to gather quest clues, directions, or lore.
+      - Buttons and Pressure Plates: players can drop heavy items from their inventory onto buttons to hold them down continuously.
+      - Secret Walls: illusions or weak points that can be physically broken away to reveal hidden areas.
+      - Spinners: magical or mechanical environmental hazards that redirect the trajectory of flying missiles and spells.

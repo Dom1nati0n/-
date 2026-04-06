@@ -1,0 +1,429 @@
+game_structure:
+  name: Game Structure
+  desc: |
+    Moria is a roguelike dungeon exploration game inspired by J.R.R. Tolkien's
+    The Lord of the Rings. The player creates a character and descends into the
+    Mines of Moria to defeat the Balrog, the final boss. Moria pioneered the
+    "town level" concept, providing a persistent settlement where players can
+    purchase equipment, manage inventory, and prepare for dungeon expeditions.
+
+turn_system:
+  name: Turn System
+  desc: |
+    The game proceeds in discrete turns. Each player action consumes one turn.
+    After the player acts, all active monsters act once in response.
+
+    Turn resolution:
+      1. Player action (move, attack, use item, cast spell, etc.)
+      2. Monsters act once
+      3. Environmental effects resolve
+
+town_level:
+  name: Town Level
+  desc: |
+    Moria features a persistent town serving as a base between dungeon raids.
+
+    Town features:
+      - General Store: weapons, armor, supplies
+      - Armory: protective equipment
+      - Weaponsmith: melee and ranged weapons
+      - Temple: healing and restoration services
+      - Magic Shop: spellbooks and magical devices
+      - Alchemy Shop: potions and alchemical supplies
+      - Home: personal storage for items
+
+    Town mechanics:
+      - Buy and sell items using gold currency
+      - Prices vary based on character charisma
+      - Shopkeepers provide identified items
+      - Rest and recover between adventures
+      - Storage for excess equipment
+
+dungeon_structure:
+  name: Dungeon Structure
+  desc: |
+    The dungeon consists of multiple procedurally generated levels of increasing
+    difficulty.
+
+    Level characteristics:
+      - Divided into rooms of various sizes
+      - Corridors connect rooms randomly
+      - Each level is larger than a single screen
+      - Rooms may be empty or populated
+      - Treasure rooms contain valuable items
+      - Each level contains one staircase down and one up
+      - Non-persistent levels: regenerate when revisited
+      - Difficulty increases dramatically with depth
+
+    Special features:
+      - Streams and water features in some levels
+      - Multiple chamber types with varied layouts
+      - Treasure vaults guarded by powerful monsters
+      - Unique monster encounters at certain depths
+
+character_creation:
+  name: Character Creation
+  desc: |
+    Before entering the dungeon, the player creates a character.
+
+    Character choices:
+      - Gender: male or female
+      - Race: determines stat bonuses and starting abilities
+      - Class: determines combat skills and spell access
+      - Social class: determined by character background; affects starting wealth
+
+    Available races:
+      Human, Half-Elf, Elf, Halfling, Gnome, Dwarf, Half-Orc, Half-Troll
+
+    Available classes:
+      Warrior, Mage, Priest, Rogue, Ranger, Paladin
+
+    Starting resources:
+      - Gold determined by social class and background
+      - Initial equipment appropriate to class
+      - Beginning experience at level 1
+      - Character history determines social status
+
+stats:
+  name: Ability Stats
+  desc: |
+    Each character has six primary attributes affecting abilities.
+
+    Stats range:
+      - Base range: 3 to 18
+      - Enhanced range: 18/01 to 18/100 (percentile system)
+      - 18/100 is equivalent to 19 in power
+
+    The six stats:
+      - Strength: affects carrying capacity, melee damage, multiple attacks
+      - Intelligence: determines arcane mana pool, spell learning
+      - Wisdom: affects holy mana pool, saving throws, perception
+      - Dexterity: improves combat accuracy, defense, evasion
+      - Constitution: determines maximum hit points per level
+      - Charisma: affects shop prices and NPC reactions
+
+    Stat modifications:
+      - Race provides inherent bonuses or penalties
+      - Class provides inherent bonuses or penalties
+      - Equipment can enhance stats further
+      - Level advancement may improve stats
+
+abilities:
+  name: Character Abilities
+  desc: |
+    Characters possess multiple skills determining success in tasks.
+
+    Primary abilities:
+      - Fighting: melee combat effectiveness
+      - Shooting: ranged weapon accuracy
+      - Saving Throw: resistance to magic and harmful effects
+      - Stealth: ability to move undetected
+      - Perception: chance to notice hidden objects per turn
+      - Searching: active search capability
+      - Disarming: skill at removing traps
+      - Magic Devices: ability to use wands, staves, and rods
+
+movement:
+  name: Movement
+  desc: |
+    The player moves through the dungeon in discrete steps.
+
+    Movement rules:
+      - Player can move in eight directions
+      - Each step costs one turn
+      - Movement blocked by walls, closed doors, and monsters
+      - Movement into a monster initiates combat
+      - Running allows faster traversal in corridors
+      - Leaving line of sight may prevent monster pursuit
+
+visibility:
+  name: Visibility and Light
+  desc: |
+    Visibility depends on location and light sources.
+
+    Visibility rules:
+      - Dungeon is naturally dark; light sources essential
+      - Light sources include torches and lanterns
+      - Torches consume fuel and provide limited light
+      - Lanterns provide more reliable illumination
+      - Characters can see within light radius
+      - Monsters with infravision detect heat
+      - Some creatures see in darkness without light
+
+experience_levels:
+  name: Experience and Leveling
+  desc: |
+    Defeating monsters grants experience leading to advancement.
+
+    Experience system:
+      - Monsters grant experience when defeated
+      - Amount varies by monster difficulty
+      - Higher-level characters gain less XP per kill
+      - Each level increases abilities and hit points
+      - Characters begin at level 1
+      - Level advancement improves spell power
+      - Experience requirements increase per level
+
+combat:
+  name: Combat System
+  desc: |
+    Combat occurs when creatures attempt to enter occupied spaces. Combat is
+    turn-based with randomized outcomes.
+
+    Combat resolution:
+      1. Attacker rolls to hit using strength, dexterity, weapon bonus
+      2. If hit succeeds, damage is rolled based on weapon
+      3. Defender's armor class reduces damage taken
+      4. Defender HP reduced by net damage
+      5. Combat continues until creature dies or flees
+
+    Combat parameters:
+      - Attacker: strength, dexterity, weapon, fighting skill
+      - Defender: armor class from equipment, constitution
+      - Multiple attacks: high strength allows extra melee blows
+      - Weapon effects: various types and special properties
+      - Monster abilities: special attacks and spells
+
+hit_points:
+  name: Hit Points
+  desc: |
+    Hit points represent character health and determine survival.
+
+    Hit point mechanics:
+      - Maximum HP determined by class and constitution
+      - HP per level increased at level up
+      - Damage from combat and effects reduces HP
+      - Death occurs at 0 HP; game ends permanently
+      - HP regenerates slowly while resting
+      - Potions and spells restore HP
+      - Some monsters drain maximum HP permanently
+
+equipment:
+  name: Equipment System
+  desc: |
+    Equipment provides combat bonuses and protection.
+
+    Equipment categories:
+      - Weapons: swords, axes, bows, hammers, polearms
+      - Armor: body armor, shields, helmets, gloves, boots
+      - Accessories: rings, amulets
+      - Light sources: torches, lanterns
+
+    Equipment effects:
+      - Weapons provide attack bonuses and damage dice
+      - Armor reduces damage taken (armor class)
+      - Magical items grant stat bonuses and resistances
+      - Enchanted items provide greater bonuses
+      - Cursed items impose penalties and cannot be removed
+
+items_and_objects:
+  name: Items and Objects
+  desc: |
+    Items found in the dungeon provide essential supplies and power.
+
+    Major item categories:
+      - Weapons: melee and ranged arms
+      - Armor: protective equipment
+      - Potions: magical liquids with various effects
+      - Scrolls: single-use magical papers
+      - Rings: magical jewelry providing abilities
+      - Wands: magical devices with limited charges
+      - Staves: magical devices with more charges
+      - Food: sustenance for hunger
+      - Gold: currency for trading
+      - Gems: valuable items for selling
+
+item_identification:
+  name: Item Identification
+  desc: |
+    Most items begin unidentified and must be discovered.
+
+    Identification methods:
+      - Use: equipping or using items reveals properties
+      - Scrolls of Identify: instantly reveal item properties
+      - Experimentation: trial and error determines function
+      - Once identified, same type appears identified
+
+    Item states:
+      - Unidentified: true nature unknown
+      - Partially identified: some properties known
+      - Fully identified: all properties revealed
+      - Cursed: dangerous items with penalties
+
+inventory:
+  name: Inventory Management
+  desc: |
+    The player maintains an inventory with carrying limits.
+
+    Inventory rules:
+      - Items occupy inventory slots
+      - Total weight affects carrying capacity and speed
+      - Equipping items grants bonuses without using slots
+      - Overencumbrance reduces movement speed
+      - Items can be dropped to manage weight
+      - Items left behind can be retrieved later
+      - Some items stack (ammunition, potions, scrolls)
+
+spellcasting:
+  name: Spellcasting System
+  desc: |
+    Spellcasters access magical abilities through spellbooks.
+
+    Spellcasting mechanics:
+      - Mages and Priests learn spells from spellbooks
+      - Spellbooks contain learnable spells
+      - Mana pool determined by intelligence/wisdom and level
+      - Mana spent when casting spells
+      - Resting regenerates mana slowly
+      - Spell failure based on character level
+      - Higher intelligence/wisdom reduces failure rates
+      - Failed spells still consume mana
+
+monsters:
+  name: Monsters
+  desc: |
+    Monsters populate the dungeon and provide experience and treasure.
+
+    Monster characteristics:
+      - Hit points: creature's health
+      - Armor class: protection from damage
+      - Attack methods: melee, spells, special abilities
+      - Speed: determines action frequency
+      - Special abilities: breathing, summoning, status effects
+      - Resistances: immunity to certain damage types
+
+    Monster behavior:
+      - Wander randomly until player detected
+      - Pursue when player in line of sight
+      - Attack when adjacent
+      - May flee when damaged severely
+      - Use special abilities strategically
+      - Some form groups or pack behavior
+
+status_effects:
+  name: Status Effects
+  desc: |
+    Certain attacks and spells inflict conditions beyond damage.
+
+    Common status effects:
+      - Confusion: impaired movement and control
+      - Blindness: vision severely reduced
+      - Paralysis: unable to act
+      - Slowing: reduced action frequency
+      - Poison: continuous damage over time
+      - Curse: equipment penalties and restrictions
+      - Terror: involuntary flight from enemies
+      - Mana drain: drains spellcaster's mana
+
+    Duration:
+      - Some effects last specific number of turns
+      - Others persist until cured
+      - Potions and spells remove status effects
+
+traps:
+  name: Traps
+  desc: |
+    Hidden mechanisms on dungeon floors pose additional danger.
+
+    Trap types include:
+      - Pit traps: fall damage and separation
+      - Spike traps: piercing damage
+      - Gas traps: various harmful gases
+      - Teleport traps: random displacement
+      - Bear traps: damage and immobilization
+      - Alarm traps: alert nearby monsters
+
+    Trap mechanics:
+      - Triggered when stepped on
+      - Searching and perception can detect traps
+      - Disarming skill allows safe removal
+      - Failure to disarm may trigger trap
+      - Some traps have magical detection
+
+hunger:
+  name: Hunger and Food
+  desc: |
+    The character must eat periodically to survive.
+
+    Hunger states:
+      normal
+      hungry
+      weak
+      fainting
+      starving
+      dead
+
+    Hunger mechanics:
+      - Each turn consumes nutrition
+      - Strenuous activity increases hunger
+      - Food items restore nutrition
+      - Starvation causes gradual damage
+      - Death from starvation ends the game permanently
+
+experience_economy:
+  name: Experience and Economics
+  desc: |
+    Gold and experience management are central to progression.
+
+    Gold mechanics:
+      - Earned by defeating monsters
+      - Earned by selling items to shops
+      - Used to purchase equipment and supplies
+      - Used to pay taxes on items equipped
+      - Spent on spell research and training
+      - Higher charisma improves shop prices
+
+    Wealth management:
+      - Limited inventory space for equipment
+      - Need balance between carrying treasure and equipment
+      - Town storage allows inventory management
+      - Returning to town with treasure is essential
+
+victory:
+  name: Victory Condition
+  desc: |
+    Winning requires defeating the Balrog deep in the dungeon.
+
+    Victory path:
+      - Descend through multiple dungeon levels
+      - Reach the deepest level (typically level 50)
+      - Encounter and defeat the Balrog
+      - Return to the surface alive
+
+    Victory requirements:
+      - Must slay the Balrog
+      - Must be alive after killing it
+      - Optional: acquire powerful artifacts
+
+death:
+  name: Death and Permadeath
+  desc: |
+    Death is permanent; the character dies when HP reaches zero.
+
+    Causes of death include:
+      - Combat damage from monsters
+      - Starvation from lack of food
+      - Environmental hazards (traps, poison)
+      - Being overwhelmed by powerful enemies
+      - Misidentifying dangerous items
+
+difficulty:
+  name: Difficulty and Balance
+  desc: |
+    Moria is moderately challenging compared to other roguelikes.
+
+    Difficulty factors:
+      - Permadeath: single major mistake ends character
+      - Resource management: limited healing and supplies
+      - Dungeon depth: monsters become exponentially harder
+      - Unexpected encounters: random generation creates surprises
+      - Equipment dependency: poor gear makes progression hard
+      - Time investment: long character development necessary
+
+    Player strategies:
+      - Methodical level exploration before advancing
+      - Careful equipment selection and maintenance
+      - Spell and ability management for magic users
+      - Healing potion stockpiling for emergencies
+      - Teleportation for tactical escape
+      - Return to town regularly for resupply

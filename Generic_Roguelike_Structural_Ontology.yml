@@ -1,0 +1,384 @@
+Below is a generic structural ontology for roguelike games.
+It is system-agnostic and describes the mechanical architecture common to traditional roguelikes (procedural, turn-based, permadeath, systemic interaction). It avoids specific items or monsters and instead organizes categories of mechanics.
+
+This is intended as a design grammar or AI training scaffold for generating roguelike systems.
+
+Generic Roguelike Structural Ontology
+ROGUELIKE_GAME_STRUCTURE
+|
+├── Core_Game_Loop
+│   ├── World_Exploration
+│   │   ├── Procedural_Map_Generation
+│   │   ├── Fog_of_War
+│   │   ├── Line_of_Sight
+│   │   ├── Environmental_Interaction
+│   │   └── Map_Traversal
+│   │
+│   ├── Encounter_System
+│   │   ├── Monster_Encounters
+│   │   ├── Environmental_Hazards
+│   │   ├── NPC_Encounters
+│   │   └── Random_Events
+│   │
+│   ├── Combat_Resolution
+│   ├── Resource_Management
+│   ├── Character_Progression
+│   └── Victory_Progression
+|
+├── Player_Character_Model
+│   │
+│   ├── Identity
+│   │   ├── Species_or_Race
+│   │   ├── Class_or_Background
+│   │   ├── Alignment_or_Faction
+│   │   └── Starting_Loadout
+│   │
+│   ├── Attributes
+│   │   ├── Physical_Attributes
+│   │   ├── Mental_Attributes
+│   │   └── Social_or_Spiritual_Attributes
+│   │
+│   ├── Derived_Statistics
+│   │   ├── Health
+│   │   ├── Energy_or_Mana
+│   │   ├── Attack_Rating
+│   │   ├── Defense_Rating
+│   │   ├── Accuracy
+│   │   ├── Evasion
+│   │   ├── Speed
+│   │   └── Carrying_Capacity
+│   │
+│   ├── Character_Modifiers
+│   │   ├── Resistances
+│   │   ├── Vulnerabilities
+│   │   ├── Status_Immunities
+│   │   └── Passive_Traits
+│   │
+│   └── Character_State
+│       ├── Status_Effects
+│       ├── Hunger_or_Fatigue
+│       ├── Corruption_or_Sanity
+│       └── Temporary_Buffs_and_Debuffs
+|
+├── Progression_System
+│   │
+│   ├── Experience_System
+│   │   ├── Experience_Sources
+│   │   ├── Level_Thresholds
+│   │   └── Level_Advancement
+│   │
+│   ├── Skill_System
+│   │   ├── Combat_Skills
+│   │   ├── Magic_Skills
+│   │   ├── Utility_Skills
+│   │   └── Crafting_or_Knowledge_Skills
+│   │
+│   ├── Ability_Unlocks
+│   │   ├── Active_Abilities
+│   │   ├── Passive_Bonuses
+│   │   └── Talent_Trees
+│   │
+│   └── Mutation_or_Trait_System
+│       ├── Random_Mutations
+│       ├── Acquired_Traits
+│       └── Trait_Removal_or_Modification
+|
+├── Turn_and_Time_System
+│   │
+│   ├── Turn_Resolution
+│   │   ├── Player_Turn
+│   │   ├── AI_Turn
+│   │   └── Environmental_Turn
+│   │
+│   ├── Time_Costs
+│   │   ├── Movement_Time
+│   │   ├── Attack_Time
+│   │   ├── Spell_Time
+│   │   └── Item_Use_Time
+│   │
+│   └── Energy_or_Speed_Model
+│       ├── Initiative
+│       └── Action_Delay
+|
+├── Combat_System
+│   │
+│   ├── Attack_Types
+│   │   ├── Melee
+│   │   ├── Ranged
+│   │   ├── Magic
+│   │   └── Environmental
+│   │
+│   ├── Attack_Resolution
+│   │   ├── Hit_Calculation
+│   │   ├── Critical_Hits
+│   │   └── Miss_or_Deflection
+│   │
+│   ├── Damage_Model
+│   │   ├── Physical_Damage
+│   │   ├── Elemental_Damage
+│   │   ├── Magical_Damage
+│   │   └── True_or_Pure_Damage
+│   │
+│   ├── Defense_Model
+│   │   ├── Armor_Reduction
+│   │   ├── Dodge_or_Evasion
+│   │   ├── Shield_Block
+│   │   └── Resistance_Modifiers
+│   │
+│   └── Combat_Modifiers
+│       ├── Status_Infliction
+│       ├── Knockback_or_Control
+│       └── Multi_Attack_Systems
+|
+├── Equipment_System
+│   │
+│   ├── Weapons
+│   │   ├── Melee_Weapons
+│   │   │   ├── Bladed
+│   │   │   ├── Blunt
+│   │   │   ├── Polearms
+│   │   │   └── Exotic
+│   │   │
+│   │   ├── Ranged_Weapons
+│   │   │   ├── Projectile_Weapons
+│   │   │   ├── Thrown_Weapons
+│   │   │   └── Siege_or_Heavy
+│   │   │
+│   │   └── Magical_Foci
+│   │
+│   ├── Armor
+│   │   ├── Body_Armor
+│   │   ├── Shields
+│   │   ├── Helmets
+│   │   ├── Gloves
+│   │   ├── Boots
+│   │   └── Cloaks_or_Capes
+│   │
+│   ├── Equipment_Properties
+│   │   ├── Base_Stats
+│   │   ├── Durability
+│   │   ├── Weight_or_Encumbrance
+│   │   └── Affixes_or_Enchantments
+│   │
+│   ├── Equipment_Rarity
+│   │   ├── Common
+│   │   ├── Magical
+│   │   ├── Rare
+│   │   ├── Artifact
+│   │   └── Legendary
+│   │
+│   └── Equipment_Slots
+│       ├── Weapon_Slot
+│       ├── Offhand_Slot
+│       ├── Armor_Slots
+│       └── Accessory_Slots
+|
+├── Magic_System
+│   │
+│   ├── Spellcasting_Model
+│   │   ├── Mana_or_Energy
+│   │   ├── Spell_Failure
+│   │   ├── Casting_Time
+│   │   └── Spell_Power
+│   │
+│   ├── Spell_Schools
+│   │   ├── Elemental
+│   │   │   ├── Fire
+│   │   │   ├── Ice
+│   │   │   ├── Air
+│   │   │   └── Earth
+│   │   │
+│   │   ├── Arcane
+│   │   │   ├── Conjuration
+│   │   │   ├── Transmutation
+│   │   │   ├── Illusion
+│   │   │   └── Teleportation
+│   │   │
+│   │   ├── Spiritual
+│   │   │   ├── Necromancy
+│   │   │   ├── Holy_Magic
+│   │   │   └── Summoning
+│   │   │
+│   │   └── Mind_Magic
+│   │       ├── Enchantment
+│   │       └── Hexes
+│   │
+│   └── Spell_Categories
+│       ├── Damage
+│       ├── Buff
+│       ├── Debuff
+│       ├── Summon
+│       ├── Movement
+│       └── Utility
+|
+├── Item_System
+│   │
+│   ├── Consumables
+│   │   ├── Potions
+│   │   ├── Scrolls
+│   │   ├── Food
+│   │   └── Throwables
+│   │
+│   ├── Magical_Items
+│   │   ├── Wands_or_Charged_Items
+│   │   ├── Talismans
+│   │   └── Relics
+│   │
+│   ├── Utility_Items
+│   │   ├── Tools
+│   │   ├── Keys
+│   │   └── Quest_Items
+│   │
+│   └── Item_Generation
+│       ├── Loot_Tables
+│       ├── Procedural_Modifiers
+│       └── Depth_or_Level_Scaling
+|
+├── Monster_System
+│   │
+│   ├── Monster_Taxonomy
+│   │   ├── Animals
+│   │   ├── Humanoids
+│   │   ├── Undead
+│   │   ├── Demons
+│   │   ├── Beasts
+│   │   ├── Dragons
+│   │   ├── Elementals
+│   │   ├── Constructs
+│   │   ├── Plants
+│   │   └── Aberrations
+│   │
+│   ├── Monster_Roles
+│   │   ├── Melee_Brute
+│   │   ├── Ranged_Attacker
+│   │   ├── Spellcaster
+│   │   ├── Support
+│   │   ├── Summoner
+│   │   └── Boss
+│   │
+│   ├── AI_Behaviors
+│   │   ├── Aggressive
+│   │   ├── Defensive
+│   │   ├── Patrol
+│   │   ├── Ambush
+│   │   └── Fleeing
+│   │
+│   └── Spawn_System
+│       ├── Random_Spawns
+│       ├── Depth_Scaling
+│       ├── Biome_Specific_Spawns
+│       └── Encounter_Groups
+|
+├── Dungeon_World_System
+│   │
+│   ├── Dungeon_Generation
+│   │   ├── Layout_Algorithms
+│   │   ├── Room_Generation
+│   │   ├── Corridor_Generation
+│   │   └── Vault_or_Preset_Rooms
+│   │
+│   ├── Biomes_or_Branches
+│   │   ├── Early_Game_Regions
+│   │   ├── Mid_Game_Regions
+│   │   ├── Late_Game_Regions
+│   │   └── Optional_or_Extended_Regions
+│   │
+│   ├── Map_Features
+│   │   ├── Doors
+│   │   ├── Stairs_or_Portals
+│   │   ├── Traps
+│   │   ├── Shops
+│   │   └── Altars_or_Shrines
+│   │
+│   └── Environmental_Hazards
+│       ├── Terrain_Damage
+│       ├── Terrain_Movement_Modifiers
+│       └── Dynamic_Environmental_Effects
+|
+├── Status_Effect_System
+│   │
+│   ├── Physical_Effects
+│   │   ├── Poison
+│   │   ├── Bleeding
+│   │   ├── Paralysis
+│   │   └── Slow
+│   │
+│   ├── Mental_Effects
+│   │   ├── Confusion
+│   │   ├── Fear
+│   │   └── Charm
+│   │
+│   ├── Magical_Effects
+│   │   ├── Silence
+│   │   ├── Invisibility
+│   │   └── Magic_Disruption
+│   │
+│   └── Elemental_Effects
+│       ├── Burning
+│       ├── Freezing
+│       └── Corrosion
+|
+├── Faction_or_Religion_System
+│   │
+│   ├── Factions_or_Deities
+│   ├── Reputation_or_Piety
+│   ├── Blessings_or_Powers
+│   └── Penalties_or_Wrath
+|
+├── Resource_System
+│   │
+│   ├── Health
+│   ├── Mana_or_Magic
+│   ├── Stamina_or_Action_Points
+│   ├── Hunger_or_Fatigue
+│   └── Currency
+|
+├── Economy_System
+│   │
+│   ├── Shops
+│   ├── Trading
+│   ├── Currency
+│   └── Item_Value
+|
+└── Victory_and_Endgame
+    │
+    ├── Objective_System
+    │   ├── Artifact_Collection
+    │   ├── Boss_Defeat
+    │   └── Location_Unlock
+    │
+    ├── Endgame_Region
+    │
+    ├── Escape_or_Final_Event
+    │
+    └── Game_Over_States
+        ├── Character_Death
+        ├── Failure_Conditions
+        └── Victory_State
+        
+Conceptual Layers
+
+A roguelike’s architecture generally resolves into four systemic layers:
+##########################################################
+##Layer	             ##Role                             ##
+##                   ##                                 ##
+##########################################################
+Actor Systems	     - player, monsters, NPCs
+Interaction Systems	 - combat, magic, items
+World Systems	     - dungeon generation, encounters
+Meta Systems	     - progression, victory conditions
+
+
+#Minimal Roguelike Kernel
+If reduced to the smallest functional model:{
+Roguelike
+ ├─ Actor_Model
+ ├─ Turn_System
+ ├─ World_Generation
+ ├─ Combat_System
+ ├─ Item_System
+ ├─ Progression_System
+ └─ Victory_System
+}
+
+Everything else extends from these primitives.

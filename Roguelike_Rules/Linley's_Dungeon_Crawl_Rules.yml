@@ -1,0 +1,581 @@
+game_structure:
+  name: Game Structure
+  desc: |
+    Linley's Dungeon Crawl (or simply Crawl) is a roguelike dungeon exploration
+    game created by Linley Henzell in 1995 and publicly released in 1997. The
+    player creates a character from 26+ races and 28+ classes, then descends into
+    a dungeon complex to retrieve the Orb of Zot and return to the surface alive.
+    Crawl pioneered many features that became standard in later roguelikes,
+    including religion-based mechanics, branch dungeons, and rune-based access
+    gating.
+
+turn_system:
+  name: Turn System
+  desc: |
+    The game proceeds in discrete turns where each action consumes one turn.
+
+    Turn resolution:
+      1. Player action (move, attack, cast spell, use item, etc.)
+      2. Monsters act once
+      3. Environmental effects resolve
+
+character_creation:
+  name: Character Creation
+  desc: |
+    Crawl features extensive character customization through race and class choice.
+
+    Character choices:
+      - Race: determines starting attributes, skill aptitudes, and special abilities
+      - Class: determines starting skills, equipment, and spell access
+      - Background: determines character history and skill emphasis
+
+    Available races (26+):
+      - Humans: balanced, versatile, no special abilities
+      - Elves (multiple types): fast, good spellcasters, reduced HP
+      - Dwarves: sturdy, good weapon-users, reduced magic
+      - Ogres: slow, strong, good melee fighters
+      - Trolls: regenerate, slow, strong melee fighters
+      - Centaurs: fast, intelligent, good missiles
+      - Merfolk: amphibious, good swimmers
+      - Halflings: small, fast, good evaders
+      - Ghouls: undead, poison immunity
+      - Kenku: bird-like, levitating
+      - Draconian: dragon-like, various breath attacks and resistances
+      - And many other fantastic races
+
+    Available classes (28+):
+      - Fighter: melee-focused warrior
+      - Wizard: magic specialist
+      - Thief: stealth and assassination
+      - Ranger: ranged and outdoor combat
+      - Paladin: holy warrior
+      - Cleric: priest with prayers
+      - Monk: unarmed martial artist
+      - Berserker: uncontrolled melee fury
+      - Assassin: stealth-based killer
+      - Elemental Spellcaster: magic schools focused
+      - And various other specialist classes
+
+    Starting attributes:
+      - Race and class determine attribute bonuses
+      - Strength, Intelligence, Wisdom, Dexterity determined at creation
+      - Attributes affect skill aptitudes and abilities
+
+dungeon_structure:
+  name: Dungeon Structure and Branches
+  desc: |
+    The dungeon consists of multiple branches exploring different themes and
+    difficulty levels.
+
+    Main Dungeon (27 levels):
+      - Starting point for most adventurers
+      - Gradually increasing difficulty
+      - Contains lesser runes on early levels
+      - Gateway to deeper branches
+
+    Dungeon branches:
+      - Orcish Mines: combat-heavy orc encounters
+      - The Lair of Beasts: animal and beast encounters
+      - The Elven Halls: magical elven creatures
+      - The Swamp: environmental hazards and swamp creatures
+      - The Abyss: non-persistent, chaotic demon realm
+      - Pandemonium: non-persistent, demon filled levels
+      - The Crypt: undead and necromantic creatures
+      - The Tomb: pharaoh's treasures and mummy curses
+      - Hell: multiple demon-filled branches
+      - Zot's Realm: final challenge containing the Orb
+
+    General level characteristics:
+      - Persistent levels: maps remain after revisiting
+      - Non-persistent branches: Abyss and Pandemonium regenerate
+      - Variable room layouts and corridors
+      - Multiple staircases per level
+      - Darkness: some areas are unlit
+      - Shops and altars on some levels
+
+runes_of_zot:
+  name: Runes of Zot
+  desc: |
+    The path to the Orb requires collecting runes from various branches.
+
+    Rune system:
+      - At least 3 runes required to access the Realm of Zot
+      - Up to 15 runes can be collected for ultimate challenge
+      - Each rune guarded by powerful monsters or unique challenges
+      - Runes obtained from different branches provide variety
+
+    Rune types:
+      - Serpent Rune: from the Serpent's Hell
+      - Swamp Rune: from the Swamp
+      - Forest Rune: from the Elven Halls
+      - Lair Rune: from the Lair
+      - Mine Rune: from the Orcish Mines
+      - And additional runes from other branches
+
+movement:
+  name: Movement and Navigation
+  desc: |
+    The player moves through the dungeon in discrete steps.
+
+    Movement mechanics:
+      - Eight-direction movement (cardinal and diagonal)
+      - Each step costs one turn
+      - Movement blocked by walls, closed doors, and monsters
+      - Movement into a monster initiates combat
+      - Center-screen view: player remains centered while map scrolls
+
+visibility:
+  name: Visibility and Light
+  desc: |
+    Visibility varies based on light sources and position.
+
+    Visibility rules:
+      - Most dungeon areas are unlit
+      - Light sources essential for safe exploration
+      - Torches and lanterns provide illumination
+      - Visibility radius limited around light sources
+      - Explored areas outside light range show as dark gray
+      - Line of sight: circular vision around player
+      - Some creatures see without light sources
+
+ability_stats:
+  name: Ability Stats
+  desc: |
+    Characters have four primary attributes affecting gameplay.
+
+    The four stats:
+      - Strength: melee damage, carrying capacity
+      - Intelligence: spell success rate, magic power
+      - Wisdom: spell power, magical resistance
+      - Dexterity: accuracy, evasion, stealth, speed
+
+    Stat mechanics:
+      - Race provides base stat bonuses and penalties
+      - Class provides additional stat bonuses
+      - Stats range from 3 to 18+
+      - Stat training available at level up
+      - Equipment can grant temporary stat bonuses
+
+skills:
+  name: Skills System
+  desc: |
+    Skills represent proficiency in various dungeon activities.
+
+    Combat skills:
+      - Fighting: melee effectiveness and damage
+      - Various Weapon Skills: long blades, short blades, maces, axes, poles, staves
+      - Ranged Weapons: bows, crossbows, slings
+      - Throwing: accuracy of thrown projectiles
+
+    Defense skills:
+      - Armour: reduces penalties from wearing armor
+      - Dodging: improves evasion value
+      - Shields: block chance and shield effectiveness
+
+    Magic skills:
+      - Spellcasting: spell power, success rate, mana pool
+      - Schools of Magic: fire, cold, air, earth, conjuration, necromancy, 
+        enchantment, summoning, divination, translocation, transmutation, alchemy
+
+    Utility skills:
+      - Stealth: undetected movement, backstab/stab bonus
+      - Evocations: use of magical wands, rods, and similar items
+      - Invocations: god ability usage effectiveness
+      - Searching: detection of secret doors and traps
+
+    Skill mechanics:
+      - Skills improve through use in combat or casting
+      - Manual and automatic skill training modes available
+      - Skill aptitudes vary by race/class combination
+      - Skills cap at level 27
+      - Partial skill levels supported (i.e., 5.3 is possible)
+
+experience_levels:
+  name: Experience and Leveling
+  desc: |
+    Defeating monsters grants experience for advancement.
+
+    Experience system:
+      - Monsters grant experience when defeated
+      - Experience amount varies by monster difficulty
+      - Accumulated experience increases character level
+      - Characters begin at level 1, maximum level 27
+      - Each level increases HP, MP, and spell levels
+
+combat:
+  name: Combat System
+  desc: |
+    Combat is initiated when moving into a monster's tile.
+
+    Combat mechanics:
+      - Automatic: melee combat initiates when moving into monster
+      - Ranged: projectiles targeted with line-of-sight system
+      - Magic: spells cast with targeting and area effects
+      - Multiple attacks: high weapon skill allows multiple blows
+
+    Combat resolution:
+      1. Attacker rolls to hit based on weapon skill, dexterity, weapon accuracy
+      2. If hit succeeds, damage is rolled based on weapon and strength
+      3. Defender's armor class reduces damage taken
+      4. Defender HP reduced by net damage
+      5. Combat continues until one party dies or flees
+
+    Combat parameters:
+      - Attacker: weapon skill, strength, dexterity, weapon enchantment
+      - Defender: armor class, evasion, resistances
+      - Weapon types: various damage and accuracy profiles
+      - Special attacks: some monsters have breath or spells
+      - Blocking: shields provide chance to block damage
+
+hit_points:
+  name: Hit Points and Health
+  desc: |
+    Hit points determine character survival in combat.
+
+    Hit point mechanics:
+      - Maximum HP determined by constitution and class
+      - HP increases at level advancement
+      - Damage from combat and effects reduces HP
+      - Death occurs at 0 HP; game ends permanently
+      - Healing potions restore HP instantly
+      - Healing spells restore HP
+      - HP regenerates slowly while resting
+      - Some monsters drain maximum HP
+
+mana_magic:
+  name: Mana and Magic
+  desc: |
+    Magic is a central system in Crawl.
+
+    Mana mechanics:
+      - Magic pool (MP) determined by intelligence and spellcasting skill
+      - Spells consume mana when cast
+      - Mana regenerates slowly while resting and idle
+      - Resting in town regenerates mana faster
+      - Spellcasting skill increases max MP
+
+    Spell system:
+      - Spells learned from spellbooks found in dungeon
+      - Spellbooks teach multiple spells from same school
+      - Spell failure rate based on intelligence, dexterity, armor
+      - Failed spells still consume mana
+      - Spell power affected by relevant spell school skill and intelligence
+
+equipment:
+  name: Equipment System
+  desc: |
+    Equipment provides combat bonuses and protection.
+
+    Equipment categories:
+      - Weapons: melee and ranged
+      - Body Armor: encumbering protective equipment
+      - Shields: blocking and damage reduction
+      - Helmets: head protection
+      - Gloves: hand protection
+      - Boots: foot protection
+      - Cloaks: worn over armor
+      - Rings: jewelry with special properties
+      - Amulets: necklace-style magical items
+
+    Equipment mechanics:
+      - Weapons grant attack bonuses and damage dice
+      - Body armor increases AC (armor class) defensively
+      - Armor encumbrance penalizes evasion, spellcasting, stealth
+      - Armor skill reduces encumbrance penalties
+      - Shields provide blocking chance (SH value)
+      - Shields penalize spellcasting and evasion without skill
+      - Rings and amulets provide stat bonuses and resistances
+      - Enchanted items provide greater bonuses
+      - Cursed items impose penalties and cannot be removed
+
+items_and_objects:
+  name: Items and Objects
+  desc: |
+    Items found in the dungeon provide supplies and power.
+
+    Major item categories:
+      - Weapons: melee and ranged arms
+      - Armor: protective equipment
+      - Potions: healing and effect potions
+      - Scrolls: single-use magical papers
+      - Spellbooks: teach learnable spells
+      - Rings: permanent stat modifiers and abilities
+      - Amulets: special magical effects
+      - Wands: magical devices with limited charges
+      - Rods: rechargeable magical devices
+      - Food: restores hunger
+      - Gold: currency for trading
+      - Gems: valuable tradeable items
+      - Artifacts: unique powerful items
+
+item_identification:
+  name: Item Identification
+  desc: |
+    Most items begin unidentified and must be discovered.
+
+    Identification methods:
+      - Use: equipping or using items reveals properties
+      - Scrolls of Identify: instantly reveal item properties
+      - Experimentation: trial and error determines function
+      - Once identified, same type appears identified future times
+      - Automatic: shop items always identified
+
+    Item states:
+      - Unidentified: true nature unknown
+      - Identified: properties revealed
+      - Cursed: dangerous items with penalties
+      - Uncursed: safe to use items
+      - Blessed: enhanced beneficial items
+
+inventory:
+  name: Inventory Management
+  desc: |
+    The player maintains an inventory with carrying limits.
+
+    Inventory mechanics:
+      - Items occupy inventory slots (52 slots available)
+      - Total weight affects carrying capacity
+      - Overweight reduces movement speed
+      - Items can be dropped to manage weight
+      - Items left behind can be retrieved later
+      - Some items stack (missiles, potions, scrolls)
+
+religion:
+  name: Religion and Divine Favor
+  desc: |
+    Religion is a central mechanic in Crawl, separate from class choice.
+
+    Divine system:
+      - Multiple deities with different philosophies
+      - Gods reward devotion with special abilities and spells
+      - Piety system tracks god favor (0-200 points)
+      - Too little piety: god abandonment
+      - Too much piety: god punishes arrogance
+      - Only one god can be followed at a time
+      - Changing gods causes penalties
+
+    Available deities include:
+      - Okawaru: warrior god, combats deity, aids melee
+      - Trog: berserker god, hates spellcasting
+      - Yredelemnul: death goddess, necromantic abilities
+      - Vehumet: magic deity, boosts spellcasting
+      - Sif Muna: magic book deity, grants spellbooks
+      - Kikubaxi: assassin god, stealth bonuses
+      - Elyvilon: healer goddess, healing abilities
+      - Lugonu: chaos god, abyss powers
+      - Xom: unpredictable chaos god, random gifts and punishments
+      - And many others
+
+    Divine abilities:
+      - Passive bonuses: stat boosts, resistances, skill bonuses
+      - Active abilities: cast god-specific powers using piety
+      - Evoke items: use god artifacts
+      - Special effects: transformations, protections, curses
+
+mutation_system:
+  name: Mutation System
+  desc: |
+    Mutations provide permanent character modifications.
+
+    Mutation mechanics:
+      - Gained through various sources: radiation, transformations, artifacts
+      - Mutations are random and often dangerous
+      - Can grant beneficial abilities or harmful penalties
+      - Mutations can be removed with specific mutations or potions
+      - Some mutations provide immunities or resistances
+
+    Mutation examples:
+      - Horns: head-based attack damage
+      - Claws: natural weapon damage
+      - Regeneration: heal over time
+      - Telepathy: sense nearby creatures
+      - Resistances: immunity or reduction to damage
+      - Slowness: reduced action frequency
+      - Sickness: periodic poison damage
+
+monsters:
+  name: Monsters
+  desc: |
+    Creatures populate dungeons and branches.
+
+    Monster characteristics:
+      - Hit points: creature's health
+      - Attack power: melee damage effectiveness
+      - Special abilities: spells, breath attacks, unique attacks
+      - Speed: determines action frequency
+      - Intelligence: affects tactics and behavior
+      - Resistances: immunity or reduction to damage types
+
+    Monster behavior:
+      - Wander randomly until player detected
+      - Pursue when player in line of sight
+      - Attack when adjacent
+      - May use spells or special abilities
+      - May flee when damaged severely
+      - Some monsters are summoned by others
+
+unique_monsters:
+  name: Unique Monsters
+  desc: |
+    Powerful named creatures appear as significant encounters.
+
+    Unique mechanics:
+      - Named individual monsters, one per game
+      - Often appear on specific dungeon branches
+      - Regenerate health if not killed in encounter
+      - May summon minions to aid them
+      - Dropping them on deeper levels is tactically important
+      - Defeating unique monsters grants notable experience
+
+status_effects:
+  name: Status Effects and Afflictions
+  desc: |
+    Certain attacks and spells inflict conditions beyond damage.
+
+    Common status effects:
+      - Confusion: impaired movement control
+      - Blindness: severely reduced vision
+      - Paralysis: unable to act
+      - Slowing: reduced action frequency
+      - Poison: continuous damage over time
+      - Curse: equipment penalties that persist
+      - Torment: damage that bypasses armor
+      - Petrification: gradually turning to stone
+      - Drain: permanent HP reduction
+
+    Duration:
+      - Some effects last specific number of turns
+      - Others persist until cured
+      - Potions and spells remove status effects
+      - Some effects require specific cures
+
+traps:
+  name: Traps and Hazards
+  desc: |
+    Hidden mechanisms on dungeon floors pose danger.
+
+    Trap types include:
+      - Pit traps: fall damage and displacement
+      - Blade traps: slicing damage
+      - Teleport traps: random displacement
+      - Summoning traps: spawn hostile creatures
+      - Alarm traps: alert nearby monsters
+
+    Trap mechanics:
+      - Triggered when stepped on
+      - Detection through careful exploration
+      - Disarming may be possible (Searching skill)
+      - Some traps have magical detection
+
+resistances_and_damage:
+  name: Resistances and Damage Types
+  desc: |
+    Characters and monsters may resist certain damage forms.
+
+    Damage types:
+      - Physical: melee weapon damage
+      - Fire: flame and heat effects
+      - Cold: ice and frost effects
+      - Electricity: lightning damage
+      - Poison: toxic effects
+      - Acid: corrosive damage
+      - Magic: direct magical energy
+      - Negative Energy: life drain effects
+      - Torment: bypasses resistance and armor
+      - Mutation: genetic alteration
+
+    Resistance sources:
+      - Equipment: rings, amulets, armor egos
+      - Spells: cast protective spells
+      - Mutations: some mutations provide resistance
+      - Potions: temporary resistance effects
+      - Race abilities: some races innate resistances
+
+artifacts:
+  name: Artifacts
+  desc: |
+    Unique powerful items grant significant advantages.
+
+    Artifact types:
+      - Melee weapons: powerful damage and special abilities
+      - Ranged weapons: superior accuracy and power
+      - Armor: enhanced protection and resistances
+      - Rings: stat bonuses and special effects
+      - Amulets: protective and ability-enhancing
+
+    Artifact mechanics:
+      - One of a kind in each game
+      - Often hidden in dangerous locations
+      - Provide major strategic advantages
+      - Some artifacts are cursed or dangerous
+      - Collecting artifacts is optional but prestigious
+
+victory:
+  name: Victory Condition
+  desc: |
+    Winning requires retrieving the Orb of Zot and escaping alive.
+
+    Victory path:
+      - Collect at least 3 Runes of Zot from various branches
+      - Descend to the Realm of Zot (accessed with 3 runes)
+      - Locate and retrieve the Orb of Zot
+      - Ascend back to the surface level
+      - Exit the dungeon alive
+
+    Optional objectives:
+      - Collect all 15 available runes (ultimate challenge)
+      - Defeat all unique monsters
+      - Find and acquire all artifacts
+      - Achieve high score ranking
+
+death:
+  name: Death and Permadeath
+  desc: |
+    Death is permanent; the character dies at 0 HP.
+
+    Causes of death include:
+      - Combat damage from monsters
+      - Torment spell damage
+      - Environmental hazards (traps, lava, etc.)
+      - Poison accumulation
+      - Overwhelming encounters
+      - Divine punishment from gods
+      - Curse effects
+
+deep_dwellers:
+  name: Bones Levels
+  desc: |
+    Records of deceased characters appear as bones levels.
+
+    Bones mechanics:
+      - Ghost of deceased character appears on their death level
+      - Ghost has similar abilities to original character
+      - Defeating ghost rewards experience
+      - Defeating ghost can yield their items
+      - Provides unique challenges and loot
+
+difficulty:
+  name: Difficulty and Challenge
+  desc: |
+    Crawl is renowned for being exceptionally challenging.
+
+    Difficulty factors:
+      - Permadeath: permanent character loss on death
+      - Hard combat: vulnerable monsters deal real damage
+      - Torment spell: deals HP directly, bypassing armor
+      - Resource scarcity: healing limited, items spread thin
+      - Dungeon complexity: multiple branches, hidden dangers
+      - Unique encounters: boss-like monsters throughout
+      - Decision complexity: poor decisions cause permanent problems
+      - Rune system: must visit multiple branches
+      - Extended dungeon: deep levels with severe challenges
+
+    Player strategies:
+      - Defensive play: avoid unnecessary combat
+      - Spell usage: leverage magic creatively
+      - Retreat tactics: know when to flee
+      - Potion conservation: preserve healing resources
+      - Branch order: select safe branches first
+      - God selection: pick deity carefully
+      - Artifact hunting: pursue key artifacts
+      - Risk management: avoid overconfidence

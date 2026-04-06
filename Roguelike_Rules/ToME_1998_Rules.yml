@@ -1,0 +1,563 @@
+game_structure:
+  name: Game Structure
+  desc: |
+    Tales of Middle Earth (formerly Troubles of Middle Earth) is a dungeon-exploration
+    roguelike set in J.R.R. Tolkien's Arda. The game features a vast world map with
+    multiple towns and dungeons based on Tolkien's mythology.
+
+    Game objectives:
+      - explore multiple dungeons across Middle-earth
+      - investigate troubles at Dol Goldur in Mirkwood (primary goal)
+      - descend into Angband dungeon
+      - defeat Morgoth, Lord of Darkness
+
+    World structure:
+      - wilderness overworld map based on Tolkien's geography
+      - multiple towns and civilizations
+      - dozens of thematic dungeons
+      - procedurally generated dungeon levels
+
+turn_system:
+  name: Turn System
+  desc: |
+    The game uses a turn-based energy system inherited from parent Angband variants.
+
+    Turn mechanics:
+      - player actions consume energy
+      - monsters act based on energy allocation
+      - movement, combat, spells all cost energy
+      - turn resolution occurs after player acts
+
+character_creation:
+  name: Character Creation
+  desc: |
+    Character creation is complex with multiple customization options.
+
+    Creation steps:
+      1. choose gender
+      2. choose race (22+ available races)
+      3. choose race modifier/subrace (8+ modifiers, especially undead variants)
+      4. choose class (20+ classes with unique abilities)
+      5. optionally choose deity to worship
+      6. allocate base statistics
+      7. name character
+
+races:
+  name: Races
+  desc: |
+    ToME features 22+ races with unique abilities and stat modifiers.
+
+    Standard humanoid races:
+      - human (versatile, well-balanced)
+      - half-elf
+      - wood-elf
+      - elf
+      - half-orc
+      - dwarf
+      - hobbit (halfling)
+      - gnome
+
+    Tolkien-specific races:
+      - dúnedain (noble men of the west)
+      - beorning (shapeshifter descendants)
+      - maiar (demigod beings)
+      - dragon-born
+
+    Exotic and monstrous races:
+      - troll
+      - half-troll
+      - cyclops
+      - dark elf
+      - draconian
+
+    Special/uncommon races:
+      - kobold
+      - yeek
+      - sprite
+
+    Race modifiers/subraces:
+      - zombie
+      - skeleton
+      - spectre
+      - vampire
+      - ghoul
+      - hermit
+      - barbarian
+      - lost soul (starts in Mandos, highly challenging)
+
+race_modifiers:
+  name: Race Modifiers and Subraces
+  desc: |
+    Race modifiers grant thematic variants and special abilities.
+
+    Undead modifiers:
+      - zombie: reanimated corpse
+      - skeleton: bone creature
+      - spectre: ghostly form
+      - vampire: bloodsucker with special restrictions
+      - ghoul: undead creature
+
+    Lifestyle modifiers:
+      - hermit: isolated adventurer
+      - barbarian: savage warrior
+      - lost soul: damned being starting in Mandos
+
+    Special characteristics:
+      - different starting locations
+      - unique ability restrictions
+      - stat adjustments
+      - special powers or penalties
+
+classes:
+  name: Classes
+  desc: |
+    ToME includes 20+ distinct character classes with unique mechanics.
+
+    Melee-focused classes:
+      - warrior (hack-and-slash specialist)
+      - swordmaster (weapon mastery expert)
+      - axemaster (two-handed axe specialist)
+      - polearmmaster (spear and halberd expert)
+      - haftedmaster (hafted weapon specialist)
+      - barbarian (primal warrior)
+      - monk (hand-to-hand combat)
+
+    Ranged classes:
+      - archer (bow and projectile specialist)
+      - ranger (ranged warrior with skills)
+
+    Magical classes:
+      - mage (versatile spellcaster)
+      - mage-priest (hybrid mage-priest)
+      - loremaster (knowledge-based magic)
+      - alchemist (experimental craft)
+      - geomancer (earth magic specialist)
+      - bard (music and magic)
+
+    Holy classes:
+      - priest-eru (worshipper of Eru Ilúvatar)
+      - priest-manwe (worshipper of Manwë Sulimo)
+      - paladin (holy warrior)
+      - dark-priest (dark priest of evil deities)
+
+    Specialist classes:
+      - rogue (thief and stealth)
+      - assassin (stealth killer)
+      - necromancer (death magic)
+      - demonologist (summoning evil)
+      - druid (nature magic)
+      - mindcrafter (psychic abilities)
+      - mimic (shapeshifter)
+      - possessor (body-switching)
+
+    Support classes:
+      - summoner (creature summoner)
+      - runecrafter (rune-based magic)
+
+attributes:
+  name: Attributes and Stats
+  desc: |
+    Five primary attributes determine character capabilities.
+
+    Primary stats:
+      - strength (melee damage, carrying capacity)
+      - intelligence (mage spellcasting)
+      - wisdom (priest/ranger spellcasting, saves)
+      - dexterity (armor class, ranged combat)
+      - constitution (hit points, stamina)
+
+    Secondary stats (derived):
+      - charisma (NPC reactions, social effects)
+
+    Additional character stats:
+      - hit points (HP) - health
+      - mana (MP) - magical energy
+      - piety (Pt) - divine favor
+      - sanity - mental state
+
+skills_and_progression:
+  name: Skills and Progression
+  desc: |
+    Character development uses skill point allocation system.
+
+    Skill system:
+      - level up grants 6 skill points per level
+      - skill points allocated to various skills
+      - skills improve from 0.0 to 100%+ scale
+      - skills used improve through practice
+
+    Available skills include:
+      - combat (melee fighting)
+      - shooting (ranged combat)
+      - magic schools (various magical disciplines)
+      - weapon-specific masteries (swordmastery, axemastery, etc.)
+      - craft skills (alchemy, runecraft)
+      - utility skills (disarming, searching, tracking)
+      - prayer (religious spellcasting)
+      - spirituality (holy connection)
+
+    Special abilities:
+      - acquired through skill investment
+      - expensive in skill points (high requirements)
+      - class-specific access restrictions
+      - unlock at minimum proficiency levels
+
+hit_points:
+  name: Hit Points and Health
+  desc: |
+    Hit points represent character vitality and survival.
+
+    HP mechanics:
+      - determined by constitution and class
+      - increase with leveling
+      - potions restore health
+      - damage reduces HP
+      - at 0 HP character dies
+
+mana_and_spellcasting:
+  name: Mana and Spellcasting
+  desc: |
+    Magical power is represented through mana and spell systems.
+
+    Mana mechanics:
+      - maximum mana based on intelligence or wisdom
+      - mana regenerates slowly outside combat
+      - spellcasting consumes mana
+      - various magical disciplines available
+
+    Spell system:
+      - magic organized by schools (Sorcery, Nature, etc.)
+      - spells learned from spellbooks
+      - spell failure possible at low proficiency
+      - spellbooks can burn in lava (vulnerability)
+      - spells gain power with skill investment
+
+piety_system:
+  name: Piety and Divine Favor
+  desc: |
+    Players can worship deities and gain divine powers.
+
+    Piety mechanics:
+      - piety (Pt stat) measures divine favor
+      - gained by slaying evil creatures, fulfilling quests
+      - lost by displeasing deity
+      - invisible reward system from gods
+      - gods may save character from death
+      - gods grant stat bonuses
+
+    Available deities:
+      - Eru Ilúvatar (supreme god)
+      - Manwë Sulimo (air, second strongest Vala)
+      - Yavanna Kementari (earth, plants, animals)
+      - Melkor (evil god, provides dark powers)
+      - Others (various Tolkien deities)
+
+    Divine abilities:
+      - special priestly spells
+      - divine interventions
+      - stat increases when high piety
+      - special quest rewards
+
+combat:
+  name: Combat System
+  desc: |
+    Combat is turn-based with multiple attack options.
+
+    Combat mechanics:
+      - movement adjacent to creature initiates combat
+      - multiple attacks per round based on dexterity
+      - weapon damage scales with skill proficiency
+      - armor class determines defense
+      - critical hits possible
+
+    Combat options:
+      - melee attacks with weapons
+      - ranged attacks with bows/projectiles
+      - unarmed/barehand combat (monks, loremasters)
+      - special abilities and spells
+      - tactical positioning important
+
+    Weapons and equipment:
+      - weapons have damage dice and bonuses
+      - armor provides AC and elemental resistances
+      - weapon slays multiply damage vs specific monsters
+      - brands provide magical effects
+      - equipment weights affect encumbrance
+
+corruption:
+  name: Corruptions and Afflictions
+  desc: |
+    Players can become corrupted through various means.
+
+    Corruption mechanics:
+      - various corruption types available
+      - corruptions grant abilities and penalties
+      - accessed through "U" command
+      - can be beneficial or detrimental
+      - sanity tracking important for corrupted characters
+
+    Sanity system:
+      - mental damage from corruptions and horrors
+      - sanity loss from various sources
+      - low sanity causes confusion and penalties
+      - sanity potions restore mental state
+
+dungeon_system:
+  name: Dungeon Generation and Themes
+  desc: |
+    Dungeons are procedurally generated with thematic elements.
+
+    Dungeon structure:
+      - multiple independent dungeons with unique themes
+      - levels randomly generated each visit (no persistence)
+      - levels contain themed rooms and corridors
+      - stairs connect levels (at least one up, two down per level)
+      - special themed areas and vaults
+
+    Themed dungeons:
+      - barrow-downs (haunted burial mounds)
+      - orc caves (orcish strongholds)
+      - sandworm lair (desert dungeon)
+      - crypt of the damned (undead realm)
+      - many others with unique monsters and items
+
+    Generation features:
+      - special rooms with unique layouts
+      - traps and hazards
+      - treasure caches
+      - unique monster encounters
+      - themed creature populations
+
+wilderness_overworld:
+  name: Wilderness Overworld
+  desc: |
+    Vast wilderness connects multiple towns and dungeons.
+
+    Wilderness mechanics:
+      - explorable overworld map of Arda
+      - travel between locations
+      - random encounters possible
+      - wilderness view scales dungeon travel
+      - camping and resting available
+
+town_system:
+  name: Towns and Settlements
+  desc: |
+    Multiple towns serve as safe havens and quest hubs.
+
+    Major towns:
+      - bree (starting village, prancing pony tavern)
+      - many other settlements based on Tolkien's Middle-earth
+
+    Town facilities:
+      - equipment shops
+      - item stores
+      - temples and sanctuaries
+      - quest givers
+      - NPC interactions
+      - safe resting areas
+
+quests:
+  name: Quest System
+  desc: |
+    Extensive quest system provides objectives and rewards.
+
+    Quest types:
+      - main quest: investigate Dol Goldur
+      - deity quests: specific to chosen god
+      - general quests: provided by NPCs
+      - class quests: unique to character class
+      - optional quests: for extra rewards
+
+    Quest mechanics:
+      - quest completion grants experience
+      - divine quests provide unique rewards
+      - quest log tracks active objectives
+      - quest failures have consequences
+      - multiple branching quest chains
+
+monsters:
+  name: Monsters and Creatures
+  desc: |
+    Hundreds of diverse monsters populate Arda.
+
+    Monster types:
+      - humanoids (humans, orcs, elves)
+      - beasts (great spiders, wargs)
+      - undead (ghosts, liches, zombies)
+      - demons and devils
+      - dragons and dragonkin
+      - unique boss monsters
+      - thematic creature groups
+
+    Monster behavior:
+      - varied AI depending on type
+      - spell casting and special abilities
+      - some are friendly or can be befriended
+      - breeding creatures (worms, mice multiply)
+      - intelligent tactics in combat
+
+artifacts:
+  name: Artifacts and Equipment
+  desc: |
+    Powerful artifacts scattered throughout dungeons.
+
+    Artifact types:
+      - true artifacts (named Tolkien artifacts)
+      - random artifacts (procedurally generated)
+      - randarts (unusual items with random abilities)
+
+    Special artifacts:
+      - unidentified artifacts (mysterious)
+      - activation artifacts (special powers)
+      - cursed artifacts (dangerous)
+      - artifact protection (prevents loss by default)
+
+    Artifact mechanics:
+      - some artifacts require identification
+      - activation grants special effects
+      - can be created through powerful quests
+      - forge your own artifacts (high-level mechanic)
+
+items_and_materials:
+  name: Items and Material Systems
+  desc: |
+    Various item types and crafting materials available.
+
+    Item types:
+      - weapons and armor
+      - potions (healing, restoration, etc.)
+      - spellbooks (contain magical knowledge)
+      - scrolls (one-time spells)
+      - wands and staves (magical devices)
+      - essences (alchemical ingredients)
+      - runes (stored spells)
+
+    Special mechanics:
+      - scrolls/spellbooks burn in lava (vulnerable)
+      - essence system for alchemists
+      - rune storage and casting
+      - player-forged artifacts possible
+
+permadeath:
+  name: Permadeath
+  desc: |
+    Character death is permanent and irrecoverable.
+
+    Death consequences:
+      - character permanently deleted
+      - all equipment and progress lost
+      - inventory items vanish
+      - game emphasizes strategic play
+
+pets_and_companions:
+  name: Pets and Companions
+  desc: |
+    Players can attract pets and allies.
+
+    Companion mechanics:
+      - attract pets through gameplay
+      - friendly creatures fight alongside character
+      - NPCs in towns can be interacted with
+      - companions aid in combat
+      - form adventuring parties
+
+dungeon_features:
+  name: Dungeon Features and Hazards
+  desc: |
+    Dungeons contain various special features.
+
+    Features:
+      - secret doors and passages
+      - trapdoors (lead to lower levels)
+      - pits and hazards
+      - altars for divine interaction
+      - special themed rooms (vaults, pools, etc.)
+      - locked chests and treasure
+
+    Environmental hazards:
+      - lava flows (burns items)
+      - rivers and water (can be depleted by spells)
+      - rock walls (tunneling required)
+      - traps (various trigger types)
+
+origin_and_history:
+  name: Game Origin and Development
+  desc: |
+    ToME has a complex development history.
+
+    Development history:
+      - originally created as PernAngband in 1998
+      - crossover of Anne McCaffrey's Pern and Tolkien
+      - legal cease-and-desist from Anne McCaffrey estate
+      - renamed to Troubles of Middle Earth (ToME)
+      - later renamed Tales of Middle Earth
+
+    Creator:
+      - developed by Nicolas Casalini (username: DarkGod)
+      - based on ZAngband 2.2.9a source code
+      - heavily modified and extended
+
+    Engine:
+      - uses T-Engine (roguelike engine by DarkGod)
+      - Lua scripting support (later versions)
+      - modular architecture allows variants
+
+module_system:
+  name: Module and Variant System
+  desc: |
+    Game supports creation of derivative modules.
+
+    Popular modules:
+      - ToME 2 Theme (strict Tolkien focus)
+      - FuryMod (separate fork, became FuryBand)
+      - Annals of Ea
+      - Gerband
+      - Various other community creations
+
+    Module features:
+      - scripts replaceable for customization
+      - new item types and monsters
+      - different settings and themes
+      - enhanced or modified mechanics
+
+difficulty_and_gameplay:
+  name: Difficulty and Gameplay Features
+  desc: |
+    Game offers depth and challenge through complex systems.
+
+    Complexity elements:
+      - sheer number of race/class combinations (nearly endless)
+      - some combinations exceptionally powerful
+      - some combinations underpowered
+      - learning curve steep but rewarding
+      - skill point allocation critical to success
+
+    Realistic mechanics:
+      - scrolls and spellbooks burn in lava
+      - rivers deplete when casting water spells
+      - item degradation and vulnerability
+      - realistic environment interaction
+
+notes:
+  name: Additional Notes
+  desc: |
+    Important information about ToME gameplay.
+
+    Balancing factors:
+      - no inherent difficulty settings in 1998 version
+      - player controls risk through exploration
+      - dungeon depth determines danger level
+      - character preparation crucial
+
+    Accessibility:
+      - complex character creation but rewarding
+      - steep learning curve
+      - extensive documentation available
+      - active community for assistance
+
+    Final versions:
+      - last major release: 2.3.3 (December 2005)
+      - DarkGod later created ToME 3 (incomplete alpha)
+      - ToME 4 released in 2010 (complete rewrite, not Arda-based)
+      - original Arda-based versions preserved and available

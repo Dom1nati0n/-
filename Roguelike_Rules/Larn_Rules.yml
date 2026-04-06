@@ -1,0 +1,401 @@
+game_structure:
+  name: Game Structure
+  desc: |
+    Larn is a roguelike dungeon exploration game with a unique time-limited quest
+    structure. The player creates a character and explores multiple dungeons to
+    find a magical potion that can cure their daughter of a mysterious disease
+    called dianthroritis. Unlike other roguelikes, Larn features a persistent town
+    with multiple shops and services, and multiple interconnected dungeons.
+
+turn_system:
+  name: Turn System
+  desc: |
+    The game proceeds in discrete turns measured in time units called "mobuls".
+    Each player action consumes one turn. The game has a time limit of 300 mobuls
+    before the daughter dies, creating urgency to complete the quest.
+
+    Turn resolution:
+      1. Player action (move, attack, use item, cast spell, etc.)
+      2. Monsters act once
+      3. Environmental effects resolve
+      4. Time advances by one mobul
+
+time_limit:
+  name: Time Limit and Quest Deadline
+  desc: |
+    Larn features a unique time-limited quest structure.
+
+    Time mechanics:
+      - Player has 300 mobuls to complete the quest
+      - Each turn consumes one mobul
+      - Reaching time limit before obtaining cure results in loss
+      - Unlike hunger, time passes regardless of player actions
+      - Creates tactical pressure to manage exploration efficiently
+
+town_level:
+  name: Town Level
+  desc: |
+    A persistent town serves as the base of operations.
+
+    Town features:
+      - Adventurer's Home: player's residence with storage
+      - DND Store: weapons, armor, and supplies
+      - Bank: deposit and withdraw gold; earn interest over time
+      - Tax Hall: pay taxes on income from previous wins
+      - School: improve character skills and abilities
+      - Trading Post: exchange items and gems
+      - Entrance to Main Dungeon: where quest begins
+      - Entrance to Volcano: where final potion awaits
+
+    Town mechanics:
+      - Return between dungeon expeditions
+      - Store items safely in home
+      - Bank provides secure storage and interest
+      - Shop prices fixed and identified items always available
+      - Rest and recover HP/mana before descending
+
+dungeon_structure:
+  name: Dungeon Structure
+  desc: |
+    The game world consists of a town and two major dungeons.
+
+    Main Dungeon (Caverns of Larn):
+      - Ten levels of increasing difficulty
+      - Procedurally generated each playthrough
+      - Contains monsters, treasure, and items
+      - Prepares player for the volcanic dungeon
+      - Provides experience and equipment gathering
+
+    Volcano Dungeon:
+      - Three additional levels beneath the main dungeon
+      - Contains the final potion of cure dianthroritis
+      - Populated with extremely powerful demons and monsters
+      - Requires extensive preparation before entering
+      - Final boss battles take place here
+
+    General level characteristics:
+      - Variable room layouts and maze patterns
+      - Doors between rooms can be locked or open
+      - Treasure rooms with valuable items
+      - One or more staircases per level
+      - Non-persistent: regenerate when revisited
+      - Difficulty increases dramatically with depth
+
+character_creation:
+  name: Character Creation
+  desc: |
+    Before beginning, the player creates a character.
+
+    Character choices:
+      - Gender: male or female
+      - Ability scores: randomly rolled with rerolls allowed
+      - Starting gold: based on initial wealth roll
+
+    Starting resources:
+      - Gold for purchasing equipment
+      - Initial basic equipment
+      - Beginning experience at level 1
+      - Hit points determined by constitution
+
+    Note: Larn features no character classes; instead, character development
+    is determined by player choices during gameplay.
+
+abilities:
+  name: Character Abilities
+  desc: |
+    Characters have multiple abilities affecting dungeon survival.
+
+    Primary abilities:
+      - Combat effectiveness: melee attack power
+      - Missile weapons: ranged attack accuracy
+      - Saving Throw: resistance to magic and harmful effects
+      - Stealth: ability to move undetected
+      - Perception: chance to notice hidden objects
+      - Searching: active detection of hidden items
+      - Disarming: skill at removing traps safely
+      - Magic Knowledge: ability to cast learned spells
+
+    Ability advancement:
+      - Improves through experience and level gain
+      - Can be enhanced through school training
+      - Better equipment provides temporary bonuses
+      - Spell knowledge increases effectiveness of magic
+
+stats:
+  name: Ability Stats
+  desc: |
+    Each character has six attributes affecting abilities.
+
+    The six stats:
+      - Strength: affects carrying capacity, melee damage
+      - Intelligence: determines spell memory and mana pool
+      - Wisdom: affects spell casting success rate
+      - Dexterity: improves accuracy and evasion
+      - Constitution: determines maximum hit points
+      - Luck: affects critical hits and item drops
+
+movement:
+  name: Movement
+  desc: |
+    The player moves through dungeons in discrete steps.
+
+    Movement rules:
+      - Player can move in eight directions
+      - Each step costs one turn (one mobul)
+      - Movement blocked by walls, closed doors, and monsters
+      - Movement into a monster initiates combat
+      - Running allows faster corridor traversal
+      - Varied level layouts require careful navigation
+
+visibility:
+  name: Visibility and Light
+  desc: |
+    Visibility depends on dungeon lighting conditions.
+
+    Visibility rules:
+      - Dungeons are naturally dark
+      - Light sources limited and valuable
+      - Torches provide short-range illumination
+      - Lanterns provide extended visibility
+      - Without light, movement becomes dangerous
+      - Some creatures see in darkness
+      - Secret passages may exist but are hidden
+
+experience_levels:
+  name: Experience and Leveling
+  desc: |
+    Defeating monsters grants experience leading to advancement.
+
+    Experience system:
+      - Monsters grant experience when defeated
+      - Accumulated experience increases character level
+      - Characters begin at level 1
+      - Each level improves abilities and max HP
+      - Higher levels unlock spell casting
+      - Experience requirements scale with level
+      - More powerful monsters grant more XP
+
+combat:
+  name: Combat System
+  desc: |
+    Combat occurs when creatures attempt to enter occupied spaces.
+
+    Combat resolution:
+      1. Attacker rolls to hit based on strength and dexterity
+      2. If hit succeeds, damage is rolled
+      3. Defender's armor reduces damage taken
+      4. Defender HP reduced by net damage
+      5. Combat continues until one party dies or retreats
+
+    Combat parameters:
+      - Attacker: strength, dexterity, weapon quality
+      - Defender: armor class from equipment, constitution
+      - Weapon effectiveness: varies by enemy type
+      - Special attacks: some creatures have unique abilities
+      - Spellcasting: can be used during combat
+
+hit_points:
+  name: Hit Points
+  desc: |
+    Hit points represent character health and determine survival.
+
+    Hit point mechanics:
+      - Maximum HP determined by constitution and level
+      - HP per level increased at level up
+      - Damage from combat and effects reduces HP
+      - Death occurs at 0 HP; game ends permanently
+      - Potions restore HP instantly
+      - Resting regenerates HP slowly over time
+      - Some monsters drain maximum HP
+
+equipment:
+  name: Equipment System
+  desc: |
+    Equipment provides combat bonuses and protection.
+
+    Equipment categories:
+      - Weapons: swords, axes, bows, spears
+      - Armor: body armor, shields, helmets, gloves, boots
+      - Accessories: rings, amulets, enchanted items
+      - Light sources: torches, lanterns
+
+    Equipment effects:
+      - Weapons provide attack bonuses and damage
+      - Armor reduces damage taken (armor class)
+      - Magical items grant stat bonuses
+      - Enchanted items provide special abilities
+      - Cursed items impose severe penalties
+
+items_and_objects:
+  name: Items and Objects
+  desc: |
+    Items found in dungeons provide supplies and power.
+
+    Major item categories:
+      - Weapons: melee and ranged arms
+      - Armor: protective equipment
+      - Potions: magical liquids with various effects
+      - Scrolls: single-use magical papers
+      - Spellbooks: learnable spell sources (3-letter mnemonic)
+      - Rings: magical jewelry providing abilities
+      - Amulets: magical items with special properties
+      - Gems: valuable items for selling
+      - Gold: currency for trading
+
+    Item mechanics:
+      - Items are always identified after use
+      - Player immediately knows item function after using it
+      - Same items remain identified in future
+      - Identification happens automatically without scrolls
+      - Cursed items become apparent when equipped
+
+spellcasting:
+  name: Spellcasting System
+  desc: |
+    Magic is learned through spellbooks found in the dungeon.
+
+    Spellcasting mechanics:
+      - Spellbooks contain learnable spells
+      - Learning happens when reading spellbook (cast command)
+      - Spells are cast using 3-letter mnemonics (e.g., MLE for magic missile)
+      - Mana pool determined by intelligence and level
+      - Mana regenerates slowly while resting
+      - Spell failure depends on wisdom and experience
+      - Learned spells persist across the adventure
+      - Multiple spells can be learned from different books
+
+    Available spells include:
+      - Attack spells: Magic Missile, Fireball, Ice Storm
+      - Defense spells: Shield, Protection spells
+      - Utility spells: Teleport, Detection spells
+      - Healing spells: Heal, Cure Disease
+      - Special spells: Disintegrate, Permanence
+
+monsters:
+  name: Monsters
+  desc: |
+    Monsters populate dungeons and provide experience.
+
+    Monster characteristics:
+      - Hit points: creature's health
+      - Attack power: effectiveness in combat
+      - Special abilities: unique attacks or effects
+      - Speed: determines action frequency
+      - Intelligence: affects tactics and spell use
+
+    Monster types:
+      - Demons: powerful undead creatures in volcano
+      - Dragons: extremely dangerous final encounters
+      - Lesser creatures: easier enemies on early levels
+      - Magical creatures: use spells and special effects
+      - Unique bosses: particularly dangerous encounters
+
+status_effects:
+  name: Status Effects
+  desc: |
+    Certain attacks and spells inflict conditions.
+
+    Common status effects:
+      - Confusion: impaired movement control
+      - Blindness: severely reduced vision
+      - Paralysis: unable to act
+      - Poison: continuous damage over time
+      - Curse: equipment penalties that persist
+      - Disease: simulated by health effects
+
+    Curse mechanics (particularly harsh):
+      - Cursed items cannot be easily removed
+      - Curses actively harm the wearer
+      - Removal requires specific actions or items
+      - Much more serious than in other roguelikes
+
+traps:
+  name: Traps
+  desc: |
+    Hidden mechanisms on dungeon floors pose danger.
+
+    Trap types include:
+      - Pit traps: fall damage and level displacement
+      - Spike traps: piercing damage
+      - Teleport traps: random displacement within level
+      - Summoning traps: spawn hostile creatures
+      - Poison gas traps: toxic damage
+
+    Trap mechanics:
+      - Triggered when stepped on
+      - Detection through careful exploration
+      - Disarming skill allows safe removal
+      - Can be avoided with careful mapping
+
+victory:
+  name: Victory Condition
+  desc: |
+    Winning requires finding and retrieving the magical potion.
+
+    Victory path:
+      - Explore and gain experience in main dungeon
+      - Acquire powerful equipment from shops and monsters
+      - Descend through volcano dungeon
+      - Locate the Potion of Cure Dianthroritis
+      - Return to daughter before time limit
+      - Complete quest before 300 mobuls pass
+
+    Victory requirements:
+      - Must have potion in inventory
+      - Must return to surface
+      - Must complete within time limit
+      - Character must be alive
+
+progressive_difficulty:
+  name: Progressive Difficulty
+  desc: |
+    Larn increases in difficulty with each completion.
+
+    Difficulty scaling:
+      - First playthrough: baseline difficulty
+      - Subsequent playthroughs: monsters get stronger
+      - Actions become harder (breaking walls, etc.)
+      - Monster abilities increase
+      - Treasure becomes scarcer
+      - Challenge essentially unlimited
+
+    Tax system:
+      - Winners pay taxes on gold brought to surface
+      - Tax increases with each win
+      - Creates economic pressure for subsequent playthroughs
+      - Encourages players to leave treasure behind
+
+death:
+  name: Death and Permadeath
+  desc: |
+    Death is permanent; the character dies at 0 HP.
+
+    Causes of death include:
+      - Combat damage from monsters
+      - Traps and environmental hazards
+      - Poison accumulation
+      - Curses and status effects
+      - Overwhelming enemy encounters
+
+difficulty:
+  name: Difficulty and Challenge
+  desc: |
+    Larn is moderately challenging with unique mechanics.
+
+    Difficulty factors:
+      - Time limit creates constant pressure
+      - Permadeath: mistakes are permanent
+      - Dungeon complexity: navigation required
+      - Monster encounters: dangerous and unpredictable
+      - Equipment scarcity: limited resources
+      - Curse danger: particularly threatening
+      - Multiple dungeons: require extensive exploration
+
+    Player strategies:
+      - Efficient dungeon exploration to beat time limit
+      - Skill training at the school before deep exploration
+      - Gem collection and selling for equipment
+      - Spell learning for combat and utility
+      - Careful curse avoidance
+      - Return to town regularly for supplies
+      - Plan route through both dungeons carefully

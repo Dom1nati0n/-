@@ -1,0 +1,363 @@
+game_structure:
+  name: Game Structure
+  desc: |
+    Hack is a roguelike dungeon exploration game and direct descendant of Rogue.
+    The player creates a character and descends through a procedurally generated
+    dungeon seeking to retrieve the Amulet of Yendor and return to the surface
+    alive. Hack expands upon Rogue with more monsters, items, character classes,
+    and a pet dog companion.
+
+turn_system:
+  name: Turn System
+  desc: |
+    The game proceeds in discrete turns. Each player action consumes one turn.
+    The dungeon is subdivided into rooms connected by corridors and mazes.
+
+    Turn resolution:
+      1. Player action (move, attack, use item, cast spell, etc.)
+      2. Monsters act once
+      3. Environmental effects resolve
+
+dungeon_structure:
+  name: Dungeon Structure
+  desc: |
+    The dungeon consists of multiple levels beneath the surface accessible via
+    staircases.
+
+    Level characteristics:
+      - Upper levels contain rectangular rooms connected by corridors
+      - Lower levels become dark mazes
+      - Rooms may be empty or populated with monsters
+      - Treasure and items scattered throughout
+      - One staircase to the next level per floor
+      - Darkness increases in lower levels
+
+    Special features:
+      - Persistent levels: once visited, levels remain unchanged if revisited
+      - Variable lighting conditions
+      - Secret doors may conceal passages
+      - Doors between rooms can be locked or open
+
+character_creation:
+  name: Character Creation
+  desc: |
+    Before entering the dungeon, the player creates a character.
+
+    Character choices:
+      - Gender: male or female
+      - Race: determines starting abilities
+      - Class: determines skill focus and special abilities
+
+    Available classes:
+      Tourist, Speleologist, Fighter, Knight, Cave-man, Wizard
+
+    Starting resources:
+      - Gold for purchasing equipment
+      - Initial equipment appropriate to class
+      - Beginning experience at level 1
+
+abilities:
+  name: Character Abilities
+  desc: |
+    Each character has abilities that determine effectiveness in specific tasks.
+
+    Primary abilities:
+      - Fighting: melee combat effectiveness
+      - Throwing: ranged attack accuracy
+      - Saving Throw: resistance to magic and harmful effects
+      - Stealth: ability to move undetected
+      - Perception: chance to notice hidden objects
+      - Searching: active searching skill
+      - Disarming: capability to safely remove traps
+      - Magic Device: ability to use wands, staves, and rods
+
+movement:
+  name: Movement
+  desc: |
+    The player moves through the dungeon in discrete steps.
+
+    Movement rules:
+      - Player can move in eight directions
+      - Each step costs one turn
+      - Movement blocked by walls, closed doors, and monsters
+      - Movement into a monster initiates melee combat
+      - Corridors feature limited visibility
+
+visibility:
+  name: Visibility and Light
+  desc: |
+    Visibility varies based on location and lighting.
+
+    Visibility rules:
+      - Entire room becomes visible when entered
+      - Corridors reveal only adjacent tiles (1 square radius)
+      - Darkness in mazes severely restricts vision
+      - Light sources provide extended visibility
+      - Some creatures possess infravision and see in darkness
+
+experience_levels:
+  name: Experience and Leveling
+  desc: |
+    Defeating monsters grants experience points leading to advancement.
+
+    Experience system:
+      - Monsters grant experience when defeated
+      - Accumulated experience increases character level
+      - Characters begin at level 1
+      - Each level provides:
+          - Increased maximum hit points
+          - Improved combat effectiveness
+          - Better spell power (for spellcasters)
+      - Experience requirements increase with each level
+
+combat:
+  name: Combat System
+  desc: |
+    Combat occurs when the player or monster attempts to move into an occupied
+    space. Combat is turn-based and resolution-based.
+
+    Combat resolution:
+      1. Attacker attempts to hit based on ability and weapon
+      2. If hit succeeds, damage is rolled
+      3. Defender's armor reduces damage taken
+      4. Defender HP reduced by net damage
+      5. Combat continues until one party dies or flees
+
+    Combat parameters:
+      - Attacker: strength, weapon bonus, fighting ability
+      - Defender: armor class from equipment, constitution
+      - Weapon type: affects damage and accuracy
+      - Special attacks: some creatures have unique abilities
+
+hit_points:
+  name: Hit Points
+  desc: |
+    Hit points represent character health and determine survival.
+
+    Hit point mechanics:
+      - Maximum HP determined by class and constitution
+      - HP per level increased at level up
+      - Damage from combat and effects reduces HP
+      - Death occurs at 0 HP; game ends permanently
+      - HP regenerates slowly while resting
+      - Potions and spells restore HP
+
+equipment:
+  name: Equipment System
+  desc: |
+    Equipment provides combat bonuses and protection.
+
+    Equipment categories:
+      - Weapons: swords, axes, bows, and other arms
+      - Armor: body armor, shields, helmets, gloves, boots
+      - Accessories: rings, amulets
+      - Light sources: torches and lanterns
+
+    Equipment effects:
+      - Weapons provide attack bonuses and damage dice
+      - Armor reduces damage taken
+      - Magical items grant stat bonuses and special properties
+      - Cursed items impose penalties and cannot be removed easily
+
+items_and_objects:
+  name: Items and Objects
+  desc: |
+    Items found in the dungeon provide essential supplies and power.
+
+    Major item categories:
+      - Weapons: melee and ranged combat arms
+      - Armor: protective equipment
+      - Potions: magical liquids with various effects
+      - Scrolls: single-use magical papers
+      - Rings: magical jewelry providing special abilities
+      - Wands: magical devices with limited charges
+      - Amulets: magical jewelry with constant effects
+      - Food: sustenance for hunger
+      - Gold: currency for trading
+
+item_identification:
+  name: Item Identification
+  desc: |
+    Most items begin unidentified and must be discovered.
+
+    Identification methods:
+      - Use: equipping or using items reveals properties
+      - Scrolls of Identify: instantly reveal item properties
+      - Experimentation: trial and error determines function
+      - Once identified, same items appear identified in future
+
+    Item states:
+      - Unidentified: true nature unknown
+      - Partially identified: some properties known
+      - Fully identified: all properties revealed
+      - Cursed: dangerous items that penalize the wearer
+
+inventory:
+  name: Inventory Management
+  desc: |
+    The player maintains an inventory with strict carrying limits.
+
+    Inventory rules:
+      - Items occupy inventory slots
+      - Total weight affects carrying capacity
+      - Equipping items grants bonuses
+      - Items can be dropped if carrying capacity exceeded
+      - Items left behind can be retrieved later
+      - Some items stack (ammunition, scrolls, potions)
+
+spellcasting:
+  name: Spellcasting System
+  desc: |
+    Some classes can learn and cast spells from spellbooks.
+
+    Spellcasting mechanics:
+      - Spellbooks found in dungeon contain learnable spells
+      - Learning spells requires reading spellbooks
+      - Mana required to cast spells
+      - Intelligence determines spell success rate and power
+      - Mana regenerates slowly while resting
+      - Failed spells still consume mana
+
+monsters:
+  name: Monsters
+  desc: |
+    Monsters populate the dungeon and provide experience and treasure.
+
+    Monster characteristics:
+      - Hit points: creature's health
+      - Armor class: protection from damage
+      - Attack methods: melee attacks and special abilities
+      - Speed: determines action frequency
+      - Special abilities: some monsters have magical powers
+      - Resistances: some creatures resist certain damage
+
+    Monster behavior:
+      - Wander randomly until player detected
+      - Pursue when player is in sight
+      - Attack when adjacent
+      - May use special abilities
+      - Some monsters are extremely dangerous
+
+pets:
+  name: Pet System
+  desc: |
+    The player begins with a pet dog companion in some versions.
+
+    Pet mechanics:
+      - Pet follows player through dungeon
+      - Pet can attack monsters
+      - Pet can block passages
+      - Pet has own health and can be killed
+      - Pet provides tactical advantage
+
+status_effects:
+  name: Status Effects
+  desc: |
+    Certain attacks and spells inflict conditions beyond damage.
+
+    Common status effects:
+      - Confusion: impaired movement control
+      - Blindness: vision severely reduced
+      - Paralysis: unable to act
+      - Poison: continuous damage over time
+      - Curse: equipment penalties
+      - Sleep: rendered unconscious
+
+shops:
+  name: Shops and Trading
+  desc: |
+    Shops appear in the dungeon providing trading services.
+
+    Shop mechanics:
+      - Located on various dungeon levels
+      - Buy and sell items for gold
+      - Shopkeepers provide specific goods
+      - Shop types: general stores, weapon shops, magic shops
+      - Items in shops may be identified or cursed
+
+traps:
+  name: Traps
+  desc: |
+    Hidden mechanisms on dungeon floors pose danger.
+
+    Trap types include:
+      - Pit traps: fall damage and displacement
+      - Spike traps: piercing damage
+      - Teleport traps: random displacement
+      - Dart traps: projectile damage
+      - Monster summoning traps: spawn creatures
+
+    Trap mechanics:
+      - Triggered when stepped on
+      - Detection through searching or perception
+      - Disarming skill allows safe removal
+      - Failure to disarm may trigger trap
+
+hunger:
+  name: Hunger and Food
+  desc: |
+    The character must eat periodically to survive.
+
+    Hunger states:
+      normal
+      hungry
+      weak
+      fainting
+      starving
+      dead
+
+    Hunger mechanics:
+      - Each turn consumes nutrition
+      - Physical exertion increases hunger
+      - Food items restore nutrition
+      - Starvation causes gradual damage
+      - Death from starvation ends the game
+
+victory:
+  name: Victory Condition
+  desc: |
+    Winning requires retrieving the Amulet and reaching the surface.
+
+    Victory path:
+      - Descend through dungeon levels
+      - Locate the Amulet of Yendor
+      - Return to the surface level
+      - Exit the dungeon alive
+
+    Victory requirements:
+      - Amulet must be in inventory
+      - Character must reach surface
+      - Character must be alive
+
+death:
+  name: Death and Permadeath
+  desc: |
+    Death is permanent; the character dies permanently when HP reaches zero.
+
+    Causes of death include:
+      - Combat damage from monsters
+      - Starvation from lack of food
+      - Environmental damage from traps
+      - Poison accumulation
+      - Overwhelming enemy encounters
+      - Getting stuck in an inescapable situation
+
+difficulty:
+  name: Difficulty and Challenge
+  desc: |
+    Hack is a challenging roguelike with significant dangers.
+
+    Difficulty factors:
+      - Permadeath: single mistake ends the character
+      - Resource scarcity: limited healing and escape tools
+      - Unpredictable encounters: monsters vary by level
+      - Identification puzzle: unknown items can be deadly
+      - Environmental hazards: traps, darkness, and monsters
+      - Complex mechanics: many interacting systems
+
+    Player strategies:
+      - Careful exploration: avoid rushing into danger
+      - Item identification: test unknown items carefully
+      - Healing management: preserve healing resources
+      - Escape planning: always know retreat options
+      - Pet utilization: use pet dog for advantage

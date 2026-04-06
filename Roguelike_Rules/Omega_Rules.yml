@@ -1,0 +1,611 @@
+game_structure:
+  name: Game Structure
+  desc: |
+    Omega is a pioneering roguelike that combines dungeon exploration with an
+    open world, multiple quests, and NPC interactions. The player is transported
+    from Earth to the world of LOCUS by the Omega Project and must navigate the
+    forces of Law and Chaos to eventually achieve the rank of Adept. Omega was
+    revolutionary for its persistent overworld map, complex plot, guild system,
+    and multiple victory conditions.
+
+setting:
+  name: World and Setting
+  desc: |
+    Omega is set in LOCUS, a fantasy world controlled by conflicting divine
+    forces.
+
+    The world structure:
+      - Central city of Rampart: large metropolis with multiple shops and guilds
+      - Surrounding villages: towns with various services and dungeons
+      - Countryside: wilderness areas connecting locations
+      - Multiple dungeons: including sewers, goblin caves, volcano, dragon's lair
+      - Astral Plane: mystical realm accessed through advanced quests
+      - Persistent map: the overworld remains fixed and consistent across games
+
+    Divine forces:
+      - Law faction: deities like Odin (combat) and Athena (magic)
+      - Chaos faction: deities like Set (combat) and Hecate (magic)
+      - Balance faction: druids maintaining equilibrium
+      - Lords of Destiny: neutral cosmic forces
+
+turn_system:
+  name: Turn System
+  desc: |
+    The game proceeds in discrete turns where each action consumes one turn.
+
+    Turn resolution:
+      1. Player action (move, attack, cast spell, use item, etc.)
+      2. Monsters act once
+      3. Environmental effects resolve
+
+character_creation:
+  name: Character Creation
+  desc: |
+    Omega features a unique character creation system allowing players to
+    customize their character through personal questions.
+
+    Creation options:
+      - Play random character: automatically generated stats
+      - Play yourself: answer personal questions to determine attributes
+      - Questions cover lifestyle, habits, beliefs, and physical traits
+      - Game notes particularly outrageous answers as "cheating"
+
+    Character attributes determined:
+      - Strength: carrying capacity and melee combat damage
+      - Intelligence: spell learning and arcane mana pool
+      - Wisdom: spell power and saving throws
+      - Dexterity: accuracy in combat and pickpocketing
+      - Agility: movement speed and evasion
+      - Power: magical potency and spell effectiveness
+
+    Alignment selection:
+      - Lawful: order-aligned, favors law deities and paladins
+      - Neutral: balanced perspective, maintains equilibrium
+      - Chaotic: chaos-aligned, favors chaos deities and sorcerers
+
+world_exploration:
+  name: World and Exploration
+  desc: |
+    Omega pioneered the persistent overworld map for roguelikes.
+
+    Exploration features:
+      - Fixed map that remains consistent across playthroughs
+      - Large outdoor countryside with multiple biomes
+      - Towns and villages accessible through wilderness
+      - Dungeons accessed from specific locations
+      - Quick travel menu for moving between known locations
+      - Environmental navigation: terrain affects movement
+
+    Notable locations:
+      - Rampart: central city with shops, guilds, temples, and NPCs
+      - Villages: smaller settlements with specific services
+      - Goblin Caves: first major dungeon accessible from Rampart
+      - Castle: Duke's stronghold with quests
+      - Dragon's Lair: treasure-rich dungeon with powerful creatures
+      - Volcano: contains major demons and valuable artifacts
+      - Astral Plane: mystical dimension accessed through quests
+      - Oracle's location: mysterious place of prophecy and guidance
+
+guild_system:
+  name: Guild System
+  desc: |
+    Guilds replace traditional character classes in Omega. Players can join
+    multiple guilds (though some are mutually exclusive based on alignment).
+
+    Major guilds include:
+
+    Collegium Magii:
+      - Guild for arcane spell learning
+      - Free to join if intelligence is 18+
+      - Provides random spells and magical research
+      - Teaches Identification spell upon advancement
+      - Less structured than Sorcerers' Guild
+
+    Sorcerers' Guild:
+      - Guild for chaos-aligned magic users
+      - Requires chaotic alignment
+      - Powerful spells but fewer than Collegium
+      - Discounted mana costs for members
+      - Quests include missions of increasingly evil nature
+
+    Mercenary's Guild:
+      - Combat-focused guild for warriors
+      - Provides starting equipment and money
+      - Combat effectiveness bonuses
+      - Access to training and equipment
+      - Payment for completing contracts
+
+    Paladins' Guild:
+      - Lawful defenders requiring lawful alignment
+      - Combat bonuses and holy abilities
+      - Attacks those of chaotic alignment
+      - Strict alignment requirements and penalties
+
+    Thieves' Guild:
+      - Specializes in pickpocketing and theft
+      - Offers item identification services (open at night)
+      - Allows fencing of stolen goods
+      - Dexterity-focused abilities
+      - Costs gold to join
+
+    Gladiators' Guild (Arena):
+      - Combat training through arena battles
+      - Pays gold for defeating increasingly deadly opponents
+      - Provides extra combat action
+      - No traditional quests
+      - Entry: payment per fight
+
+    Guild progression:
+      - Experience accumulates separately per guild
+      - Each level advancement provides guild-specific benefits
+      - Player can eventually become a Guild Leader
+      - Leadership provides final victory condition
+
+religions:
+  name: Religions and Deities
+  desc: |
+    Players can join religions to gain spells and alignment benefits.
+
+    Religion structure:
+      - Multiple deities representing different philosophies
+      - Each deity has lawful or chaotic alignment
+      - Each deity focuses on combat or magic
+      - Can only advance in aligned religions
+      - Advancement grants spells and power bonuses
+
+    Lawful deities:
+      - Odin: combat-focused lawful deity
+      - Athena: magic-focused lawful deity
+
+    Chaotic deities:
+      - Set: combat-focused chaotic deity
+      - Hecate: magic-focused chaotic deity
+
+    Neutral faction:
+      - Lords of Destiny: cosmic neutral force
+      - Druidic tradition: balance between law and chaos
+      - Grants minimal spells but power bonuses
+
+    Religion benefits:
+      - Alignment advancement toward deity alignment
+      - Spell learning at levels 1, 3, 4, and higher
+      - Power stat increases with advancement
+      - Can become High Priest of aligned deity
+      - Alternative victory path: High Priesthood
+
+ability_stats:
+  name: Ability Stats
+  desc: |
+    Six primary attributes determine character capabilities.
+
+    Stat ranges:
+      - Starting range: 3 to 18 (can be pushed higher)
+      - Maximum without enhancement: 18
+      - Can be improved through various methods
+
+    The six stats and their effects:
+      - Strength: carrying capacity, melee damage, multiple attacks
+      - Intelligence: arcane mana pool, spell learning, research
+      - Wisdom: holy mana pool, saving throws, perception
+      - Dexterity: combat accuracy, evasion, pickpocketing
+      - Agility: movement speed, dodge chance, overall speed
+      - Power: magical potency, spell effectiveness, enchantment
+
+    Stat improvement methods:
+      - Gymnasium: $2000 to raise one stat by 1 (50% success)
+      - Chaos Stone: +10 strength (resets to 20 after use)
+      - Other special stones in villages
+      - Library research: intelligence bonuses
+      - Artifacts: permanent stat doubling (Orb of Mastery)
+      - Equipment: temporary bonuses
+
+movement:
+  name: Movement
+  desc: |
+    Movement through the world is turn-based and grid-based.
+
+    Movement mechanics:
+      - Eight-direction movement (cardinal and diagonal)
+      - Each step costs one turn
+      - Movement blocked by walls, closed doors, and creatures
+      - Running in corridors allows faster movement
+      - Vaulting ability: jump over obstacles (requires training)
+      - Tunneling: move through walls in some dungeons (spell-based)
+      - Terrain affects movement speed
+
+visibility:
+  name: Visibility and Light
+  desc: |
+    Light sources are essential for dungeon exploration.
+
+    Visibility rules:
+      - Dungeons are naturally dark
+      - Light sources required for safe navigation
+      - Torches and lanterns provide illumination
+      - Line of sight affects monster awareness
+      - Some creatures have infravision (see without light)
+      - Darkness can conceal enemy approach
+
+experience_levels:
+  name: Experience and Leveling
+  desc: |
+    Experience grants level advancement and stat improvements.
+
+    Experience mechanics:
+      - Monsters grant experience when defeated
+      - Amount varies by monster difficulty
+      - General experience increases character level
+      - Guild-specific experience increases guild rank
+      - Experience is divided among joined guilds
+      - Each level increases maximum HP and mana
+
+combat:
+  name: Combat System
+  desc: |
+    Combat is turn-based with customizable action sequences.
+
+    Combat mechanics:
+      - Initiated when moving into monster tile
+      - Player and monsters alternate actions
+      - Combat sequence: setup series of attacks and blocks
+      - High, medium, low slash/thrust/lunge/block options
+      - Multiple attacks per round possible
+      - Spell casting usable during combat
+
+    Combat parameters:
+      - Attacker: strength, dexterity, agility, weapon
+      - Defender: armor class, agility, evasion
+      - Weapon type: determines damage and hit chance
+      - Special abilities: breathing attacks, spells
+      - Weapon breaking: critical failures can break equipment
+      - Weapon dropping: combat failure may disarm player
+
+    Combat tactics:
+      - Positioning in dungeons affects tactics
+      - Escaping: can attempt to flee or vault away
+      - Spell usage: cast spells during combat for effects
+      - Area spells: affect multiple enemies
+      - Healing: cast recovery spells mid-combat
+
+hit_points:
+  name: Hit Points
+  desc: |
+    Hit points determine character survival in combat.
+
+    Hit point mechanics:
+      - Maximum HP determined by constitution and level
+      - HP per level increases at advancement
+      - Damage from combat reduces HP
+      - Death occurs at 0 HP; game ends permanently
+      - Healing potions restore HP instantly
+      - Spells can heal or restore HP
+      - Some monsters drain maximum HP
+
+equipment:
+  name: Equipment System
+  desc: |
+    Equipment provides combat bonuses and protection.
+
+    Equipment categories:
+      - Weapons: swords, axes, bows, staves, daggers
+      - Armor: body armor, shields, helmets, gloves, boots
+      - Accessories: rings, amulets, cloaks, cloaks
+      - Magical items: wands, rods, staffs
+      - Light sources: torches, lanterns
+      - Boots of Speed: increase movement and combat actions
+
+    Equipment effects:
+      - Weapons grant attack bonuses and damage dice
+      - Armor reduces damage taken (armor class)
+      - Magical items provide stat bonuses
+      - Rings: permanent stat modifiers and abilities
+      - Amulets: special effects and protections
+      - Enchantment level: "+" determines power level
+
+    Magical properties:
+      - Items have enchantment levels indicated by "+"
+      - Higher "+" means greater bonuses
+      - Boots of Speed: very valuable for early game
+      - Lamellar Armor: excellent protection, lightweight
+      - Cursed items: impose penalties, difficult to remove
+
+inventory:
+  name: Inventory System
+  desc: |
+    Omega features an unusual but realistic inventory system.
+
+    Inventory mechanics:
+      - Complex inventory management system
+      - "Up in the air" slot for items being held
+      - Multi-step process to pick up and store items
+      - Total weight affects carrying capacity
+      - Overweight reduces movement speed
+      - Items can be dropped and retrieved later
+      - Some items stack (ammunition, potions, scrolls)
+
+    Inventory management:
+      - Items must be placed in container or slots
+      - Ground piles can be entered with search command
+      - Weight is important consideration
+      - Gold adds to weight total
+      - Managing weight is crucial for treasure collection
+
+items_and_objects:
+  name: Items and Objects
+  desc: |
+    Items found throughout the world provide supplies and power.
+
+    Major item categories:
+      - Weapons: various melee and ranged arms
+      - Armor: protective equipment of all types
+      - Potions: magical liquids with various effects
+      - Scrolls: spellbooks and magical papers
+      - Rings: magical jewelry with permanent effects
+      - Amulets: special magical items
+      - Wands: magical devices with limited charges
+      - Staves: more powerful magical devices
+      - Gold: currency for trade
+      - Gems: valuable items for selling
+      - Artifacts: unique powerful items
+
+item_identification:
+  name: Item Identification
+  desc: |
+    Items can be identified through multiple methods.
+
+    Identification methods:
+      - Pay Thieves' Guild for identification (open at night)
+      - Use Identification spell (learned from Collegium)
+      - Trial and error through use
+      - Scrolls of Identify
+      - Equipment identified upon acquisition in shops
+
+    Identification advantages:
+      - Identified items show their properties
+      - Thieves' Guild provides cheap identification
+      - Prevents use of dangerous cursed items
+      - Speeds up item evaluation
+      - Critical for identifying artifacts
+
+spellcasting:
+  name: Spellcasting System
+  desc: |
+    Magic is central to Omega's gameplay and puzzle-solving.
+
+    Spell acquisition:
+      - Learned from guilds upon advancement
+      - Learned from religions upon advancement
+      - Found on scrolls throughout dungeon
+      - Taught by NPCs during quests
+      - Learned through experimentation in Collegium
+
+    Spell mechanics:
+      - Mana pool determines spells castable
+      - Mana regenerates slowly while resting
+      - Spell cost: varies by spell type
+      - Failure rate: based on level and intelligence
+      - Spell abbreviation: use partial names to cast
+      - Relearning spells: halves mana cost permanently
+
+    Essential spells include:
+      - Identification: reveals item properties (10 mana)
+      - Disintegrate: powerful damage spell (40 mana)
+      - Monster Detection: reveals nearby creatures (3 mana)
+      - Apport: teleports distant objects to hand
+      - Firebolt: combat spell with good damage
+      - Teleport: movement across dungeons
+      - Enchantment: modifies items with caution
+      - Dispel: counters magical effects
+      - Healing: restores HP
+      - Spell casting: casts other spells through magic
+
+monsters:
+  name: Monsters
+  desc: |
+    Creatures populate dungeons and the wilderness.
+
+    Monster characteristics:
+      - Hit points: creature's health
+      - Attack power: effectiveness in combat
+      - Special abilities: unique attacks and spells
+      - Speed: determines action frequency
+      - Treasure drops: valuable items upon defeat
+
+    Monster types:
+      - Common creatures: low-level enemies
+      - Demons: powerful creatures in specific dungeons
+      - Dragons: extremely dangerous bosses
+      - Unique monsters: named powerful foes
+      - Non-hostile creatures: can be talked to or avoided
+      - Summoned creatures: appear through magic
+
+    Notable encounters:
+      - Goblin King: first major quest target
+      - Wyrm: deep sewer dungeon, drops Holy Defender
+      - Demon Lords: in volcano dungeon
+      - Death: final boss on Astral Plane
+      - Dragon: in Dragon's Lair, treasure-rich encounter
+
+quests:
+  name: Quest System
+  desc: |
+    Quests provide direction and major goals.
+
+    Quest types:
+      - Guild quests: provided by guild leaders
+      - Duke's quests: series of tasks for Rampart's Duke
+      - Religion quests: advancement through deity tasks
+      - Oracle's quests: mystical guidance and challenges
+
+    Major quest lines:
+      - Duke's Goblin King quest: kill Goblin King for reward
+      - Holy Defender quest: obtain artifact for Duke
+      - Orb of Elemental Mastery: final item for Duke
+      - Astral Plane challenges: ultimate trials
+      - Adept's Challenge: final test before godhood
+
+    Quest rewards:
+      - Experience points
+      - Gold and treasure
+      - Artifact items
+      - Guild advancement
+      - Alternate victory conditions
+
+npcs:
+  name: NPCs and Dialogue
+  desc: |
+    Non-player characters provide quests, services, and lore.
+
+    NPC types:
+      - Guild leaders: provide advancement and quests
+      - Shopkeepers: buy and sell items
+      - Religion leaders: teach spells and provide quests
+      - Special NPCs: Oracle, ArchDruid, city officials
+      - Rumors: NPCs provide information about world
+
+    NPC interactions:
+      - Dialogue system: press 't' to talk
+      - Services: training, identification, healing
+      - Quests: major goals from important NPCs
+      - Rumors: hints about treasures and enemies
+      - Alignment reactions: NPCs judge player morality
+
+status_effects:
+  name: Status Effects and Ailments
+  desc: |
+    Certain attacks and spells inflict conditions.
+
+    Common effects:
+      - Confusion: impaired movement control
+      - Blindness: severely reduced vision
+      - Paralysis: unable to act
+      - Poison: continuous damage over time
+      - Curse: debuffs that persist
+      - Charm: controlled by enemy
+
+    Effect mechanics:
+      - Duration varies by effect type
+      - Some permanent until cured
+      - Healing spells remove effects
+      - Special potions cure specific conditions
+
+traps:
+  name: Traps
+  desc: |
+    Hidden mechanisms in dungeons pose danger.
+
+    Trap types include:
+      - Pit traps: fall damage and displacement
+      - Spike traps: piercing damage
+      - Teleport traps: random dungeon displacement
+      - Gas traps: various harmful effects
+      - Summoning traps: spawn hostile creatures
+      - Alarm traps: alert nearby monsters
+
+    Trap mechanics:
+      - Triggered when stepped on
+      - Detection through careful exploration
+      - Disarming: dangerous to attempt
+      - Some detectable through magic
+
+economy:
+  name: Economy and Shops
+  desc: |
+    Gold is the primary currency with shops throughout Rampart.
+
+    Shop types:
+      - Armory: protective equipment
+      - Weaponsmith: melee and ranged weapons
+      - Magic Shop: spellbooks and scrolls
+      - General Store: various supplies
+      - Pawn Shop: random items with changing inventory
+      - Bank: deposit gold and earn interest
+      - Gym: purchase stat training
+      - Library: purchase intelligence training
+      - Real Estate: purchase property and retire
+
+    Gold sources:
+      - Defeating monsters: primary income
+      - Selling items: trade equipment for gold
+      - Fencing stolen goods: Thieves' Guild
+      - Bank interest: passive income over time
+      - Theft and robbery: risky high-reward theft
+
+    Gold uses:
+      - Equipment purchases: expensive upgrades
+      - Guild membership: joining costs gold
+      - Training: stat increases cost gold
+      - Identification: Thieves' Guild services
+      - Condo purchase: property ownership for retirement
+
+victory_conditions:
+  name: Multiple Victory Conditions
+  desc: |
+    Omega pioneered multiple ways to win the game.
+
+    Victory path 1: Becoming an Adept
+      - Complete Oracle's quests
+      - Defeat Death on the Astral Plane
+      - Return to Duke of Rampart
+      - Unlock power of Adept
+      - Become next Adept; highest achievement
+
+    Victory path 2: Guild Leadership
+      - Advance to top of chosen guild
+      - Complete guild-specific quests
+      - Become Guild Leader
+      - Consider this a major victory
+
+    Victory path 3: High Priesthood
+      - Advance to highest rank in religion
+      - Become High Priest of deity
+      - Achieve alignment-based victory
+
+    Victory path 4: Retirement
+      - Accumulate $50,000 in gold
+      - Purchase condo from real estate
+      - Retire in comfort
+      - End character on high note
+
+    Victory path 5: Duke Succession
+      - Complete all Duke's quests
+      - Obtain Orb of Elemental Mastery
+      - Duke steps down; player becomes Duke
+      - Political victory achieved
+
+death:
+  name: Death and Permadeath
+  desc: |
+    Death is permanent; the character dies at 0 HP.
+
+    Causes of death include:
+      - Combat damage from monsters
+      - Falling from pit traps
+      - Poison accumulation
+      - Overwhelming enemy encounters
+      - Environmental hazards
+      - Alignment violation (Paladins or Sorcerers)
+
+difficulty:
+  name: Difficulty and Challenge
+  desc: |
+    Omega is moderately challenging with high complexity.
+
+    Difficulty factors:
+      - Permadeath: character death is final
+      - Complex mechanics: many interacting systems
+      - Inventory system: complex management required
+      - Alignment tracking: choices have consequences
+      - Resource scarcity: gold and items hard to find
+      - Boss encounters: dangerous unique monsters
+      - Character scaling: can become very powerful late game
+
+    Player strategies:
+      - Careful exploration: avoid rushing into danger
+      - Gold management: save for important purchases
+      - Spell learning: build versatile spell set
+      - Guild selection: choose alignment-compatible guilds
+      - Artifact collection: powerful items from bosses
+      - Training: boost important stats at gym
+      - Spell usage: use magic creatively for puzzles
+      - Retirement option: quit while ahead if needed

@@ -1,0 +1,551 @@
+game_structure:
+  name: Game Structure
+  desc: |
+    UnReal World is a survival-based roguelike set in the high-fantasy kingdom
+    of Ankhyrnia. The player explores a small world consisting of a starting town
+    and two major dungeon locations: the Doom-Tower and the Dark Caves.
+
+    The primary quest involves descending 15 levels into the Dark Caves to collect
+    three keys needed to access the Doom-Tower and discover its secrets.
+
+turn_system:
+  name: Turn System
+  desc: |
+    The game proceeds in discrete turns. Each player action consumes one turn.
+    After the player acts, all active creatures and NPCs act once.
+
+    Turn order:
+      1. Player action
+      2. Creature movement and attacks
+      3. Environmental effects
+
+character_creation:
+  name: Character Creation
+  desc: |
+    The player creates a character with multiple choices affecting gameplay.
+
+    Races available:
+      - human
+      - half-orc
+      - elf
+      - halfling
+      - dwarf
+      - half-troll
+
+    Classes available:
+      - warrior
+      - priest
+      - mage
+      - rogue
+      - cleric
+      - hunter
+
+    Attributes (randomly rolled 3-21):
+      - wisdom
+      - agility
+      - strength
+      - charisma
+      - intelligence
+      - exactness
+      - speed
+      - physique
+
+    Attributes determine three core skills:
+      - melee weapons
+      - missile weapons
+      - defense
+
+attributes:
+  name: Attributes
+  desc: |
+    Characters have eight primary attributes that are randomly generated during
+    creation and improve through leveling.
+
+    Attribute ranges:
+      - minimum: 3
+      - maximum: 21
+      - base roll: 3d6 or similar
+
+    Attributes influence:
+      - combat effectiveness
+      - skill proficiency
+      - hit points
+      - spell casting ability
+
+hit_points:
+  name: Hit Points
+  desc: |
+    Hit points represent a character's health and vitality.
+
+    Rules:
+      - Each class has a hit point cap
+      - Hit points increase with leveling
+      - Most characters reach their class cap within 5 level-ups
+      - Hit points do not regenerate naturally
+      - Healing requires potions, herbs, prayer, or sleep
+      - At 0 HP the character dies
+
+combat:
+  name: Combat System
+  desc: |
+    Combat is engaged by moving adjacent to creatures and selecting attack options.
+
+    Combat mechanics:
+      - Walking into a monster's position does not automatically trigger combat
+      - Player must choose attack option (weapon 1 or weapon 2)
+      - Selection opens sub-menu with context-specific attack types
+      - Attack type availability depends on equipped weapon and skill level
+      - Body-part specific damage possible (e.g., severing limbs)
+      - Enemies may drop weapons when limbs are destroyed
+
+    Class-specific combat abilities:
+      Warriors:
+        - punch and wrestle opponents
+        - slam opponents into walls
+        - "wrench" weapons from opponent's hands
+
+      Rogues:
+        - sneak attack
+        - steal items
+        - disarm traps
+        - open locked doors
+
+attack_options:
+  name: Attack Options
+  desc: |
+    Each character can select from two weapon slots for combat.
+
+    Attack selection:
+      - choose weapon slot (1 or 2)
+      - choose attack type from available options
+      - attack type depends on weapon type and skill level
+      - skilled characters have more attack options
+
+difficulty:
+  name: Difficulty and Combat Balance
+  desc: |
+    Combat is generally easier than comparable roguelikes.
+
+    Balance factors:
+      - fewer total enemies in dungeons
+      - possibility of bypassing combat through stealth or evasion
+      - starvation is greater threat than combat
+      - equipment and preparation matter significantly
+
+equipment:
+  name: Equipment
+  desc: |
+    Equipment directly affects combat performance and utility.
+
+    Armor slots:
+      - main torso armor
+      - helmet
+      - boots
+      - gloves
+      - cloak
+      - feet shields (greaves/sabatons)
+
+    Weapons:
+      - primary weapon (slot 1)
+      - secondary weapon (slot 2)
+
+    Special items:
+      - potions
+      - wands
+      - rings
+      - staves
+      - scrolls
+
+    Equipment effects:
+      - modify attack options
+      - modify defense and armor class
+      - provide special abilities
+      - some items require identification
+
+identification:
+  name: Item Identification
+  desc: |
+    Many magical items arrive unidentified and must be discovered or identified.
+
+    Identification methods:
+      - use items to discover their properties
+      - hire wandering mages for identification fee
+      - certain class abilities identify items instantly
+      - scrolls and potions are randomized per game
+
+    Class identification abilities:
+      - priests naturally identify scrolls and potions
+      - mages can identify magical items
+
+hunger:
+  name: Hunger System
+  desc: |
+    The player must eat regularly to survive. Starvation is a constant threat.
+
+    Hunger mechanics:
+      - each turn consumes nutrition
+      - character approaches starvation if not fed
+      - starvation is greater threat than combat
+      - food consumption represents major game challenge
+
+    Food sources:
+      - provisions purchased in town
+      - tinned food found in dungeons (may cause hiccups)
+      - enemy corpses can be eaten (risk of poison or sickness)
+      - special foods found by hunting and foraging
+
+    Special food effects:
+      - tinned food consumption may cause hiccups
+      - spoiled food may cause poison or illness
+      - no attribute benefits from eating corpses
+
+movement:
+  name: Movement
+  desc: |
+    The player moves through the game world using keyboard commands.
+
+    Movement rules:
+      - each step costs one turn
+      - movement blocked by walls and obstacles
+      - can move into NPC or creature positions without fighting
+      - can navigate through dark areas with limited visibility
+
+visibility:
+  name: Visibility and Fog of War
+  desc: |
+    The game uses a fog of war system limiting the player's view.
+
+    Visibility rules:
+      - the 9-square area around character is always visible
+      - visibility extends less if character lacks light source
+      - areas outside fog of war appear as blackness
+      - secret doors are difficult to find
+
+    Secret doors:
+      - require repeated searching ("s" key) to locate
+      - pickaxe can break through walls to reach hidden areas
+      - some areas are naturally hidden from view
+
+exploration:
+  name: Dungeon Exploration
+  desc: |
+    The dungeons are randomly generated labyrinths containing multiple levels.
+
+    Dungeon structure:
+      - 15 levels in the Dark Caves
+      - each level fits on one screen
+      - doors, corridors, and chambers create maze-like layout
+      - generation may produce odd features (doors to blank walls)
+
+    Dungeon contents:
+      - monsters and creatures
+      - NPCs and merchants
+      - treasure and items
+      - traps and hazards
+      - special areas (underground forests, shrines)
+
+enemies:
+  name: Enemies and Creatures
+  desc: |
+    High-fantasy creatures populate the dungeons.
+
+    Typical enemies:
+      - giant bats
+      - wild dogs
+      - orcs
+      - skeletons
+      - zombies
+      - minotaurs
+      - golems
+      - undead
+
+    Creature behavior:
+      - patrol randomly
+      - pursue player when detected
+      - attack when adjacent
+      - may be befriended based on character race
+
+    Special interactions:
+      - orcs are friendly to half-orc characters
+      - other race-specific affinities may exist
+
+traps:
+  name: Traps and Hazards
+  desc: |
+    Hidden traps and environmental hazards threaten the player.
+
+    Trap types:
+      - quicksand
+      - pit traps
+      - locked door traps
+      - other mechanical traps
+
+    Trap mechanics:
+      - trigger upon entry to trapped square
+      - rogue class can disarm traps
+      - pickaxe can break through obstructions
+
+encounters:
+  name: Special Encounters
+  desc: |
+    Non-combat encounters provide variety and quests.
+
+    Encounter types:
+      - wandering merchants selling items
+      - NPCs offering side-quests
+      - bandits demanding tribute
+      - special themed areas (underground forests with nymphs)
+      - confessionals for spiritual meditation
+
+    Merchants:
+      - buy and sell equipment
+      - offer identification services for a fee
+      - may provide rare items
+
+npcs:
+  name: NPCs and Dialog
+  desc: |
+    Non-player characters interact with the player through Ultima-inspired dialog.
+
+    NPC interactions:
+      - NPCs offer side-quests
+      - some NPCs provide services
+      - dialog uses keyword system
+      - NPCs may have specialized skills or items
+
+shops:
+  name: Town Shops and Services
+  desc: |
+    The starting town contains various establishments.
+
+    Town facilities:
+      - general shop
+      - weapons store
+      - armor shop
+      - potion store
+      - magic shop
+      - training schools (specific weapon types)
+      - bank/office for money storage
+      - casino for gambling
+      - confessionals
+
+    Shop mechanics:
+      - examine items then pay shopkeeper
+      - drop items in shop to sell
+      - purchase training to improve specific skills
+
+leveling:
+  name: Experience and Leveling
+  desc: |
+    Characters improve through experience gained by defeating enemies.
+
+    Leveling mechanics:
+      - experience gained from defeating creatures
+      - leveling occurs at regular intervals
+      - each level-up grants improvements
+
+    Level-up bonuses:
+      - hit points increase
+      - skills improve
+      - attributes increase
+      - virtue bonuses possible if aligned
+
+virtues:
+  name: Virtue System
+  desc: |
+    A five-virtue system inspired by Ultima IV governs morality and rewards.
+
+    Virtues:
+      - valor
+      - honor
+      - honesty
+      - spirituality
+      - justice
+
+    Virtue mechanics:
+      - shrines found in dungeons offer virtue meditation
+      - meditation involves drawing the virtue's rune
+      - player supplies virtue mantra and action request
+
+    Virtue actions:
+      - check current virtue status
+      - receive hint on virtue improvement
+      - sacrifice 250 gold to improve virtue
+      - sacrifice 10 hit points to improve virtue
+
+    Virtue benefits:
+      - level-up bonuses increased if virtuous
+      - certain abilities unlocked through virtues
+      - some NPCs only interact with virtuous characters
+
+    In-game virtue development:
+      - valor: improved through combat
+      - spirituality: improved through confession
+      - honor: improved through honorable deeds
+      - honesty: improved through truthfulness
+      - justice: improved through righteous acts
+
+confessionals:
+  name: Confessionals
+  desc: |
+    Confessionals scattered throughout dungeons allow spiritual meditation.
+
+    Confession mechanics:
+      - player can confess any transgression
+      - improves spirituality virtue
+      - suggested confessions:
+          - needless fighting
+          - drunkenness
+          - patronage of prostitutes
+
+    Confession effects:
+      - spirituality increases with regular confession
+      - spiritual virtue affects leveling bonuses
+
+economy:
+  name: Economy and Gold
+  desc: |
+    Currency (gold) facilitates commerce and virtue sacrifices.
+
+    Gold uses:
+      - purchase items and equipment
+      - purchase identification services
+      - hire healing services
+      - purchase training
+      - sacrifice for virtue improvement (250 gold per sacrifice)
+
+    Gold sources:
+      - starting funds
+      - found in dungeons
+      - sold equipment and excess items
+      - treasure from slain enemies
+
+    Banking:
+      - bank/office stores gold safely
+      - prevents loss if character dies
+
+permadeath:
+  name: Permadeath
+  desc: |
+    Death is permanent and characters cannot be resurrected.
+
+    Death mechanics:
+      - reaching 0 HP results in death
+      - starvation results in death
+      - death is unrecoverable
+      - game stores death record permanently
+      - save file restoration bypassed by death tracking
+
+    Death implications:
+      - all character progress lost
+      - all equipment lost
+      - new character must start from beginning
+      - previous characters' death records visible
+
+starting_scenario:
+  name: Starting Scenario
+  desc: |
+    The campaign "Random Adventure" provides the initial setup.
+
+    Starting location:
+      - small town between the Doom-Tower and Dark Caves
+      - player's house contains starting equipment
+
+    Initial quest:
+      - explore Dark Caves (15 levels)
+      - collect three keys
+      - unlock and explore Doom-Tower
+      - discover what lies within
+
+victory_condition:
+  name: Victory Condition
+  desc: |
+    The game provides a defined objective but also supports open-ended play.
+
+    Primary objective:
+      - collect three keys from Dark Caves
+      - use keys to access Doom-Tower
+      - discover and complete Doom-Tower objective
+
+    Alternative play:
+      - sandbox exploration
+      - character development focus
+      - merchant and NPC interaction
+      - virtue system completion
+
+world_generation:
+  name: World Generation
+  desc: |
+    Dungeons are procedurally generated using a separate utility.
+
+    Generation options:
+      - generate new dungeon for each character
+      - reuse dungeon from previous character
+      - allows building on previous experience
+
+    Generation quirks:
+      - doors may open into blank walls
+      - doors sometimes adjacent to open passages to same area
+      - generally functional despite oddities
+
+class_abilities:
+  name: Class Special Abilities
+  desc: |
+    Each class has unique abilities unavailable to others.
+
+    Warrior abilities:
+      - punch and wrestle without weapons
+      - slam opponents into walls
+      - wrench weapons from opponents
+
+    Priest abilities:
+      - natural item identification (scrolls, potions)
+      - find natural food
+      - enhanced spiritual abilities
+
+    Rogue abilities:
+      - sneak without being detected
+      - steal items from creatures
+      - disarm traps
+      - open locked doors
+
+    Mage abilities:
+      - cast spells (specifics not detailed in initial release)
+      - identify magical items naturally
+
+    Cleric abilities:
+      - healing magic
+      - turn undead abilities
+      - spiritual focus
+
+    Hunter abilities:
+      - find herbs in tree squares
+      - craft arrows from wood
+      - forage for food
+      - tracking abilities
+
+notes:
+  name: Additional Notes
+  desc: |
+    The 1.00b version (1992) is distinctly different from modern versions.
+
+    Notable differences from later versions:
+      - high-fantasy setting (Ankhyrnia) not Iron Age Finland
+      - traditional dungeon-based gameplay
+      - limited survival elements
+      - magic and fantastical races present
+      - quest-driven rather than sandbox-focused
+
+    Game quirks:
+      - English translations occasionally awkward (Finnish origin)
+      - "tin" of food confused with tin metal
+      - "needles fighting" means needless fighting
+      - "feet shields" refers to leg armor
+      - "potion store" means storage room
+
+    Interface complexity:
+      - keyboard-heavy command system
+      - uses almost entire keyboard layout
+      - three pages of command reference
+      - ASCII mode available
+      - graphical mode with icons default

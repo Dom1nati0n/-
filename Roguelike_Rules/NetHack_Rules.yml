@@ -1,0 +1,997 @@
+game_structure:
+  name: Game Structure
+  desc: |
+    NetHack is a roguelike dungeon exploration game with intricate mechanics
+    and hidden complexity. The player navigates multiple dungeon systems,
+    fulfilling divine quests and seeking powerful artifacts. The goal is to
+    recover the Amulet of Yendor from the deepest dungeon and return it to
+    the surface alive, then ascend to the Plane of Air where the game ends.
+
+turn_system:
+  name: Turn System
+  desc: |
+    The game proceeds in discrete turns. Each player action consumes one turn.
+    Actions include movement, attacking, casting spells, using items, and
+    interacting with the environment.
+
+    Turn order:
+      1. Player action
+      2. Monster and NPC actions
+      3. Environmental effects and status changes
+      4. Regeneration and hunger effects
+
+    Energy system:
+      - Actions consume energy points
+      - Movement and attacks have different energy costs
+      - Faster creatures act more frequently per turn
+
+character_creation:
+  name: Character Creation
+  desc: |
+    Players create a character with various options at game start.
+
+    Choice categories:
+      - Role: Archeologist, Barbarian, Caveman, Healer, Knight, Monk, Priest,
+        Ranger, Rogue, Samurai, Tourist, Valkyrie, Wizard
+      - Race: Human, Dwarf, Elf, Gnome, Half-Orc, Orc
+      - Alignment: Lawful, Neutral, Chaotic
+      - Gender: Male or Female (affects NPC interactions and quest outcomes)
+
+    Starting attributes:
+      - Stats randomly generated or chosen
+      - Race and role provide stat modifiers
+      - Starting equipment and items vary by role
+      - Role determines quest and special abilities
+
+attributes:
+  name: Attributes
+  desc: |
+    Six core attributes define character capabilities.
+
+    Attributes:
+      - Strength: melee damage, carrying capacity, and physical tasks
+      - Intelligence: spellcasting ability and special skills
+      - Wisdom: magical defense, divine spellcasting, and perception
+      - Dexterity: attack accuracy, dodge chance, and spellcasting speed
+      - Constitution: hit points and disease resistance
+      - Charisma: NPC interaction, shop prices, and magical effects
+
+    Attributes range from 3 to 25 with 10 as average.
+
+    Attributes increase through:
+      - leveling up
+      - magical items and artifacts
+      - potions and enchantments
+      - altar interactions
+
+hit_points:
+  name: Hit Points
+  desc: |
+    Hit points represent the character's health.
+
+    Rules:
+      - Damage reduces HP
+      - At 0 HP the character becomes unconscious
+      - Below -10 HP the character dies permanently
+      - HP regenerates slowly based on rest and Constitution
+      - Certain items and potions restore HP
+      - Constitution affects maximum HP
+      - Leveling increases maximum HP
+
+abilities:
+  name: Abilities and Skills
+  desc: |
+    Characters possess various inherent and learned abilities.
+
+    Skill categories:
+      - Weapon skills: proficiency with weapon types
+      - Spellcasting schools: power in different magic types
+      - Martial arts mastery: melee combat specialization
+
+    Role-specific abilities:
+      - Monks: martial arts, enhanced unarmed combat
+      - Priests: divine magic, healing, turn undead
+      - Wizards: arcane magic, spell mastery
+      - Rangers: dual-wielding, tracking
+      - Thieves: stealing, backstab bonus
+      - Knights: riding, protection spells
+      - Barbarians: rage and enhanced combat
+
+experience:
+  name: Experience
+  desc: |
+    Defeating monsters and completing objectives grants experience.
+
+    Level progression:
+      - Accumulated XP increases player level
+      - Levels progress from 1 to 30
+      - Each level increases:
+          - maximum hit points
+          - spell power and memorization
+          - combat effectiveness
+          - special abilities
+
+    Quest completion:
+      - Role quests provide major XP rewards
+      - Unique monsters grant substantial XP
+
+combat:
+  name: Combat
+  desc: |
+    Combat occurs when attacking an adjacent creature.
+
+    Combat resolution:
+      1. Attacker rolls to hit (d20 + modifiers)
+      2. If hit beats defense armor class, damage is rolled
+      3. Defender HP reduced by damage amount
+      4. Special effects may trigger (poisoning, disease, status)
+      5. If HP drops below 0, defender dies
+      6. Corpses can be looted or eaten
+
+    Combat parameters:
+      - attack accuracy bonus
+      - damage rolls with weapon-specific dice
+      - armor class defensive bonus
+      - magical bonuses from enchanted equipment
+      - damage resistances and vulnerabilities
+
+    Special combat mechanics:
+      - Backstab bonus for thieves attacking from behind
+      - Berserker rage for enhanced damage
+      - Critical hits and misses
+      - Paralysis from wands or spells
+
+weapons:
+  name: Weapons
+  desc: |
+    Extensive weapon variety provides different combat styles.
+
+    Weapon categories:
+      - melee: swords, axes, clubs, spears, polearms
+      - ranged: bows, crossbows, slings
+      - thrown: daggers, shuriken, darts, boomerangs
+      - magical: staffs, wands as weapons
+      - unarmed: martial arts and bare hands
+
+    Weapon properties:
+      - base damage and damage type
+      - enchantment level increases power
+      - special properties: flaming, frost, vorpal, returning
+      - requirements for specific roles
+      - weight affects carrying and speed
+      - magical enhancement grants bonuses
+
+armor:
+  name: Armor
+  desc: |
+    Armor reduces incoming damage through armor class.
+
+    Armor types:
+      - body armor: leather, chain mail, plate mail, scale mail
+      - helmets and headgear
+      - cloaks and robes
+      - gloves and gauntlets
+      - boots and shoes
+      - shields for additional defense
+
+    Armor properties:
+      - armor class: lower is better, reduces damage
+      - magical enchantment increases effectiveness
+      - encumbrance affects speed and carrying
+      - some armor grants special resistances
+      - cursed armor cannot be removed
+      - blessed armor enhances effects
+
+inventory:
+  name: Inventory
+  desc: |
+    The player maintains an inventory with limited capacity.
+
+    Rules:
+      - Each item occupies one slot
+      - Carrying capacity depends on Strength
+      - Excessive weight causes slow movement
+      - Items can be equipped or carried
+      - Dropping items leaves them on the ground
+      - Containers extend inventory capacity
+      - Different object categories have different limits
+
+magic:
+  name: Magic System
+  desc: |
+    NetHack features a complex spellcasting system.
+
+    Spell schools:
+      - Attack spells: harm and destruction
+      - Healing spells: restore HP and cure conditions
+      - Divination spells: detect and sense
+      - Enchantment spells: enhance abilities
+      - Clerical spells: divine and protective magic
+      - Escape spells: teleportation and movement
+      - Matter spells: create and transform objects
+
+    Spell mechanics:
+      - Spells must be memorized from spell books
+      - Mana required to cast spells
+      - Mana regenerates based on Intelligence and rest
+      - Spell power improves with skill level
+      - Spellcasting requires uninterrupted concentration
+      - Failure wastes mana and risks spell backfire
+      - Failed spells may produce random effects
+
+wands:
+  name: Wands and Staves
+  desc: |
+    Magical implements provide powerful effects without memorization.
+
+    Wand properties:
+      - Contain magical charges
+      - Can be recharged through special means
+      - Effects vary widely: damage, healing, teleportation, etc.
+      - Charging fails risks explosions
+      - Wands identify through use
+      - Some wands have cursed or dangerous effects
+
+    Staffs:
+      - Longer lasting than wands
+      - Can be used as weapons while providing magic
+      - Some restrict class usage
+      - Wielding enhances specific spell schools
+
+potions:
+  name: Potions
+  desc: |
+    Potions provide temporary or permanent effects.
+
+    Potion types:
+      - Healing: restore hit points
+      - Restoration: restore attributes
+      - Enhancement: temporary stat increases
+      - Transformation: change form or abilities
+      - Utility: levitation, invisibility, speed
+      - Harmful: poison, sickness, weakness
+      - Special: quaffing has unpredictable effects when unidentified
+
+    Potion mechanics:
+      - Quaffing consumes the potion
+      - Potions identify through use
+      - Some potions have multiple interactions
+      - Mixing potions creates explosions or new effects
+
+scrolls:
+  name: Scrolls
+  desc: |
+    Scrolls provide one-time magical effects.
+
+    Scroll types:
+      - Spell scrolls: learn or cast spells
+      - Identification: reveal item properties
+      - Enchantment: improve equipment
+      - Blessing: sanctify items or ground
+      - Curse removal: dispel curses
+      - Teleportation: short-range or long-distance
+      - Destruction: area damage
+      - Utility: various one-time effects
+
+    Scroll mechanics:
+      - Reading consumes the scroll
+      - Scrolls identify through use
+      - Reading requires adequate light
+      - Cursed scrolls produce harmful effects
+      - Blessed scrolls enhance effects
+
+rings:
+  name: Rings
+  desc: |
+    Rings provide permanent passive bonuses while worn.
+
+    Ring types:
+      - Protection: reduce damage taken
+      - Regeneration: continuously restore HP
+      - Invisibility: become unseen
+      - Searching: detect hidden things
+      - Conflict: cause monsters to attack each other
+      - Fire resistance: immunity to fire
+      - Cold resistance: immunity to cold
+      - Poison resistance: immunity to poison
+      - Many others with unique effects
+
+    Ring mechanics:
+      - Two rings can be worn simultaneously
+      - Rings identify through extended use
+      - Cursed rings cannot be removed
+      - Powerful rings may have drawbacks
+      - Some rings drain attributes when worn
+
+items:
+  name: Items and Objects
+  desc: |
+    Extensive item variety provides unique tools and effects.
+
+    Major categories:
+      - weapons and ammunition
+      - armor and accessories
+      - potions and scrolls
+      - rings and amulets
+      - wands and staves
+      - food and supplies
+      - gold and gems
+      - corpses and body parts
+      - quest items and artifacts
+      - unique cursed objects
+
+item_identification:
+  name: Item Identification
+  desc: |
+    Most magical items begin unidentified.
+
+    Identification methods:
+      - Using or equipping items
+      - Reading identification scrolls
+      - Consulting town appraisers
+      - Experimentation and observation
+      - Learning through repeated use
+
+    Item properties:
+      - Cursed items cause harm when equipped
+      - Blessed items provide enhanced effects
+      - Enchanted items have positive bonuses
+      - Artifacts possess unique powerful abilities
+      - Some items possess hidden dangers
+
+monsters:
+  name: Monsters
+  desc: |
+    Hundreds of creature types populate dungeons.
+
+    Behavior:
+      - Wander randomly when unaware
+      - Pursue player when detected
+      - Attack when adjacent
+      - Coordinate with pack mates
+      - Use special abilities and magic
+      - Flee when severely injured
+      - Some sleep during daytime
+
+    Monster properties:
+      - Hit points and resistances
+      - Attack strength and number of attacks
+      - Special abilities: spellcasting, stealing, enveloping
+      - Elemental properties: fire, cold, electricity, acid
+      - Immunities: weapons, magic, or physical damage
+      - Treasure drops on defeat
+
+hunger:
+  name: Hunger
+  desc: |
+    The player must periodically eat food to survive.
+
+    Hunger states:
+      satiated
+      not hungry
+      hungry
+      very hungry
+      weak
+      fainting
+      starving
+      dead
+
+    Rules:
+      - Each turn consumes nutrition
+      - Activity level affects hunger rate
+      - Food items restore nutrition
+      - Monster corpses provide food
+      - Starvation causes progressive damage
+      - Certain spells and items affect hunger
+      - Fasting for quests becomes necessary
+
+status_effects:
+  name: Status Effects
+  desc: |
+    Various conditions modify player abilities and perception.
+
+    Effect examples:
+      - Confusion: randomized movement
+      - Paralysis: inability to move
+      - Blindness: cannot see monsters
+      - Deafness: miss sound-based warnings
+      - Disease: damage and attribute reduction
+      - Poison: HP loss over time
+      - Weakness: reduced damage output
+      - Lycanthropy: involuntary transformation
+      - Petrification: slow paralysis leading to death
+      - Stoning: turning gradually to stone
+      - Fear: reduced combat effectiveness
+      - Invisibility: become unseen
+
+    Status removal:
+      - Healing spells and potions
+      - Curing scrolls
+      - Altar blessings
+      - Time and rest effects
+      - Water immersion
+
+traps:
+  name: Traps
+  desc: |
+    Environmental dangers threaten throughout dungeons.
+
+    Trap types:
+      - Pit traps: fall damage and potential escape
+      - Trapdoors: fall to lower level
+      - Arrow traps: projectile damage
+      - Dart traps: poison or stunning darts
+      - Teleportation traps: random relocation
+      - Gas traps: choking, sleep, or poison gas
+      - Soulgem traps: drain attacks
+      - Statue traps: trigger magic
+      - Level teleportation: forced level change
+      - Squeaky boards: noise alerts monsters
+
+    Trap mechanics:
+      - Detection through searching or magic
+      - Disarming through skills or magic
+      - Some traps can be triggered intentionally
+      - Cursed items trigger traps more easily
+
+dungeon_features:
+  name: Dungeon Features
+  desc: |
+    Dungeons contain various environmental features.
+
+    Features:
+      - Doors: locked, trapped, secret, or normal
+      - Chests and boxes: contain items or traps
+      - Altars: interact for divine effects
+      - Fountains: quaff for blessings or curses
+      - Sinks: throw items for effects
+      - Thrones: sit for powerful bonuses or risks
+      - Graves and headstones: dig for treasures
+      - Lava and water: dangerous terrain
+      - Secret passages: hidden room connections
+      - Pressure plates: trigger mechanisms
+
+    Alignment effects:
+      - Altars respond to player alignment
+      - Desecrating aligned altars causes anger
+      - Praying on altars grants divine assistance
+      - Some features work only for specific alignments
+
+dungeon_levels:
+  name: Dungeon Levels
+  desc: |
+    Dungeons are organized into distinct level types.
+
+    Level types:
+      - Standard dungeon levels: mixed terrain and monsters
+      - Branch dungeons: specialized dungeon systems
+      - Themed levels: specific monster or feature focus
+      - Quest levels: required for role quests
+      - Special levels: unique environment challenges
+
+    Notable branches:
+      - Sokoban: puzzle-solving dungeon
+      - Gnomish Mines: mines with dwarves and gnomes
+      - Undead Caverns: cemeteries and tombs
+      - Dragon's Lair: dragon encounters
+      - Elemental Planes: unique elemental challenges
+
+role_quests:
+  name: Role Quests
+  desc: |
+    Each role has unique quests to complete.
+
+    Quest structure:
+      - Initial quest: early game objective
+      - Intermediate quest: mid game challenge
+      - Final quest: end game major objective
+
+    Quest types:
+      - Fetch quests: retrieve specific items
+      - Elimination quests: defeat unique monsters
+      - Protection quests: defend NPCs or locations
+      - Exploration quests: reach special areas
+      - Artifact quests: obtain powerful items
+
+    Quest rewards:
+      - Substantial experience points
+      - Powerful artifacts or equipment
+      - Enhanced class abilities
+      - Fame and reputation
+
+artifacts:
+  name: Artifacts
+  desc: |
+    Unique and powerful items with special properties.
+
+    Artifact categories:
+      - Quest artifacts: obtained through role quests
+      - Alignment artifacts: respond to alignment
+      - Weapons: unique weapons with powers
+      - Armor: legendary protective gear
+      - Tools: utility items with special effects
+
+    Artifact properties:
+      - Indestructible and unbreakable
+      - Powerful magical effects
+      - Some grant wishes
+      - Some have alignment requirements
+      - Some respond to player deeds
+
+pressure_system:
+  name: Pressure and Luck
+  desc: |
+    Luck and pressure affect outcomes throughout the game.
+
+    Luck mechanics:
+      - Actions affect current luck value
+      - Luck influences random rolls
+      - Positive luck increases good outcomes
+      - Negative luck increases bad outcomes
+      - Luck affects trap triggers and monster spawning
+
+    Luck modification:
+      - Horseshoe items affect luck
+      - Prayer at altars affects luck
+      - Certain powerful actions change luck
+      - Natural luck slowly regenerates
+
+intrinsic_properties:
+  name: Intrinsic Properties
+  desc: |
+    Characters gain permanent special abilities through items and acts.
+
+    Intrinsic categories:
+      - Elemental resistances: fire, cold, electricity, acid, poison
+      - Physical properties: flying, levitation, invisibility, stealth
+      - Magical properties: magic resistance, telepathy, warning
+      - Sensory: infravision, see invisible, extended vision
+      - Movement: speed, jumping, water walking
+      - Combat: regeneration, strength enhancement
+      - Miscellaneous: sleep resistance, hunger reduction, healing
+
+    Intrinsic sources:
+      - Equipping certain items
+      - Eating monster corpses
+      - Potions and spells
+      - Quest completion
+      - Some intrinsics can be lost or reversed
+
+prayer:
+  name: Prayer and Altars
+  desc: |
+    Prayer is a complex divine interaction system.
+
+    Prayer mechanics:
+      - Player alignment affects prayer results
+      - Altar alignment affects divine reactions
+      - Timeout prevents spam prayer
+      - Repeated prayer without delay incurs divine wrath
+      - God's mood affects intervention
+
+    Prayer outcomes:
+      - Divine blessing: enhance abilities and items
+      - Healing or restoration
+      - Wish grants or gift items
+      - Conversion of alignment
+      - Divine anger: damage or curses
+      - Smiting: instant death or major damage
+
+    Altar desecration:
+      - Breaking altars through violence or sacrilege
+      - Causing divine wrath and punishment
+      - Creating unholy ground
+
+wishes:
+  name: Wishes and Granting
+  desc: |
+    Wishes allow powerful reality manipulation with restrictions.
+
+    Wish sources:
+      - Granted through prayer at aligned altars
+      - Scrolls or items that grant wishes
+      - Lamp wishes from genies
+      - Amulet of Yendor grants one wish
+      - Blessed fountains occasionally grant wishes
+
+    Wish mechanics:
+      - Phrasing matters: ambiguous wording produces suboptimal results
+      - Wishing for impossible items fails safely
+      - Dangerous wishes incur divine punishment
+      - Multiple wishes possible but increasingly difficult
+      - Wish-granting follows literal interpretation
+
+    Common wish strategies:
+      - Wishing for specific artifacts
+      - Wishing for rare items
+      - Wishing for pets or allies
+      - Wishing for attribute increases (risky)
+
+conduct_system:
+  name: Conduct and Restrictions
+  desc: |
+    Players can voluntarily restrict themselves for challenges.
+
+    Conduct types:
+      - Pacifist: never attack monsters
+      - Vegetarian: never eat meat
+      - Foodless: never consume food
+      - Atheist: never pray or visit altars
+      - Weaponless: never wield weapons
+      - Spellless: never cast spells
+      - Permadeath: single-life runs
+      - Illiterate: never read scrolls
+
+    Conduct tracking:
+      - Displayed in character status
+      - Tracked until broken
+      - Affects final score and achievements
+      - Some conducts extremely challenging
+
+bones_files:
+  name: Bones and Previous Deaths
+  desc: |
+    Bones files preserve previous character deaths.
+
+    Bones mechanics:
+      - When character dies, level saved as "bones" file
+      - Bones can be found in subsequent games
+      - Dead character appears as ghost or monster
+      - Can loot previous character's equipment
+      - Defeating bones ghost grants XP
+      - Examining corpses shows death cause
+
+    Bones interactions:
+      - Multiple bones files in one dungeon possible
+      - Ancient characters more challenging
+      - Previous character's items often valuable
+      - Tombstones mark grave locations
+
+holy_unholy_mechanics:
+  name: Holy and Unholy Mechanics
+  desc: |
+    Blessed, cursed, and uncursed items behave differently.
+
+    Item states:
+      - Blessed: enhanced effects, grants bonuses
+      - Cursed: harmful effects, sometimes unusable
+      - Uncursed: neutral baseline effects
+
+    Blessing effects:
+      - Blessed weapons deal more damage
+      - Blessed armor provides better defense
+      - Blessed food satisfies hunger better
+      - Blessed scrolls and potions enhance results
+      - Blessed items resist degradation
+
+    Cursing effects:
+      - Cursed equipment cannot be removed
+      - Cursed weapons miss more often
+      - Cursed items sometimes harm user
+      - Cursed food causes problems
+      - Curse removal requires specific means
+
+    Blessing/cursing methods:
+      - Scrolls of blessing or curse
+      - Prayer and altar interactions
+      - Some monsters curse items
+      - Dipping in unholy or holy water
+
+riding:
+  name: Riding Mechanics
+  desc: |
+    Players can mount and ride various creatures.
+
+    Riding system:
+      - Mount a tame creature to ride it
+      - Riding grants increased speed
+      - Some creatures grant special abilities while mounted
+      - Combat while riding has special rules
+      - Mounted characters take falling damage more easily
+      - Some creatures flee in combat when riders attacked
+
+    Mount types:
+      - Horses: fast but vulnerable
+      - Dragons: powerful and slow
+      - Other creatures: various properties
+
+    Riding challenges:
+      - Mounting requires time and effort
+      - Monsters can target mount
+      - Certain terrain prevents riding
+      - Stables in towns provide mount facilities
+
+shopkeeper_interaction:
+  name: Shopkeeper Mechanics
+  desc: |
+    Shops provide vital commerce and services.
+
+    Shop types:
+      - General stores: weapons, armor, supplies
+      - Temples: identify items, heal, bless
+      - Armorer: specialized armor
+      - Weapon shop: specialized weapons
+      - Food shop: rations and food
+      - Magic shop: spells and magical items
+
+    Shop mechanics:
+      - Shopkeeper appraises items
+      - Theft incurs debt and anger
+      - Attacking shopkeeper creates enemies
+      - Breaking items pays for damage
+      - Debt accumulates with interest
+      - Unpaid debt prevents re-entry
+
+    Charisma effects:
+      - Higher Charisma reduces prices
+      - Lower Charisma increases prices
+      - Shopkeepers refuse service if angered
+      - Reputation affects shop interactions
+
+dungeon_structure:
+  name: Dungeon Structure and Layout
+  desc: |
+    Dungeons follow distinct structural patterns.
+
+    Dungeon levels:
+      - Surface: starting town level
+      - Dungeon proper: levels 1-10 with stairs
+      - Branch dungeons: separate vertical systems
+      - Special levels: unique hand-crafted levels
+      - Endgame planes: final ascension path
+
+    Level features:
+      - Staircases: up and down connections
+      - Branches: entrance/exit to sub-dungeons
+      - Random levels: procedurally generated
+      - Themed levels: specific monster/treasure focuses
+      - One-way passages: force progression direction
+      - No-magic areas: prevent spellcasting
+
+    Notable branches:
+      - Sokoban: puzzle-based block-pushing dungeon (8 levels)
+      - Gnomish Mines: mixed dwarf/gnome settlement (3-4 levels)
+      - The Undead Caverns: ghost and zombie areas
+      - Tower of Eternal Flame: fire-filled wizard tower
+      - Gehennom: hellish planes (multiple levels)
+      - Elemental Planes: fire, water, air, earth planes
+      - Valley of the Dead: undead boss area
+
+endgame_sequence:
+  name: Endgame Sequence
+  desc: |
+    Obtaining Amulet triggers specific sequence of events.
+
+    Amulet location:
+      - Found on Moloch's level in Gehennom
+      - Heavily guarded by Moloch and demons
+      - Multiple powerful monsters nearby
+      - Teleportation hazards present
+
+    Post-Amulet:
+      - Elemental Plane bosses become accessible
+      - Each plane conquered sequentially
+      - Plane rulers must be defeated
+      - Astral Plane becomes accessible after all planes
+
+    Astral Plane:
+      - Three altars: chaotic, neutral, lawful
+      - Three high priests guard altars
+      - Coronation by high priest grants ascension
+      - Amulet must be offered at aligned altar
+      - Fake altars may be present as traps
+
+    Ascension:
+      - Player achieves immortality
+      - Game ends in victory
+      - Score calculated with bonuses
+      - True ascension distinct from other endings
+
+monsters_that_open_doors:
+  name: Advanced Monster Mechanics
+  desc: |
+    Monster behaviors include sophisticated abilities.
+
+    Advanced behaviors:
+      - Opening and closing doors
+      - Using items found in dungeon
+      - Calling for reinforcements
+      - Spellcasting and wand use
+      - Fleeing when outmatched
+      - Coordinating attacks with pack mates
+      - Setting traps
+      - Summoning other creatures
+
+    Special abilities:
+      - Breath attacks: fire, cold, lightning, acid, poison, sleep
+      - Enveloping and constriction
+      - Level draining (reduces max HP permanently)
+      - Experience draining
+      - Attribute stealing
+      - Disease transmission
+      - Curse transmission
+      - Vision/hearing attacks
+
+unidentified_items:
+  name: Unidentified Items in Depth
+  desc: |
+    Item identification is central challenge.
+
+    Categories and dangers:
+      - Potions: multiple types, color-coded individually per game
+      - Scrolls: multiple types, word-coded individually per game
+      - Rings: dangerous experimentation needed
+      - Wands: testing with limited charges
+      - Spellbooks: identify by reading
+      - Armor: identify by wearing
+      - Weapons: identify by using
+
+    Identification consequences:
+      - Drinking wrong potion causes damage or status
+      - Reading cursed scroll may cause bad effects
+      - Wearing cursed ring becomes permanent
+      - Testing wands consumes charges
+      - Once identified, future finds show true properties
+      - Some items deadly if misidentified
+
+    Multiple strategies:
+      - Hiring NPC to identify items
+      - Using identification scrolls
+      - Selling to merchants for appraisal
+      - Consulting spell books for information
+      - Experimentation in controlled ways
+
+experience_draining:
+  name: Experience and Level Draining
+  desc: |
+    Special attacks can permanently reduce character power.
+
+    Draining mechanics:
+      - Ghosts and wraiths drain experience levels
+      - Black puddings draining
+      - Wights and barghests drain levels
+      - Demons and devils may drain
+
+    Drain effects:
+      - Permanently reduces current level
+      - Decreases maximum HP
+      - Reduces spell points
+      - Experience cannot be recovered
+      - Multiple drains stack
+      - High-level characters at extreme risk
+
+    Drain prevention:
+      - Protection spells
+      - Magical items that prevent draining
+      - Escape before encountering drainers
+      - Specific monster avoidance
+
+water_mechanics:
+  name: Water and Liquid Mechanics
+  desc: |
+    Water and other liquids have significant effects.
+
+    Water interactions:
+      - Dipping items in water identifies them
+      - Dipping cursed items removes curse
+      - Dipping blessed items into unholy water curses
+      - Holy water harms undead
+      - Swimming and drowning mechanics
+      - Waterproofing items
+
+    Specific mechanics:
+      - Dipping in fountains triggers effects
+      - Sinking in water without levitation drowns
+      - Water monsters appear in water
+      - Ink drowns the user
+      - Potions create small puddles when spilled
+      - Mermaids in water offer rewards or attacks
+
+wands_and_staffs_detailed:
+  name: Wands and Staffs Detailed
+  desc: |
+    Extensive wand and staff mechanics.
+
+    Wand mechanics:
+      - Limited charges (typically 1-100)
+      - Zapping direction matters
+      - Some wands affect player if used carelessly
+      - Recharging risks explosion
+      - Over-charged wands break
+      - Some wands have passive effects when wielded
+
+    Wand types include:
+      - Attack wands: destruction, magic missile, striking
+      - Utility wands: light, digging, opening
+      - Status wands: slow, speed, paralyze
+      - Movement wands: teleportation, create passage
+      - Sensor wands: detection, wishing
+      - Harmful wands: death, cursing
+
+    Staff mechanics:
+      - Staffs function as weapons
+      - Wielding enhances related spells
+      - Some staffs grant intrinsics
+      - Breaking staffs releases magical energy
+      - Staffs rarely need recharging
+
+special_locations:
+  name: Special Locations
+  desc: |
+    Certain areas feature unique mechanics and challenges.
+
+    Notable locations:
+      - Gnomish Mines: dwarf settlements with quests
+      - Sokoban: block-pushing puzzle dungeon
+      - Gehennom: hellish realm with unique monsters
+      - Molten Caverns: fire and lava dangers
+      - Air Plane: final ascension location
+      - Wizard's Tower: wizard-specific area
+      - Quest levels: role-specific dungeons
+
+    Unique mechanics:
+      - Location-specific monsters
+      - Environmental hazards and damage
+      - Puzzles requiring items or skills
+      - Required quests to progress
+
+polymorphing:
+  name: Polymorphing and Transformation
+  desc: |
+    Spells and effects can transform the player.
+
+    Polymorph mechanics:
+      - Change into random monster forms
+      - Some forms grant special abilities
+      - Some forms restrict actions
+      - Polymorphed forms have hit points
+      - Transformations can be forced or voluntary
+      - Some forms prevent equipment use
+      - Restrictions prevent being permanently stuck
+
+    Controlled changes:
+      - Polymorph potion use
+      - Specific spell casting
+      - Certain artifact effects
+      - Quest-specific transformations
+
+death:
+  name: Death
+  desc: |
+    The game ends when the player dies.
+
+    Causes include:
+      - Combat damage exceeding HP
+      - Starvation or poisoning
+      - Traps and hazards
+      - Disease and plague
+      - Magical effects and wand blasts
+      - Environmental damage (fire, lava, acid)
+      - Petrification and stoning
+      - Lycanthropy in sunlight
+      - Touching forbidden objects
+      - Priest magic affecting alignment
+
+victory_conditions:
+  name: Victory Conditions
+  desc: |
+    Victory requires multiple stages of achievement.
+
+    Victory requirements:
+      1. Complete role-specific quests
+      2. Recover the Amulet of Yendor from Gehennom
+      3. Navigate back to the starting dungeon level
+      4. Enter the Plane of Air
+      5. Reach the Astral Plane
+      6. Return the Amulet to its proper location
+
+    True ascension:
+      - Requires all above steps
+      - Player achieves immortal status
+      - Game announces ascension victory
+      - True ending differs from rescue escapes
+
+    Alternative endings:
+      - Escape with Amulet of Yendor (partial victory)
+      - Death and resurrection
+      - Permanent character death (loss)

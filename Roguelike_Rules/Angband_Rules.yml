@@ -1,0 +1,465 @@
+game_structure:
+  name: Game Structure
+  desc: |
+    Angband is a single-player dungeon-crawling roguelike game based on J.R.R.
+    Tolkien's works. The player creates a character and descends through a
+    100-level dungeon fortress seeking to amass power and equipment to defeat
+    Sauron and ultimately Morgoth, the Lord of Darkness. The game features
+    procedurally generated levels, permadeath, and a turn-based system.
+
+turn_system:
+  name: Turn System
+  desc: |
+    The game proceeds in discrete turns. Each player action consumes one turn.
+    The dungeon is subdivided into rooms connected by corridors. Monsters
+    encounter the player based on proximity and awareness.
+
+    Turn resolution:
+      1. Player action (move, attack, use item, etc.)
+      2. Monsters act once
+      3. Environmental effects resolve
+
+dungeon_structure:
+  name: Dungeon Structure
+  desc: |
+    The dungeon consists of 100 procedurally generated levels beneath the town.
+
+    Level characteristics:
+      - Divided into rooms of various sizes
+      - Corridors and passages connect rooms
+      - Rooms may be empty, populated with monsters, or contain treasure
+      - Special chambers called "vaults" contain powerful monsters and treasure
+      - Traps hidden on floors
+      - One staircase to the next level per floor
+      - Darkness increases with depth; light sources become essential
+
+    Difficulty scales with depth:
+      - Deeper levels contain more dangerous monsters
+      - More powerful items appear at greater depths
+      - Unique monsters (uniques) exist on specific levels
+
+character_creation:
+  name: Character Creation
+  desc: |
+    Before entering the dungeon, the player creates a character.
+
+    Character choices:
+      - Race: determines stat bonuses, abilities, and infravision
+      - Class: determines combat skills, spell access, and special abilities
+      - Stats: allocated to strength, intelligence, wisdom, dexterity, constitution
+
+    Races include:
+      Human, Half-Elf, Elf, Halfling, Gnome, Dwarf, Half-Orc, Half-Troll,
+      Dunedain, High-Elf, Kobold
+
+    Classes include:
+      Warrior, Mage, Priest, Paladin, Rogue, Ranger
+
+    Starting resources:
+      - Gold to purchase equipment and supplies
+      - Initial equipment appropriate to class
+      - Beginning experience at character level 1
+
+stats:
+  name: Ability Stats
+  desc: |
+    Each character has five primary attributes that modify abilities.
+
+    Stats range:
+      - Base range: 3 to 18
+      - Enhanced range: 18/01 to 18/100 (percentile system)
+      - Maximum with bonuses: 18/220
+      - Equipment and spells can modify stats further
+
+    The five stats:
+      - Strength: affects carrying capacity, melee damage, multiple attacks
+      - Intelligence: determines arcane mana pool, learnable spells, spell failure
+      - Wisdom: affects holy mana pool, saving throws, perception
+      - Dexterity: improves combat accuracy, defense, speed
+      - Constitution: determines maximum hit points
+
+    Stat modifications:
+      - Race provides inherent bonuses or penalties
+      - Class provides inherent bonuses or penalties
+      - Equipment can grant additional bonuses
+      - Experience gain and leveling improve stats
+
+skills:
+  name: Skills and Abilities
+  desc: |
+    Characters possess multiple skills that determine success in various tasks.
+
+    Primary skills:
+      - Fighting: melee combat effectiveness
+      - Shooting: ranged weapon accuracy
+      - Saving Throw: resistance to magic and harmful effects
+      - Stealth: ability to move undetected
+      - Perception: chance to notice hidden details per turn
+      - Searching: active searching ability
+      - Disarming: skill at removing traps
+      - Magic Devices: ability to use wands, staves, and rods
+
+    Racial abilities:
+      - Infravision: see heat signatures (unavailable to Humans)
+      - Special resistances: some races innately resist certain damage types
+
+movement:
+  name: Movement
+  desc: |
+    The player moves through the dungeon in discrete steps.
+
+    Movement rules:
+      - Player can move in eight directions
+      - Each step costs one turn
+      - Movement blocked by walls, closed doors, and monsters
+      - Running in corridors allows faster traversal
+      - Leaving line of sight may prevent monster pursuit
+
+visibility:
+  name: Visibility and Light
+  desc: |
+    Darkness is a core mechanic in Angband, increasing with dungeon depth.
+
+    Visibility rules:
+      - Dungeon is dark; light sources are essential
+      - Light sources include torches, lanterns, and magical items
+      - Torches consume fuel; lanterns provide more reliable light
+      - Characters can see within their light radius
+      - Some monsters have infravision and can see in darkness
+      - Corridors are unlit and require light sources
+
+experience_levels:
+  name: Experience and Leveling
+  desc: |
+    Killing monsters grants experience points that lead to character advancement.
+
+    Experience gains:
+      - Awarded for defeating monsters
+      - Amount varies by monster difficulty and character level
+      - Higher-level characters gain less XP per kill
+      - Some spells and items provide experience training
+
+    Level progression:
+      - Accumulated experience increases character level
+      - Characters begin at level 1
+      - Each level increases:
+          - Maximum hit points
+          - Spell power and mana pool
+          - Skill competency
+      - Experience requirements increase with each level
+      - Race and class affect leveling speed
+
+combat:
+  name: Combat System
+  desc: |
+    Combat occurs when the player or monster attempts to move into an occupied
+    space. Combat is resolution-based with randomness.
+
+    Combat resolution:
+      1. Attacker rolls to hit using attack stat, weapon bonus, and skills
+      2. If hit succeeds, damage is rolled based on weapon
+      3. Defender's armor class reduces damage taken
+      4. Defender HP reduced by damage
+      5. Combat continues until creature dies or flees
+
+    Combat parameters:
+      - Attacker: strength, dexterity, weapon bonus, attack skill
+      - Defender: armor class from equipment, constitution
+      - Multiple attacks: high strength and dexterity allow extra melee blows
+      - Special attack types: piercing, slashing, blunt, elemental
+      - Monster abilities: breathe attacks, spells, special effects
+
+hit_points:
+  name: Hit Points
+  desc: |
+    Hit points represent character health and determine survival.
+
+    Hit point mechanics:
+      - Maximum HP determined by constitution and class
+      - HP per level increased by constitution bonus
+      - Damage from combat, traps, and special effects reduces HP
+      - At 0 HP, character dies and game ends
+      - HP regenerates slowly over time while resting
+      - Potions and spells restore HP
+      - Some monsters drain maximum HP permanently
+
+equipment:
+  name: Equipment System
+  desc: |
+    Equipment affects character combat performance and protection.
+
+    Equipment categories:
+      - Weapons: melee and ranged
+      - Armor: body, shield, helmet, gloves, boots
+      - Accessories: rings, amulets
+      - Light sources: torches, lanterns
+      - Magical devices: staves, wands, rods
+
+    Equipment effects:
+      - Weapons grant attack bonuses and damage dice
+      - Armor reduces damage taken (armor class)
+      - Accessories provide stat bonuses and resistances
+      - Enchanted items provide greater bonuses
+      - Cursed items impose penalties and cannot be removed without uncursing
+
+items_and_objects:
+  name: Items and Objects
+  desc: |
+    Items found in the dungeon provide essential supplies and power.
+
+    Major item categories:
+      - Weapons: swords, axes, bows, hammers, polearms
+      - Armor: mail, plate, leather, robes
+      - Potions: healing, mana, stat restoration, special effects
+      - Scrolls: identification, enchantment, teleportation, detection
+      - Rings: stat bonuses, elemental resistance, protection
+      - Amulets: stat bonuses, resistances, special abilities
+      - Wands: single-charge magical effects, limited uses
+      - Staves: multi-charge magical effects, recharging possible
+      - Rods: magical devices, automatic recharging
+      - Food: sustenance for hunger
+      - Gold: currency for town purchases
+
+item_identification:
+  name: Item Identification
+  desc: |
+    Many items begin unidentified and must be discovered.
+
+    Identification methods:
+      - Use: equipping or using items reveals properties
+      - Scrolls of Identify: instantly reveal item properties
+      - Experimentation: trial and error determines function
+      - Spell Detect Enchantment: reveals magical properties
+      - Once identified, future instances of same item reveal names
+
+    Item types:
+      - Known items: properties visible at pickup
+      - Partially identified: some properties known
+      - Unidentified: properties completely unknown
+      - Artifacts: unique, powerful items with preset properties
+      - Ego items: standard items with special abilities
+
+inventory:
+  name: Inventory Management
+  desc: |
+    The player maintains an inventory of items with strict carrying limits.
+
+    Inventory rules:
+      - Items occupy inventory slots (typically 23 slots available)
+      - Items have weight; overencumbrance reduces speed and evasion
+      - Equipping items grants bonuses without consuming slots
+      - Items can be dropped to manage weight
+      - Items left behind may be retrieved later
+      - Some items stack (ammunition, potions, scrolls)
+
+spellcasting:
+  name: Spellcasting System
+  desc: |
+    Magic users access spells through spellbooks and develop magical abilities.
+
+    Spell access:
+      - Mages, Rangers, and Rogues learn Magic spells
+      - Priests and Paladins learn Prayers (holy magic)
+      - Spellbooks contain learnable spells
+      - Initial books purchased from shops
+      - Advanced books found in dungeon
+
+    Spell mechanics:
+      - Mana pool determined by intelligence/wisdom and level
+      - Spell failure chance based on character level and stat
+      - Higher intelligence/wisdom reduces failure rates
+      - Mana spent on casting spells
+      - Resting regenerates mana at fixed rate
+      - Spell level determines power and effectiveness
+
+monsters:
+  name: Monsters
+  desc: |
+    Monsters populate the dungeon and provide experience and treasure.
+
+    Monster characteristics:
+      - Hit points: creature's health
+      - Armor class: protection from damage
+      - Attack methods: melee, spells, breath attacks
+      - Speed: determines action frequency
+      - Special abilities: summoning, teleportation, status effects
+      - Resistances: immunity or reduction to damage types
+
+    Monster behavior:
+      - Wander randomly until player detected
+      - Pursue player when in line of sight
+      - Attack when adjacent
+      - May flee when damaged severely
+      - Group behavior: some monsters hunt in packs
+      - Unique monsters: appear once per game on specific levels
+
+uniques:
+  name: Unique Monsters
+  desc: |
+    Powerful named monsters of which only one exists per game.
+
+    Unique mechanics:
+      - Regenerate health if not killed in one encounter
+      - May summon other monsters to aid them
+      - Often possess special abilities and resistances
+      - Dropping them on deeper levels is tactically important
+      - Defeating unique monsters grants significant experience
+      - Some uniques are nearly essential to defeat for victory
+
+resistances_and_damage:
+  name: Resistances and Damage Types
+  desc: |
+    Characters and monsters may resist different damage forms.
+
+    Damage types:
+      - Physical: melee weapon damage
+      - Fire: flame and heat effects
+      - Cold: ice and frost effects
+      - Acid: corrosive damage
+      - Lightning: electrical damage
+      - Poison: toxic effects
+      - Light: radiant energy
+      - Dark: shadow and darkness
+      - Nether: unholy forces
+      - Nexus: dimensional damage
+
+    Resistance effects:
+      - Elemental resistances reduce damage by 1/3
+      - Immunity prevents all damage of that type
+      - Lack of resistance means full damage taken
+      - Cumulative resistances: multiple sources stack
+      - Equipment provides resistance sources
+      - Spells grant temporary resistance
+
+status_effects:
+  name: Status Effects
+  desc: |
+    Certain attacks and spells inflict conditions beyond damage.
+
+    Common status effects:
+      - Confusion: impaired movement and action control
+      - Blindness: vision impaired, cannot see
+      - Paralysis: unable to act
+      - Slowing: reduced action frequency
+      - Poison: continuous damage over time
+      - Curse: equipment penalties; cannot remove until lifted
+      - Terror: involuntary flight from enemies
+      - Hallucination: false visual information
+
+    Duration:
+      - Some effects permanent until cured
+      - Others last for specified number of turns
+      - Potions and spells remove status effects
+
+traps:
+  name: Traps
+  desc: |
+    Hidden mechanisms on dungeon floors pose additional danger.
+
+    Trap types include:
+      - Pit traps: fall damage and separation
+      - Spike traps: piercing damage
+      - Dart traps: projectile damage
+      - Gas traps: various harmful gases
+      - Teleport traps: random displacement
+      - Level teleport traps: sent to different dungeon level
+      - Alarm traps: alert nearby monsters
+
+    Trap mechanics:
+      - Triggered when stepped on
+      - Searching and perception can detect traps
+      - Disarming skill allows safe removal
+      - Failure to disarm may trigger trap
+      - Magical means detect or disable traps
+
+hunger:
+  name: Hunger and Food
+  desc: |
+    The character must eat periodically to survive.
+
+    Hunger states:
+      normal
+      hungry
+      weak
+      fainting
+      starving
+      dead
+
+    Hunger mechanics:
+      - Each turn consumes nutrition
+      - Physical exertion increases hunger
+      - Food items restore nutrition
+      - Starvation causes gradual damage
+      - Death from starvation is permanent
+
+town:
+  name: Town and Stores
+  desc: |
+    The surface town serves as a base between dungeon forays.
+
+    Town features:
+      - General Store: basic supplies and equipment
+      - Magic Shop: spell books and magical devices
+      - Weapon Shop: melee and ranged weapons
+      - Armor Shop: protective equipment
+      - Temple: healing services
+      - Alchemy: potions and alchemical supplies
+      - Library: spell research
+      - Black Market: rare and dangerous items
+      - Home: personal storage
+      - Inn: restocking and news
+
+    Town mechanics:
+      - Buy and sell items for gold
+      - Repair damaged items
+      - Restore health and mana
+      - Store items for later retrieval
+      - Learn about dungeon events
+
+victory:
+  name: Victory Condition
+  desc: |
+    Winning requires defeating the final bosses deep in the dungeon.
+
+    Victory path:
+      - Descend to level 99: defeat Sauron
+      - Descend to level 100: defeat Morgoth, the final boss
+      - Escape alive to the surface
+
+    Optional goals:
+      - Collect all artifacts
+      - Defeat all unique monsters
+      - Achieve high score
+      - Complete challenge runs
+
+death:
+  name: Death and Permadeath
+  desc: |
+    Death is permanent; the game ends when the character dies.
+
+    Causes of death include:
+      - Combat damage from monsters
+      - Starvation from lack of food
+      - Falling down pits or traps
+      - Poison accumulation
+      - Exhaustion from bad choices
+      - Being overwhelmed by numerous enemies
+
+difficulty_scaling:
+  name: Difficulty and Game Balance
+  desc: |
+    Angband is reputed to be extremely difficult.
+
+    Difficulty factors:
+      - Risk management: avoiding unnecessary encounters
+      - Permadeath: losing months of progress instantly
+      - Resource scarcity: limited healing and escape tools
+      - Encounter depth: out-of-depth monsters appear occasionally
+      - Randomness: RNG can cause unfair situations
+
+    Player strategies:
+      - Avoid killing all monsters; selective fighting only
+      - Stock healing potions and escape items
+      - Build resistances before reaching dangerous depths
+      - Use ranged weapons to control engagement
+      - Employ teleportation for tactical retreat

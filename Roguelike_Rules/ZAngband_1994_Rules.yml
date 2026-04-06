@@ -1,0 +1,718 @@
+game_structure:
+  name: Game Structure
+  desc: |
+    ZAngband is a dungeon-exploration roguelike set in the world of Amber,
+    inspired by Roger Zelazny's Chronicles of Amber series. The game features
+    procedurally generated dungeons accessed through a wilderness overworld.
+
+    Game objectives:
+      - descend through increasingly dangerous dungeon levels
+      - build character strength through experience and equipment
+      - challenge Amberite Oberon deep in the dungeon
+      - face the ultimate threat: the Serpent of Chaos
+
+    World structure:
+      - wilderness overworld connecting multiple towns
+      - multiple dungeons accessible from towns
+      - procedurally generated levels that change on revisit
+
+turn_system:
+  name: Turn System
+  desc: |
+    The game proceeds in discrete turns based on energy costs.
+
+    Turn mechanics:
+      - player action consumes energy
+      - movement, combat, spells, item use all cost energy
+      - monsters act based on their energy and speed
+      - game operates on real-time energy system
+
+character_creation:
+  name: Character Creation
+  desc: |
+    Character creation involves selecting race, class, magic realms (if applicable),
+    and statistics through various methods.
+
+    Creation steps:
+      1. choose gender (minimal gameplay effect)
+      2. choose race (major impact on stats and abilities)
+      3. choose class (determines abilities and magic access)
+      4. choose magic realm(s) (if spellcasting class)
+      5. choose number of random quests (0-49)
+      6. set character statistics via autoroller or manual allocation
+      7. name character
+
+gender:
+  name: Gender
+  desc: |
+    Gender has minimal mechanical impact on gameplay.
+
+    Gender differences:
+      - females start with slightly more gold
+      - males are heavier and bash more effectively
+
+races:
+  name: Races
+  desc: |
+    ZAngband features 30 playable races with unique abilities and stat modifiers.
+
+    Standard humanoid races:
+      - human
+      - half-elf
+      - elf
+      - half-orc
+      - dwarf
+      - hobbit (halfling)
+      - gnome
+
+    High-fantasy races:
+      - amberite (from Chronicles of Amber)
+      - barbarian
+      - beastman
+
+    Monstrous races:
+      - draconian (gain breath weapon and elemental resistances)
+      - troll
+      - half-troll
+      - half-giant
+      - half-ogre
+      - half-titan
+      - cyclops
+
+    Exotic and unconventional races:
+      - dark-elf
+      - high-elf
+      - dark-dwarf
+      - dark-gnome
+      - dark-hobbit
+      - kobold
+      - klackon
+      - yeek
+      - mind flayer
+      - nibelung
+      - imp
+      - golem
+      - sprite
+      - skeleton
+      - zombie
+      - spectre
+      - vampire
+
+    Race benefits:
+      - stat bonuses/penalties
+      - intrinsic abilities
+      - racial powers
+      - resistances and immunities
+      - special traits
+
+classes:
+  name: Classes
+  desc: |
+    Classes determine combat style, magic access, and special abilities.
+
+    Available classes:
+      - warrior (excellent melee combat, cannot learn spells)
+      - mage (spellcaster, can select any two magical realms freely)
+      - priest (healer/holy magic user, restricted realm choices)
+      - rogue (stealth and burglary specialist)
+      - ranger (ranged combat and nature magic)
+      - paladin (holy warrior, limited spellcasting)
+      - warrior-mage (hybrid fighter-mage)
+      - chaos warrior (chaotic combat specialist)
+      - monk (hand-to-hand combat expert)
+      - mindcrafter (psychic abilities specialist)
+      - high-mage (supreme spellcaster, all realms available)
+
+    Class characteristics:
+      - prime stats (emphasize certain attributes)
+      - skill bonuses
+      - hit points per level
+      - spell learning efficiency
+      - equipment restrictions
+
+magic_realms:
+  name: Magic Realms
+  desc: |
+    Seven schools of magic are available with distinct purposes and effects.
+
+    Realm: Life
+      - primarily defensive and healing
+      - protective spells against evil
+      - limited offensive capability
+      - includes rumored high-level invulnerability spell
+
+    Realm: Sorcery
+      - meta-realm including enchantment
+      - superior protection and evasion
+      - combat enhancement spells (Slow Monster, Haste Self, Confuse Monster)
+      - information gathering (detection, identification, Identify True)
+
+    Realm: Nature
+      - balanced defensive and offensive spells
+      - healing and resistances
+      - animal/nature summoning
+      - damage spells with natural themes
+
+    Realm: Chaos
+      - primarily offensive magic
+      - chaotic and destructive effects
+      - unpredictable spellcasting
+      - high damage potential
+
+    Realm: Death
+      - offensive dark magic
+      - harmful and banishment spells
+      - necromantic effects
+      - restricted to certain classes
+
+    Realm: Arcane
+      - utility and general spells
+      - limited offensive capability
+      - diverse spell effects
+      - available primarily to mages and specialized classes
+
+    Realm: Trump
+      - teleportation and summoning
+      - dimensional manipulation
+      - travel and evasion focused
+
+    Magic restrictions:
+      - mages can freely choose any two realms
+      - priests typically choose Life or Death
+      - rogues access Sorcery, Death
+      - rangers access Nature, secondary realms
+      - other classes have restricted choices
+      - some realms prohibited for certain classes
+
+attributes:
+  name: Attributes
+  desc: |
+    Five primary attributes determine character capabilities.
+
+    Primary stats:
+      - strength (melee damage, carrying capacity)
+      - intelligence (mage spellcasting, item use)
+      - wisdom (priest/ranger spellcasting, saving throws)
+      - dexterity (armor class, shooting, attacks per round)
+      - constitution (hit points, stamina)
+
+    Stat ranges:
+      - normal maximum: 18
+      - percentile range: 18/01 through 18/100 (intrinsic maximum)
+      - equipment bonuses can raise to 18/220
+      - stats rolled from 8 to 17 normally
+
+    Stat bonuses:
+      - race provides fixed bonuses
+      - class provides fixed bonuses
+      - equipment provides temporary bonuses
+      - potions permanently increase stats up to 18/100
+
+skills:
+  name: Skills
+  desc: |
+    Derived skills improve based on attributes, class, level, and equipment.
+
+    Primary skills:
+      - disarming (traps and chests)
+      - magic devices (wands, staves, rods)
+      - saving throws (resistance to harmful effects)
+      - stealth (sneaking, avoiding detection)
+      - searching (finding traps, secret doors)
+      - fighting skill (melee combat accuracy)
+      - shooting skill (ranged combat accuracy)
+      - digging (tunneling through rock)
+
+    Skill improvements:
+      - increase with level
+      - modified by class and race
+      - affected by current equipment
+      - practice improves specific skills
+
+experience_and_leveling:
+  name: Experience and Leveling
+  desc: |
+    Characters gain experience through defeating monsters and learning spells.
+
+    Experience mechanics:
+      - killing monsters grants experience points
+      - attempting spells grants experience
+      - using new items grants experience
+      - experience requirements vary by race and class
+
+    Leveling effects:
+      - races/classes with more benefits require more experience
+      - hit points increase per level
+      - skills improve with level
+      - attributes may increase
+      - new spell access unlocked at certain levels
+
+    Level-dependent mechanics:
+      - minimum level required for racial abilities
+      - spell damage and effectiveness scale with level
+      - experience penalties exist for powerful race/class combinations
+
+hit_points:
+  name: Hit Points
+  desc: |
+    Hit points represent character health and survivability.
+
+    Hit points rules:
+      - determined by constitution and class
+      - increase with leveling
+      - can be increased via potions
+      - reduced by damage
+      - at 0 HP character dies
+
+combat:
+  name: Combat System
+  desc: |
+    Combat is turn-based with multiple attack options.
+
+    Combat mechanics:
+      - moving adjacent to creature initiates combat
+      - each attack costs energy based on weapon and class
+      - multiple attacks per round possible with high dexterity
+      - critical hits occur with good rolls
+      - weapon slays multiply damage against specific creature types
+
+    Attack options:
+      - melee attacks with equipped weapon
+      - ranged attacks with bow or thrown weapons
+      - unarmed strikes available to monks
+      - spells and magical abilities
+      - special powers granted by items
+
+    Attack resolution:
+      - attack roll compared to target defense
+      - damage rolled based on weapon dice
+      - bonuses to damage from stats and equipment
+      - slays multiply damage dice (not bonuses)
+
+equipment:
+  name: Equipment
+  desc: |
+    Equipment dramatically affects combat and survivability.
+
+    Equipment slots:
+      - weapon (melee or ranged)
+      - shield (optional, improves AC)
+      - body armor (chest protection)
+      - helmet (head protection)
+      - gloves (hand protection)
+      - boots (foot protection)
+      - cloak (optional protection)
+      - amulet (worn around neck)
+      - rings (two slots available)
+
+    Equipment effects:
+      - modify attributes
+      - modify skills
+      - provide resistances
+      - grant special abilities
+      - affect armor class (AC)
+      - modify damage output
+      - provide elemental protection
+
+    Weapon properties:
+      - base damage dice (e.g., 1d6, 2d10)
+      - to-hit bonuses
+      - to-damage bonuses
+      - slays against creature types
+      - brands (magical effects)
+      - speed modifications
+
+armor_class:
+  name: Armor Class
+  desc: |
+    Armor class determines defense against attacks.
+
+    AC mechanics:
+      - lower AC is better (more negative is better)
+      - base AC improves with heavier armor
+      - dexterity bonus improves AC
+      - magical bonuses reduce AC
+      - AC displayed as notation (e.g., [+10, +5])
+
+identification:
+  name: Item Identification
+  desc: |
+    Many items appear unidentified with unknown properties.
+
+    Identification methods:
+      - use items to discover properties (learning by use)
+      - hire NPCs for identification services
+      - find identification scrolls
+      - spellcaster abilities (certain classes identify automatically)
+      - potions identify by drinking
+      - wands identify by zapping
+      - combat identification through weapon use
+
+    Unidentified items:
+      - show base damage but hide bonuses
+      - show armor class but hide resistance properties
+      - hide special abilities and curses
+      - can be equipped (risky without identification)
+
+quest_system:
+  name: Quests
+  desc: |
+    Random quests provide objectives and rewards.
+
+    Quest mechanics:
+      - assigned at character creation (0-49 random quests selectable)
+      - quest objectives scattered throughout dungeons
+      - quest rewards include gold and items
+      - quest completion grants experience
+      - rewards worth at least (100 * dungeon_level) gold pieces
+
+dungeon_system:
+  name: Dungeon Generation
+  desc: |
+    Dungeons are procedurally generated with permanent level changes.
+
+    Dungeon structure:
+      - multiple independent dungeons accessed from towns
+      - each dungeon has up to 100+ levels
+      - levels randomly generated when entered
+      - levels change completely each visit (no persistence)
+      - levels contain rooms, corridors, stairs, and special areas
+
+    Dungeon contents:
+      - monsters of varying difficulty
+      - treasure and items
+      - trap floors and pit traps
+      - stairs up and down
+      - special themed areas (vaults, pits, caverns)
+      - unique boss monsters
+      - hidden treasure
+
+    Level generation:
+      - varied difficulty based on depth
+      - "level feeling" indicates danger
+      - monsters more powerful at greater depths
+      - better items at greater depths
+
+wilderness:
+  name: Wilderness Overworld
+  desc: |
+    An expansive wilderness connects multiple towns and dungeon entrances.
+
+    Wilderness mechanics:
+      - outdoor exploration at reduced scale
+      - multiple towns accessible from wilderness
+      - dungeon entrances scattered throughout
+      - can travel between towns
+      - encounters with wild monsters
+      - camping/resting possible in wilderness
+
+town:
+  name: Town and Shops
+  desc: |
+    Towns serve as safe havens with shops and services.
+
+    Town facilities:
+      - general store
+      - weapon shop
+      - armor shop
+      - magic item shop
+      - supplies shop
+      - temple/sanctuary
+      - tavern
+      - dungeon entrance
+
+    Town mechanics:
+      - no monsters spawn in town
+      - shops buy and sell items
+      - NPCs offer services
+      - safe place to rest and heal
+
+monsters:
+  name: Monsters
+  desc: |
+    Diverse monsters populate dungeons with varying abilities.
+
+    Monster types:
+      - common creatures
+      - unique boss monsters
+      - undead
+      - dragons
+      - demons and devils
+      - magical beasts
+      - humans and humanoids
+      - special creature groups
+
+    Monster behavior:
+      - patrol randomly
+      - pursue player when detected
+      - cast spells and use abilities
+      - flee when badly wounded
+      - some are friendly (notably orcs to half-orcs)
+      - some replicate (worm masses, mice)
+
+    Monster abilities:
+      - physical attacks
+      - spell casting
+      - breath weapons (dragons, draconians)
+      - special attacks and effects
+      - status effect infliction
+
+status_effects:
+  name: Status Effects and Conditions
+  desc: |
+    Various conditions affect character performance.
+
+    Common conditions:
+      - confusion (random actions)
+      - paralysis (unable to act)
+      - blindness (reduced vision)
+      - poison (damage over time)
+      - disease (reduced stats)
+      - stun (temporary paralysis)
+      - petrification (complete immobility)
+      - curse (negative item effects)
+      - bleeding (repeated damage)
+
+    Beneficial effects:
+      - haste (increased speed/actions)
+      - protection spells (damage reduction)
+      - clarity (confusion resistance)
+      - heroism (temporary ability boost)
+
+racial_abilities:
+  name: Racial Special Abilities
+  desc: |
+    Each race possesses unique intrinsic abilities and powers.
+
+    Ability examples:
+      - draconians: breath weapons, elemental resistances
+      - dwarves: infravision, detect doors and traps
+      - elves: enhanced night vision
+      - mind flayers: psychic attacks
+      - vampires: blood feeding (cannot walk in daylight without spells)
+      - undead races: various undead-specific abilities
+      - golems: stone body, high damage resistance
+      - skeletons and zombies: restore life levels
+
+    Racial power activation:
+      - requires minimum level
+      - costs mana or hit points
+      - success depends on relevant statistic
+      - difficulty varies by power
+
+spell_system:
+  name: Spellcasting System
+  desc: |
+    Spellcasting involves learning and memorizing spells from spellbooks.
+
+    Spell mechanics:
+      - spells learned from spellbooks
+      - each realm has multiple spellbooks
+      - spellbooks contain multiple spells
+      - must carry spellbook to learn spells
+      - cannot voluntarily choose which spells to learn (priests)
+      - mages can freely learn any spell they choose
+
+    Spellcasting rules:
+      - casting costs mana or hit points
+      - higher level spells cost more
+      - spell failure possible at low proficiency
+      - failure wastes mana/HP but doesn't cast spell
+      - mana regenerates slowly outside combat
+
+mana_system:
+  name: Mana and Spell Points
+  desc: |
+    Mana powers spellcasting abilities.
+
+    Mana mechanics:
+      - maximum mana determined by wisdom or intelligence
+      - mana regenerates over time
+      - spells cost mana to cast
+      - no mana available: spells cost hit points instead
+      - high wisdom/intelligence improves regeneration
+
+permadeath:
+  name: Permadeath
+  desc: |
+    Character death is permanent and irrecoverable.
+
+    Death mechanics:
+      - reaching 0 HP results in death
+      - character permanently deleted
+      - all equipment lost
+      - progress unrecoverable (except experience on other characters)
+      - graveyards may record dead characters
+
+level_feeling:
+  name: Level Feelings
+  desc: |
+    Dungeon levels emit subjective warnings about danger.
+
+    Level feeling messages:
+      - "This level looks very dangerous."
+      - "You have a very bad feeling..."
+      - "You have a bad feeling..."
+      - "You feel nervous."
+      - "You feel your luck is turning..."
+      - "You don't like the look of this place."
+      - "This level looks reasonably safe."
+      - "You nearly faint as horrible visions of death fill your mind!"
+      - "You feel there is something special about this level."
+      - "What a boring place..."
+
+    Feeling mechanics:
+      - indicate relative danger
+      - based on monster composition
+      - help players assess level difficulty
+
+inventory_and_items:
+  name: Inventory and Item Management
+  desc: |
+    Characters carry items with weight and encumbrance penalties.
+
+    Inventory mechanics:
+      - items take inventory slots
+      - weight determines carrying capacity
+      - encumbrance reduces speed and combat ability
+      - items can be dropped and left
+      - items on ground persist until revisited
+
+    Item notation:
+      - armor shown as: Name XdY (+x, +y) [a, +b] (+c)
+      - weapons shown similarly with damage dice
+      - unidentified items show only base info
+      - "+" notation shows bonuses
+
+selling_and_economy:
+  name: Economy and Gold
+  desc: |
+    Gold currency facilitates commerce with shops.
+
+    Economic mechanics:
+      - starting gold varies by class and race
+      - items bought from shops at listed prices
+      - items sold to shops for percentage of value
+      - found items can be sold for significant gold
+      - quest rewards provide substantial gold
+      - gold used for item identification fees
+
+town_level_types:
+  name: Town Level Types
+  desc: |
+    Different town configurations available at world generation.
+
+    Town options:
+      - rectangular town with single layout
+      - larger towns with multiple areas
+      - various shop arrangements
+      - different building configurations
+      - selectable at character creation via start-up options
+
+character_autoroller:
+  name: Character Auto-Roller
+  desc: |
+    Automated character generation system for quick character creation.
+
+    Autoroller mechanics:
+      - player specifies desired stat minimums
+      - computer rolls 500 characters
+      - picks best character matching weighted criteria
+      - allows stat weights on scale of 1-100
+      - stops when criteria met
+
+    Advantages:
+      - quick character generation
+      - eliminates tedious stat rolling
+      - weighted toward important stats
+
+    Manual alternative:
+      - reroll individually if dissatisfied
+      - can repeat process indefinitely
+
+saved_game_mechanics:
+  name: Saved Game System
+  desc: |
+    Characters saved between sessions with persistent state.
+
+    Save mechanics:
+      - character state saved to file
+      - dungeon progress not saved (levels regenerate)
+      - equipment and inventory saved
+      - experience and level saved
+      - death permanently recorded
+
+changelog_features:
+  name: Notable Features and Variations
+  desc: |
+    ZAngband 1994 original version features and distinctions.
+
+    Setting differences:
+      - world of Amber from Chronicles of Amber novels
+      - Amberite character as goal (not Morgoth)
+      - Serpent of Chaos as ultimate threat
+      - themed monsters and items from Zelazny works
+
+    Mechanical innovations over Angband:
+      - multiple dungeons in wilderness
+      - seven-realm magic system (vs Angband's fewer)
+      - greater monster variety (30+ races)
+      - OAngband-style combat modifications
+      - different balance and difficulty curve
+      - persistent overworld wilderness
+
+    Gameplay improvements:
+      - multiple towns connected by wilderness
+      - random quest system
+      - wider race/class selection
+      - more diverse magical options
+      - expanded artifact pool with random artifacts
+
+permadeath_seriousness:
+  name: Permadeath Seriousness
+  desc: |
+    The game takes character death permanently and irreversibly.
+
+    Death consequences:
+      - character permanently deleted
+      - no reload/restore possible
+      - all progress lost
+      - equipment unrecoverable
+      - game tracks death in records
+      - emphasizes strategic play and caution
+
+notes:
+  name: Additional Notes
+  desc: |
+    Important information about ZAngband 1994 gameplay.
+
+    Grinding mechanics:
+      - minimal restrictions on level grinding
+      - players can fight weak creatures indefinitely
+      - level scaling not implemented
+      - character improvement solely through farming
+
+    Scumming:
+      - save files can be backed up manually
+      - level regeneration allows "scumming" (rerolling favorable levels)
+      - restarting dungeons via stairs generates new layouts
+      - allows farming favorable monster groups
+
+    Difficulty tuning:
+      - no difficulty settings in original version
+      - player controls risk through exploration choices
+      - dungeons become exponentially harder with depth
+      - character preparation critical for survival
+
+    Multiple character play:
+      - create multiple characters
+      - learn from previous character experiences
+      - different races/classes provide variety
+      - persistent world for experimenting
+
+    Technical aspects:
+      - DOS-based original release
+      - ASCII-based representation
+      - turn-based gameplay (not real-time)
+      - procedural generation ensures replayability
+      - no level persistence between visits

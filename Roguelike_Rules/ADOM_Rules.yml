@@ -1,0 +1,476 @@
+game_structure:
+  name: Game Structure
+  desc: |
+    ADOM is a roguelike dungeon exploration game featuring a vast world with
+    multiple dungeon systems. The player navigates a non-linear quest structure,
+    exploring the wilderness, towns, and interconnected dungeons while uncovering
+    the world's lore and threats. Multiple victory paths exist depending on how
+    the player resolves the game's central conflicts.
+
+turn_system:
+  name: Turn System
+  desc: |
+    The game proceeds in discrete turns. Each player action consumes one turn.
+    Actions include movement, attacking, casting spells, using items, and
+    interacting with the environment.
+
+    Turn order:
+      1. Player action
+      2. Monster and NPC actions
+      3. Environmental effects and status changes
+      4. Regeneration and hunger effects
+
+    Game time advances measured in game hours, days, and years.
+
+world_structure:
+  name: World Structure
+  desc: |
+    ADOM features a large interconnected world with multiple distinct regions.
+
+    Major locations:
+      - Terinyo: starting village
+      - Dwarftown: dwarven settlement
+      - Wilderness: overland terrain with encounters
+      - Multiple dungeons: Dungeon of Doom, Caverns, Pyramid, Tower of Eternal Flames
+      - Underground areas: Molten Dungeon, Volcano, Darkforge
+
+    Map features:
+      - villages and towns with NPCs and shops
+      - dungeon levels with monsters and treasures
+      - wilderness terrain with random encounters
+      - unique locations with special properties
+      - portals connecting distant areas
+
+movement:
+  name: Movement
+  desc: |
+    The player moves in eight directions:
+
+      north, south, east, west
+      northeast, northwest, southeast, southwest
+
+    Movement rules:
+      - Each step costs one turn
+      - Movement blocked by walls
+      - Terrain types affect movement speed
+      - Mounted movement covers greater distance
+      - Flying bypasses terrain obstacles
+
+    Wilderness movement:
+      - Moves across overland tiles in sweeps
+      - Encounters triggered randomly based on location danger
+      - Weather affects visibility and safety
+
+visibility:
+  name: Visibility
+  desc: |
+    ADOM uses a line-of-sight visibility model.
+
+    Rules:
+      - Tiles visible if unobstructed from player position
+      - Darkness and fog reduce visibility range
+      - Light sources expand visible area
+      - Some creatures see in darkness
+      - Invisible creatures remain hidden unless detected
+
+character_creation:
+  name: Character Creation
+  desc: |
+    Players create a character with various options at game start.
+
+    Choice categories:
+      - Gender (affects NPC interactions and quest outcomes)
+      - Class: Fighter, Ranger, Paladin, Wizard, Priest, Thief, Bard, Monk
+      - Race: Human, Elf, Dwarf, Gnome, Half-Orc
+      - Attributes randomly generated (Strength, Intelligence, Wisdom, Dexterity,
+        Constitution, Charisma, Luck)
+      - Background choices affect starting abilities and quests
+
+    Class progression:
+      - Classes offer distinct abilities and stat preferences
+      - Specializations available in different magical schools
+      - Advancement tied to experience and skill development
+
+attributes:
+  name: Attributes
+  desc: |
+    Six core attributes define character capabilities.
+
+    Attributes:
+      - Strength: melee damage and carrying capacity
+      - Intelligence: spellcasting ability and special skills
+      - Wisdom: magical defense and perception
+      - Dexterity: attack accuracy and dodge chance
+      - Constitution: hit points and disease resistance
+      - Charisma: NPC interaction and prices
+      - Luck: random event favorability
+
+    Attributes increase through:
+      - leveling up
+      - magical items
+      - potions
+      - shrine blessings
+
+hit_points:
+  name: Hit Points
+  desc: |
+    Hit points represent the character's health.
+
+    Rules:
+      - Damage reduces HP
+      - At 0 HP the character becomes unconscious or dies
+      - HP regenerates slowly or with magic
+      - Certain items and potions restore HP
+      - Constitution affects maximum HP
+
+experience:
+  name: Experience
+  desc: |
+    Defeating monsters and completing quests grants experience.
+
+    Level progression:
+      - Accumulated XP increases player level
+      - Levels cap at 50
+      - Each level increases:
+          - maximum hit points
+          - skill points
+          - combat ability
+          - special abilities
+
+    Skill system:
+      - Points distributed to learn and improve skills
+      - Skills grant special abilities and bonuses
+      - Hundreds of skills available across classes
+
+combat:
+  name: Combat
+  desc: |
+    Combat occurs when attacking an adjacent creature.
+
+    Combat resolution:
+      1. Attacker rolls to hit based on accuracy
+      2. Defense roll includes armor and dodging
+      3. If hit succeeds, damage is rolled
+      4. Defender HP reduced by damage
+      5. Special effects may trigger (bleeding, disease, etc.)
+      6. If HP <= 0, defender dies or falls unconscious
+
+    Combat parameters:
+      - attack accuracy and critical strike chance
+      - weapon damage and bonuses
+      - armor class and damage reduction
+      - defensive abilities and shield blocking
+      - weapon skills enhance effectiveness
+
+weapons:
+  name: Weapons
+  desc: |
+    Diverse weapon types provide varied combat capabilities.
+
+    Weapon categories:
+      - swords, axes, clubs, staves
+      - axes, spears, polearms
+      - ranged: bows, crossbows, slings
+      - thrown: daggers, shuriken, boomerangs
+      - bare hands and magical attacks
+
+    Weapon properties:
+      - damage and critical strike rates
+      - weight affects carrying and speed
+      - special properties: flaming, cursed, magical
+      - magical enchantments provide bonuses
+      - weapon skill requirements
+
+armor:
+  name: Armor
+  desc: |
+    Armor reduces incoming damage.
+
+    Armor types:
+      - body armor: leather, chain, plate
+      - helmets, cloaks, gloves, boots
+      - shields for additional defense
+
+    Armor properties:
+      - armor class reduces damage
+      - encumbrance affects speed
+      - special properties: fire resistance, cursed, blessed
+      - magical enchantments provide bonuses
+
+inventory:
+  name: Inventory
+  desc: |
+    The player maintains an inventory with limited capacity.
+
+    Rules:
+      - Items occupy inventory slots and weight
+      - Carrying capacity depends on Strength
+      - Items can be equipped, used, or dropped
+      - Backpack available for additional storage
+      - Some items remain in inventory but unequipped
+
+items:
+  name: Items
+  desc: |
+    Diverse item types provide utility, power, and quest objectives.
+
+    Major categories:
+      - weapons and ammunition
+      - armor and accessories
+      - potions and scrolls
+      - rings and amulets
+      - wands and staves
+      - food and supplies
+      - gold and gems
+      - quest items
+      - magical artifacts
+
+item_identification:
+  name: Item Identification
+  desc: |
+    Many magical items begin unidentified.
+
+    Identification methods:
+      - using or equipping items
+      - magical identification scrolls
+      - NPC appraisals in towns
+      - experimentation and observation
+      - reading identified scrolls reveals item properties
+
+    Item properties:
+      - cursed items cause harm when equipped
+      - blessed items provide bonuses
+      - artifacts possess unique powerful abilities
+      - enchantment level increases power
+
+magic:
+  name: Magic System
+  desc: |
+    Multiple schools of magic provide diverse spell options.
+
+    Schools of magic:
+      - Healing: restore HP, cure conditions
+      - Magic Enhancement: improve abilities and resistances
+      - Elemental Magic: fire, cold, lightning spells
+      - Necromancy: undead summoning, harm spells
+      - Alteration: transformation and utility
+      - Divination: detection and information gathering
+      - Creation: summoning and object creation
+
+    Spell mechanics:
+      - Mana required to cast spells
+      - Mana regenerates based on Intelligence and magic points
+      - Spell power increases with skill level
+      - Spells can fail if insufficient mana
+      - Many spells benefit from high Wisdom or Intelligence
+
+monsters:
+  name: Monsters
+  desc: |
+    Hundreds of creature types populate the world.
+
+    Behavior:
+      - wander randomly in undisturbed areas
+      - pursue player when detected
+      - attack when adjacent
+      - coordinate with allies in groups
+      - use special abilities and magic
+
+    Monster attributes:
+      - hit points and resistances
+      - attack strength and critical strikes
+      - special abilities: spellcasting, teleportation, disease
+      - elemental properties: fire, cold, electricity
+      - treasure drops on defeat
+
+hunger:
+  name: Hunger
+  desc: |
+    The player must periodically eat food.
+
+    Hunger states:
+      satiated
+      normal
+      hungry
+      very hungry
+      weak
+      dying from starvation
+      dead
+
+    Rules:
+      - Each turn consumes nutrition based on activity
+      - Food items restore nutrition
+      - Corpses of defeated enemies provide food
+      - Starvation causes damage over time
+      - Some spells and items affect hunger
+
+status_effects:
+  name: Status Effects
+  desc: |
+    Various conditions modify player abilities and perception.
+
+    Effect examples:
+      - confusion: randomized movement and actions
+      - paralysis: inability to move or act
+      - blindness: vision completely blocked
+      - disease: damage over time and attribute reduction
+      - poison: damage and attribute reduction
+      - weakness: reduced damage and movement
+      - bleeding: ongoing damage
+      - cursed: equipment cannot be removed
+      - stone: petrification with paralysis
+      - fear: reduced combat ability and morale
+
+    Status removal:
+      - magical healing spells and potions
+      - scrolls of curing
+      - time and rest
+      - shrine visits
+
+quests:
+  name: Quests and NPCs
+  desc: |
+    NPCs throughout the world offer quests and services.
+
+    Quest types:
+      - Fetch quests: retrieve items or information
+      - Elimination quests: defeat specific monsters
+      - Protection quests: guard NPCs or locations
+      - Story quests: advance the main narrative
+      - Optional quests: provide rewards and unlocks
+
+    NPC services:
+      - shopkeepers: buy and sell items
+      - healers: restore HP and cure conditions
+      - trainers: improve skills and abilities
+      - quest-givers: provide objectives
+      - romantic interests: develop relationships
+
+    Alignment system:
+      - Actions affect good/evil alignment
+      - Alignment affects NPC reactions
+      - Determines available quests and endings
+
+traps:
+  name: Traps and Hazards
+  desc: |
+    Environmental dangers beyond monsters threaten the player.
+
+    Trap types:
+      - pit traps: fall damage
+      - poisoned darts: poison injection
+      - blade traps: cutting damage
+      - gas traps: choking or sleep effects
+      - magical traps: spell effects
+      - teleportation traps: involuntary teleport
+      - bear traps: immobilization
+
+    Hazards:
+      - fire and lava: burn damage
+      - acid pools: corrosion damage
+      - cursed ground: status effects
+      - teleportation zones: random relocation
+
+    Trap detection:
+      - Perception skill checks
+      - Magical detection
+      - Trial and error
+
+dungeon_features:
+  name: Dungeon Features
+  desc: |
+    Dungeons contain various environmental features.
+
+    Features:
+      - doors: lockable, trapped, or normal
+      - chests: contain treasure or traps
+      - altars: interact for divine effects
+      - fountains: grant random benefits or curses
+      - secret passages: hidden room connections
+      - pressure plates: trigger mechanisms
+      - magical fields: special effects
+
+    Interactions:
+      - some features grant wishes or bonuses
+      - others curse or trap the unwary
+      - aligned actions affect shrine reactions
+      - some require keys or magical means to access
+
+special_locations:
+  name: Special Locations
+  desc: |
+    Certain locations feature unique mechanics.
+
+    Notable locations:
+      - Tower of Eternal Flames: fire-filled tower with guardians
+      - Pyramid: deadly construction with treasures
+      - Caverns: vast subterranean system
+      - Molten Dungeon: extreme heat and lava
+      - Dwarftown: NPC hub with shops and quests
+      - Terinyo: starting village with tutorial elements
+      - Wilderness: open terrain with random encounters
+
+    Unique mechanics:
+      - location-specific artifacts
+      - required quests to advance
+      - environmental challenges
+      - powerful unique monsters
+
+time_and_seasons:
+  name: Time and Seasons
+  desc: |
+    Game time progresses and affects gameplay.
+
+    Time measurement:
+      - Turns progress to hours
+      - Hours progress to days
+      - Days progress to months and years
+      - Game has multiple seasons
+
+    Effects:
+      - Certain quests time-sensitive
+      - Season affects weather and encounters
+      - NPCs schedule changes with time
+      - Some events triggered at specific times
+      - Corrupted areas spread over time
+
+corruption:
+  name: Corruption
+  desc: |
+    A spreading corruption threatens the world.
+
+    Corruption mechanics:
+      - Corruption spreads from the center outward
+      - Corrupted areas generate chaos
+      - Corrupted monsters become extremely dangerous
+      - Corruption can be stopped through quests
+      - Time pressure affects available quests
+
+victory_conditions:
+  name: Victory Conditions
+  desc: |
+    Multiple paths to victory exist depending on player choices.
+
+    Victory types:
+      - Classic victory: Close the corruption's source and escape
+      - Save the world: Complete game-ending quests
+      - Ascend to godhood: Achieve ultimate power and transformation
+      - Peaceful resolution: Complete a peaceful ending path
+      - Hidden victories: Secret objectives for dedicated players
+
+    Requirements vary by victory path and alignment.
+
+death:
+  name: Death
+  desc: |
+    The game ends when the player dies.
+
+    Causes include:
+      - combat damage exceeding HP
+      - starvation
+      - traps and hazards
+      - poison and disease damage
+      - magical effects
+      - environmental damage (fire, lava, acid)
+      - stat drain to zero
+      - petrification and special conditions
